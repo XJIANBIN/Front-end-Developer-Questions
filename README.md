@@ -89,10 +89,12 @@
 		（1）、<!DOCTYPE>声明位于位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
 
 		（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
+		（3）、标准模式的宽度计算方式与兼容模式不同，给行内元素设置width和height无效，而兼容模式有效;标准模式当父元素没高度，子元素百分比无效，而兼容模式有效，使用margin:0 auto在标准模式下可以使元素水平居中，但在兼容模式下却会失效,解决办法，用text-align属性;兼容模式下设置图片padding失效，Table的字体属性不能继承
+		上层设置，white-space:pre失效
 
 - HTML5 为什么只需要写 `<!DOCTYPE HTML>`？
 
-		 HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
+		 HTML5 不基于 SGML，因此不需要对DTD(为了描述文档的结构，SGML定义了一个称为“文档类型定义(Document Type Definition，DTD)”的文件(file)，它为组织文档的文档元素(例如章和章标题，节和主题等)提供了一个框架。此外，DTD还为文档元素之间的相互关系制定了规则。)进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
 
 		 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 
@@ -103,10 +105,18 @@
 		（1）行内元素有：a b span img input select strong（强调的语气）
 		（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p
 
-		（3）常见的空元素：
+		（3）常见的空元素（开始标签与结束标签之间没有内容的元素）：
 			<br> <hr> <img> <input> <link> <meta>
 			鲜为人知的是：
-			<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+			* <area> <col>
+			* <base>  为页面上的所有链接规定默认地址或默认目标。
+			* <command> 只有 Internet Explorer 9 （更早或更晚的版本都不支持）支持 <command> 标签。command 元素表示用户能够调用的命令。
+			* <embed> <embed> 标签定义嵌入的内容，比如插件。H5新增
+			* <keygen> 标签规定用于表单的密钥对生成器字段。当提交表单时，私钥存储在本地，公钥发送到服务器。
+			*　<param> 此标签可为包含它的 <object> 或者 <applet> 标签提供参数。
+			*　<source> 标签允许您规定可替换的视频/音频文件供浏览器根据它对媒体类型或者编解码器的支持进行选择。
+			*  <track> <track> 标签为诸如 video 元素之类的媒介规定外部文本轨道。
+			* <wbr> <p>果想学习 AJAX <wbr>Http<wbr>Request 对象。</p>   规定在文本中的何处适合添加换行符。
 
 		不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
 		参考: http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements
@@ -176,7 +186,7 @@ HTML5？
 - 简述一下你对HTML语义化的理解？
 
 		用正确的标签做正确的事情。
-	    html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;
+	    html语义化让页面的内容结构化，结构更清晰，便于浏览器、搜索引擎的解析;
 	    即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;
 	    搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;
 	    使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
@@ -244,7 +254,7 @@ HTML5？
 
 - Label的作用是什么？是怎么用的？
 
-		label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
+		label标签来定义表单控件间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
 
 		<label for="Name">Number:</label>
 		<input type=“text“name="Name" id="Name"/>
@@ -281,8 +291,18 @@ HTML5？
 - 如何在页面上实现一个圆形的可点击区域？
 
 		1、map+area或者svg
+		   <img>通过usemap映射到<map>的circle形<area>。
 		2、border-radius
 		3、纯js实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等
+		     document.onclick = function (e) {
+					 var x1 = 100,y1 = 100,x2 = e.clientX , y2 = clientY;
+					 var distance  = Math.abs(Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2)));
+					 if (distance <= 50 ) {
+               console.log('in');
+					  } else {
+							console.log("out");
+						}
+				 }
 
 - 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
 
@@ -321,7 +341,7 @@ HTML5？
 
 - CSS选择符有哪些？哪些属性可以继承？
 
-		*   1.id选择器（ # myid）
+		* 1.id选择器（ # myid）
 			2.类选择器（.myclassname）
 			3.标签选择器（div, h1, p）
 			4.相邻选择器（h1 + p）
@@ -517,7 +537,7 @@ HTML5？
 
 		* IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。
 
-		  浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 100px;}
+		  浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 10px;}
 
 	      这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——_display:inline;将其转化为行内属性。(_这个符号只有ie6会识别)
 
@@ -599,12 +619,12 @@ HTML5？
 
 	对于普通元素visibility:collapse;会将元素完全隐藏,不占据页面布局空间,与display:none;表现相同.
 	如果目标元素为table,visibility:collapse;将table隐藏,但是会占据页面布局空间.
-	仅在Firefox下起作用,IE会显示元素,Chrome会将元素隐藏,但是占据空间.
+	仅在Firefox下起作用,IE7及以下会显示元素,Chrome会将元素隐藏,但是占据空间.
 
 - position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？
 
 	如果元素的display为none,那么元素不被渲染,position,float不起作用,如果元素拥有position:absolute;或者position:fixed;属性那么元素将为绝对定位,float不起作用.如果元素float属性不是none,元素会脱离文档流,根据float属性值来显示.有浮动,绝对定位,inline-block属性的元素,margin不会和垂直方向上的其他元素margin折叠.
-	
+
 - 对BFC规范(块级格式化上下文：block formatting context)的理解？
 
 		（W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）
@@ -739,7 +759,9 @@ HTML5？
 
 
 - 在网页中的应该使用奇数还是偶数的字体？为什么呢？
-
+    * 偶数字号相对更容易和 web 设计的其他部分构成比例关系。
+		* Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14、16 px 这三个大小的点阵，而 13、15、17 px 时用的是小一号的点阵（即每个字占的空间大了 1 px，但点阵没变），于是略显稀疏。
+		* 使用偶数是一种习惯的延续，并且12px和14px字体能形成更好的层次与对比。使用奇数号字体不好的地方是，文本段落无法对齐。
 - margin和padding分别适合什么场景使用？
 
 		margin是用来隔开元素与元素的间距；padding是用来隔开元素与内容的间隔。
@@ -748,14 +770,28 @@ HTML5？
 
 
 - 抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]
+  先通读视觉稿，把所有类似的、可复用的部分划分出来，抽出结构和样式做成模块。达到一段 HTML 代码、一段 CSS 样式，粘贴到任意位置都正常。
 
 - 元素竖向的百分比设定是相对于容器的高度吗？
+  对于一些表示竖向距离的属性，例如padding-top,padding-bottom,margin-top,margin-bottom等，当按百分比设定它们时，依据的是父容器的宽度，而不是高度。
 
 - 全屏滚动的原理是什么？用到了CSS的那些属性？
+   主要呈现方式有两种，一种是整体的元素一直排列下去，假设有五个需要展示的全屏页面，那么高度是500%，只是展示100%，剩下的可以通过transform进行Y轴定位，也可以通过margin-top实现，第二种就是所有的子元素和页面一样，都显示在当前页面。
 
 - 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？
+  * 面的设计和开发应当根据用户行为以及设备环境（系统平台、屏幕尺寸、屏幕定向等）进行相应的响应和调整.
+	* 响应式设计的基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。页面头部必须有meta声明viewport：
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”>
+	* 兼容方案 1 第一种：https://github.com/livingston/css3-mediaqueries-js  2 第二种：https://github.com/scottjehl/Respond
+	  3 通过resize方法来实现PC端响应式
+		$(window).resize(function () {
+       screenRespond();
+    });
 
 - 视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）
+  * 在web设计中，通过运用多层背景在以不同速度运动的情况下，形成的一种立体的运动效果，这种视觉体验，我们称之为视差效果。
+	* 1 实现方式 css background-attachment: fixed; 2 插件
+  * http://www.alloyteam.com/2014/02/optimized-articles-of-parallax-scrolling-love-story/
 
 - ::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。
 
@@ -778,16 +814,18 @@ HTML5？
 		}
 
 - 你对line-height是如何理解的？
+   line-height定义行高，设置行间的距离。应用方式是：用line-height减去font-size，得到的差（称为行间距）除2，分别添加到文本的顶部和底部。可以包含这些内容的最小框就是行框。
 
 - 设置元素浮动后，该元素的display值是多少？
 
 		自动变成了 display:block
+		解决bug：（1）给浮动元素添加一个display：inline (2）给IE6写一个hack，其值为正常值的一半。
 
 - 怎么让Chrome支持小于12px 的文字？
 
 		1、用图片：如果是内容固定不变情况下，使用将小于12px文字内容切出做图片，这样不影响兼容也不影响美观。
 		2、使用12px及12px以上字体大小：为了兼容各大主流浏览器，建议设计美工图时候设置大于或等于12px的字体大小，如果是接单的这个时候就需要给客户讲解小于12px浏览器不兼容等事宜。
-		3、继续使用小于12px字体大小样式设置：如果不考虑chrome可以不用考虑兼容，同时在设置小于12px对象设置-webkit-text-size-adjust:none，做到最大兼容考虑。
+		3、继续使用小于12px字体大小样式设置：如果不考虑chrome可以不用考虑兼容，同时在设置小于12px对象设置-webkit-text-size-adjust:none(PC上已失效)，做到最大兼容考虑。改为 transform:scale(0.875);实现 https://www.zhihu.com/question/21093147?rf=21339583
 		4、使用12px以上字体：为了兼容、为了代码更简单 从新考虑权重下兼容性。
 
 - 让页面里的字体变清晰，变细用CSS怎么做？
@@ -796,7 +834,7 @@ HTML5？
 
 - font-style属性可以让它赋值为“oblique” oblique是什么意思？
 
-		倾斜的字体样式
+		倾斜的字体样式（在css规范中这么描述的，让一种字体表示为斜体（oblique），如果没有这样样式，就可以使用 italic。oblique是一种倾斜的文字，不是斜体。）
 
 - position:fixed;在android下无效怎么处理？
 
@@ -811,20 +849,46 @@ HTML5？
 
 - display:inline-block 什么时候会显示间隙？(携程)
 
-		移除空格、使用margin负值、使用font-size:0、letter-spacing、word-spacing
+		有空格的时候会有间隙（两个display:inline-block的默认的空格或者换行符），解决方法 移除空格、使用margin负值、使用font-size:0、letter-spacing、word-spacing
 
 - overflow: scroll时不能平滑滚动的问题怎么处理？
 
+		（1）-webkit-overflow-scrolling: touch;，是因为这行代码启用了硬件加速特性，所以滑动很流畅。
+		（2）  http://www.jianshu.com/p/1f4693d0ad2d  isroll 方案
+    overflow: auto 当页面出现滚动条时，会造成跳动问题 http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/
+   * （1）高度尺寸不确定的时候，使用：overflow-y：scroll;
+   *  （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
+   *  （3）.wrap-outer {
+           margin-left: calc(100vw - 100%);
+          }
+         或.wrap-outer {
+           padding-left: calc(100vw - 100%);
+          }
+					首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
+					然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
+					最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
+					于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，主体内容就可以永远居中浏览器啦，从而没有任何跳动！
+
 - 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。
+    *（1）height：calc（100%-100px）
+    * （2）absolute positioning：外层position：relative；百分百自适应元素 position: absolute; top: 100px; bottom: 0; left: 0
+    *  flex 父元素display:flex; flex-direction: column; 下面的子元素的设置flex: 1;
 
 - png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
+    *  （1）png是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式， 优点是：压缩比高，色彩好。 大多数地方都可以用。
+    *  （2）jpg是一种针对相片使用的一种失真压缩方法，是一种破坏性的压缩，在色调及颜色平滑变化做的 不错。在www上，被用来储存和传输照片的格式。
+    *  （3）gif是一种位图文件格式，以8位色重现真色彩的图像。可以实现动画效果时候
 
+    webp格式
+    是谷歌在2010年推出的图片格式，压缩率只有jpg的2/3，大小比png小了45%，缺点是压缩的时间更久了
+    。兼容性不好，目前谷歌和opera支持。
 
 - 什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）
 
 		如果静态文件都放在主域名下，那静态文件请求的时候都带有的cookie的数据提交给server的，非常浪费流量，
 		所以不如隔离开。
 
+    静态资源放 CDN ，用 cookie free domain
 		因为cookie有域的限制，因此不能跨域提交请求，故使用非主要域名的时候，请求头中就不会带有cookie数据，
 		这样可以降低请求头的大小，降低请求时间，从而达到降低整体请求延时的目的。
 
@@ -833,8 +897,29 @@ HTML5？
 
 
 - style标签写在body后与body前有什么区别？
+　　　*　写在head标签中利于浏览器逐步渲染（resources downloading->CSSOM+DOM->RenderTree(composite)->Layout->paint）。
+　　　　　CSS，解析CSS会产生CSS规则树。Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
+
+　　　*　写在body标签后由于浏览器以逐行方式对html文档进行解析，当解析到写在尾部的样式表（外联或写在style标签）会导致浏览器停止之前的渲染，
+　　　　　等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）
+
+基础知识——浏览器的渲染过程：(CSSOM视图模块(CSS Object Model View)
+
+*　Create/Update DOM And request css/image/js：浏览器请求到HTML代码后，在生成DOM的最开始阶段（应该是 Bytes → characters 后），并行发起css、图片、js的请求，无论他们是否在HEAD里。注意：发起 js 文件的下载 request 并不需要 DOM 处理到那个 script 节点，比如：简单的正则匹配就能做到这一点，虽然实际上并不一定是通过正则：）。这是很多人在理解渲染机制的时候存在的误区。
+* Create/Update Render CSSOM：CSS文件下载完成，开始构建CSSOM
+* Create/Update Render Tree：所有CSS文件下载完成，CSSOM构建结束后，和 DOM 一起生成 Render Tree。
+* Layout：有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的CSS定义以及他们的从属关系。下一步操作称之为Layout，顾名思义就是计算出每个节点在屏幕中的位置。
+* Painting：Layout后，浏览器已经知道了哪些节点要显示（which nodes are visible）、每个节点的CSS属性是什么（their computed styles）、每个节点在屏幕中的位置是哪里（geometry）。就进入了最后一步：Painting，按照算出来的规则，通过显卡，把内容画到屏幕上。
+补充：
+
+Repaint（重绘）：屏幕的一部分要重画。
+Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Render Tree
+联想——<script>标签放到<body>尾部是有必要的吗？
+
+如果放到<body>开始位置，假如js文件很大，解析到js文件所在的script标签的时候，js文件还没有下载完成，这时会阻塞并停止解析后面的HTML代码。当js文件下载完成并执行完之后才会继续后面的解析。所以是有必要的。
 
 
+　
 - 什么是CSS 预处理器 / 后处理器？
 
 		- 预处理器例如：LESS、Sass、Stylus，用来预编译Sass或less，增强了css代码的复用性，
@@ -849,9 +934,15 @@ HTML5？
 
 
 -  介绍js的基本数据类型。
+     六种基本数据类型：
+		 原始类型： Undefined、Null、Boolean、Number、String，
+		 合成类型： Object  细分为 :对象，数组，函数
 
-		 Undefined、Null、Boolean、Number、String、
+		 null: 是对象，但为空，参与数值运算时会自动转为0
+		 Undefined: 是全局对象（window）的一个特殊属性，其值是未定义的。但 typeof undefined 返回 ‘undefined’ 。 undefined参与任何数值计算时，其结果一定是NaN。
 		 ECMAScript 2015 新增:Symbol(创建后独一无二且不可变的数据类型 )
+
+     JS有两种数据类型：基本类型和引用类型。引用类型值是保存在内存中的对象，并且是按引用访问。因为JS不允许直接访问内存中的位置，也就是不能直接操作对象的内存空间。变量对象上存储的值是指向堆中对象的一个指针（引用）。基本类型的变量对象存储的便是值。
 
 -  介绍js有哪些内置对象？
 
@@ -865,8 +956,18 @@ HTML5？
 -  说几条写JavaScript的基本规范？
 
 		1.不要在同一行声明多个变量。
+		好的写法:
+		 var a = 1,
+		     b = 2;
 		2.请使用 ===/!==来比较true/false或者数值
 		3.使用对象字面量替代new Array这种形式
+		  var xujianbin = {
+         name:　'xujianbin';
+				 age: 22
+				 eat: function (){
+					 console.log('我最喜欢吃糯米鸡!');
+				 }
+			}
 		4.不要使用全局函数。
 		5.Switch语句必须带有default分支
 		6.函数不应该有时候有返回值，有时候没有返回值。
@@ -916,6 +1017,13 @@ HTML5？
 
 		* parseFloat('12.3b');
 		* 正则表达式，'12.3b'.match(/(\d)+(\.)?(\d)+/g)[0] * 1, 但是这个不太靠谱，提供一种思路而已。
+    * 强制类型转换 Number(str)
+        2.1 Number('12.3') //12.3
+        2.2  Number('12.3b') //NaN
+
+    * JS方法 var num = str - 0;
+       var num = '12.3' - 0; //12.3
+       var num = '12.3b' - 0; //NaN
 
 - 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
 
@@ -928,7 +1036,7 @@ HTML5？
 		}
 
 - 如何实现数组的随机排序？
-		
+
 		方法一：
 			var arr = [1,2,3,4,5,6,7,8,9,10];
 			function randSort1(arr){
@@ -941,7 +1049,7 @@ HTML5？
 				return arr;
 			}
 			console.log(randSort1(arr));
-			
+
 		方法二：
 			var arr = [1,2,3,4,5,6,7,8,9,10];
 			function randSort2(arr){
@@ -963,14 +1071,14 @@ HTML5？
 			console.log(arr);
 
 -  Javascript如何实现继承？
-
+    参考文章： https://kongchenglc.coding.me/blog/js%E7%BB%A7%E6%89%BF20170503/#more
 		1、构造继承
 		2、原型继承
 		3、实例继承
 		4、拷贝继承
 
 		原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。
-		
+
 			function Parent(){
 				this.name = 'wang';
 			}
@@ -1217,6 +1325,7 @@ HTML5？
 		var a=["1", "2", "3"];
 		a.map(parseInt);  // ["1-0", "2-1", "3-2"] 不能大于radix
 
+	  如果基数是0，字符串不是0x,0X,0,开头，则基数默认是10，所以1 还是1，基础小于2大于36，为NaN
 		因为二进制里面，没有数字3,导致出现超范围的radix赋值和不合法的进制解析，才会返回NaN
 		所以["1", "2", "3"].map(parseInt) 答案也就是：[1, NaN, NaN]
 
@@ -1310,7 +1419,19 @@ HTML5？
 
 
 -  用原生JavaScript的实现过什么功能吗？
+   * 双向数据绑定 利用Object.defineProperty 设置getter,setter来实现数据双向绑定 或者Object.observe(已废弃) &&DOM.onchange;
+	   Object.defineProperty(user,'name',{
+			 get: function(){return nameValue},
+			 set: function(newValue){nameValue = newValue},
+			 configurable: true
+			 });
 
+     Object.observe(user, function(changes){
+			 changes.forEach(functon(change){
+				 console.log(change.name);
+				 console.log(change.type);
+				 });
+			 });
 
 -  Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
 
@@ -1324,28 +1445,32 @@ HTML5？
 
 		如果 object 具有指定名称的属性，那么JavaScript中hasOwnProperty函数方法返回 true，反之则返回 false。
 
--  JSON 的了解？
+-  JSON 的了解？  
 
 		JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。
 		它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
         如：{"age":"12", "name":"back"}
 
         JSON字符串转换为JSON对象:
-		var obj =eval('('+ str +')');
-		var obj = str.parseJSON();
+		var obj =eval('('+ str +')');   //加上括号是为了构造一个表达式上下文，() 会把语句转换成表达式，括号里的代码都会被转换为表达式求值并且返回，对象字面量必须作为表达式而存在。 http://www.cnblogs.com/zichi/p/5202825.html  合法的 label语句是不能带引号
+
+
 		var obj = JSON.parse(str);
 
 		JSON对象转换为JSON字符串：
-		var last=obj.toJSONString();
 		var last=JSON.stringify(obj);
 
 -  `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？
-
+这段代码是给取到页面所有元素加上1px实线随机颜色边框
 
 -  js延迟加载的方式有哪些？
 
 		defer和async、动态创建DOM方式（用得最多）、按需异步载入js
-
+   * <script async src="script.js"></script>
+     有 async，加载和渲染后续文档元素的过程将和 script.js 的加载并行进行（异步）。加载完成立即执行，并阻止页面解析html,并且不能保证按顺序执行。
+   * <script defer src="myscript.js"></script>
+     有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。按照加载顺序执行脚本的
+   注意：DOM树构建完成。//DOMContentLoaded ，页面加载完毕。//load
 
 -  Ajax 是什么? 如何创建一个Ajax？
 
@@ -1362,9 +1487,9 @@ HTML5？
 
 - Ajax 解决浏览器缓存问题？
 
-		1、在ajax发送请求前加上 anyAjaxObj.setRequestHeader("If-Modified-Since","0")。
+		1、在ajax发送请求前加上 xhr.setRequestHeader("If-Modified-Since","0")。
 
-        2、在ajax发送请求前加上 anyAjaxObj.setRequestHeader("Cache-Control","no-cache")。
+        2、在ajax发送请求前加上 xhr.setRequestHeader("Cache-Control","no-cache")。
 
         3、在URL后面加上一个随机数： "fresh=" + Math.random();。
 
@@ -1376,22 +1501,35 @@ HTML5？
 
 	同步的概念应该是来自于OS中关于同步的概念:不同进程为协同完成某项工作而在先后次序上调整(通过阻塞,唤醒等方式).同步强调的是顺序性.谁先谁后.异步则不存在这种顺序性.
 
-
-
 	同步：浏览器访问服务器请求，用户看得到页面刷新，重新发请求,等请求完，页面刷新，新内容出现，用户看到新内容,进行下一步操作。
 
 	异步：浏览器访问服务器请求，用户正常操作，浏览器后端进行请求。等请求完，页面不刷新，新内容也会出现，用户看到新内容。
 
 
 
-	（待完善）
+ 来源网络：
+ 1 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻
+ 2 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）老张还是觉得自己有点傻，于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。
+ 3 老张把响水壶放到火上，立等水开。（异步阻塞）老张觉得这样傻等意义不大
+ 4 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）
+
 
 -  如何解决跨域问题?
 
-		jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页面
+  需要html5支持
+  1 window.postMessage('数据',域名); 子域监听Message方法
+  2 利用 cors  通过设置请求头或者在服务器设置 来解决跨域
+  其他
+  3 利用window.name 跨域
+  4 jsonp
+  6 document.domain 只要把子页面的document.domain都指向主域就可以了，比如document.domain='foo.com';   //设置好后父页面和子页面就可以像同一个域下两个页面之间访问了。父页面通过ifr.contentWindow就可以访问子页面的window，子页面通过parent.window或parent访问父页面的window，接下来可以进一步获取dom和js  。
+  7 ie6/7 window.navigator  子域和父域共享同一个对象，通过增加对象属性或方法进行调用
+	8 服务器代理
 
 -  页面编码和被请求的资源编码如果不一致如何处理？
-
+    [web编码总结](http://yanhaijing.com/web/2014/12/20/web-charset/)
+   * <script src="http://www.xxx.com/test.js" charset="utf-8"></script>  指定编码方式
+   * <link rel="stylesheet" href="gbk-1.css" charset="gbk"> h5废弃了charset这个属性，改为在文件内部写@charset utf-8
 -  模块化开发怎么做？
 
 	 [ 立即执行函数](http://benalman.com/news/2010/11/immediately-invoked-function-expression/),不暴露私有成员
