@@ -1549,7 +1549,37 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		    　　})();
 
 	（待完善）
+   无模块时代问题
+	 1，全局变量灾难
+	 2，函数命名冲突
+	 3，依赖关系不好处理
+	 解决方案
 
+	 1,用自执行函数
+	 2,类似java命名空间方式进行管理
+	 3,jquery风格匿名自执行函数
+	 模块化面临问题
+
+	 1. 如何安全的包装一个模块的代码？（不污染模块外的任何代码）
+   2. 如何唯一标识一个模块？
+   3. 如何优雅的把模块的API暴漏出去？（不能增加全局变量）
+   4. 如何方便的使用所依赖的模块？
+
+   	Modules/1.x规范 （Commonjs）
+		1. 模块的标识应遵循的规则（书写规范）
+    2. 定义全局函数require，通过传入模块标识来引入其他模块，执行的结果即为别的模块暴漏出来的API
+    3. 如果被require函数引入的模块中也包含依赖，那么依次加载这些依赖
+    4. 如果引入模块失败，那么require函数应该报一个异常
+    5. 模块通过变量exports来向往暴漏API，exports只能是一个对象，暴漏的API须作为此对象的属性。   
+
+    前端问题
+		1变量暴露在全局
+		2资源加载方式不同，浏览器需http请求获得，服务端直接从内存读取
+
+	  解决方法
+		1,升级Modules/1.0规范
+		2，重新制定浏览器端规范AMD（Asynchronous Module Definition）(requireJS)
+    3,中间派  Modules/Wrappings规范 （seajs）
 -  AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？
 
 	> AMD 规范在这里：https://github.com/amdjs/amdjs-api/wiki/AMD
@@ -1557,7 +1587,7 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 	> CMD 规范在这里：https://github.com/seajs/seajs/issues/242
 
 		Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。所有依赖某些模块的语句均放置在回调函数中。
-
+    factory 的参数差异，直接导致 AMD 中的模块是立刻执行的，而 Wrappings 中的模块可以等到第一次 require 时才执行。
 		 区别：
 
 		    1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
@@ -1581,6 +1611,7 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		    // ...
 		})
 
+     [SeaJS 和 RequireJS 的异同](https://lifesinger.wordpress.com/2011/05/17/the-difference-between-seajs-and-requirejs/)
 
 -  requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何
 缓存的？）
@@ -2112,6 +2143,38 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 		1、实现界面交互
 		2、提升用户体验
 		3、有了Node.js，前端可以实现服务端的一些事情
+
+- 移动端300ms 延迟，怎么解决？
+  // http://www.jianshu.com/p/6e2b68a93c88
+ 移动端浏览器会有一些默认的行为，比如双击缩放、双击滚动。而浏览器为了辨别是双击还是单击事件，便会等待300ms来判别。
+ 目前，浏览器开发商的解决方案主要有一下三种方案：
+ * 1 <meta name="viewport" content="user-scalable=no">
+     <meta name="viewport" content="initial-scale=1,maximum-scale=1">
+		 缺点——就是必须通过完全禁用缩放来达到去掉点击延迟的目的，然而完全禁用缩放并不是我们的初衷，我们只是想禁掉默认的双击缩放行为，这样就不用等待300ms来判断当前操作是否是双击。
+ * 2 <meta name="viewport" content="width=device-width"/>
+     如果设置了上述meta标签，那浏览器就可以认为该网站已经对移动端做过了适配和优化，就无需双击缩放操作了。
+     这个方案相比方案一的好处在于，它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放操作来缩放页面。
+ *　３　CSS touch-action
+ 这个属性指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。如果将该属性值设置为touch-action: none，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。
+
+	对于方案一和方案二，Chrome是率先支持的，Firefox紧随其后，然而令Safari头疼的是，它除了双击缩放还有双击滚动操作，如果采用这种两种方案，那势必连双击滚动也要一起禁用。对于方案三，IE是支持的，但是其他浏览器支持不完善。
+　*  4 指针事件的polyfill
+        * [Google 的 Polymer](https://github.com/jquery/PEP)
+        * [微软的 HandJS](http://handjs.codeplex.com/)
+        * [@Rich-Harris 的 Points] (https://github.com/Rich-Harris/Points)
+  *  5 [FastClick](https://github.com/ftlabs/fastclick)  
+	     FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。
+-什么是点击穿透？
+  假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素，B元素被隐藏了，随后，A元素触发了click事件。
+
+  这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。什么是点击穿透？
+  假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素 ，B元素被隐藏了，随后，A元素触发了click事件。
+
+  这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。
+
+ 解决方案：
+    * 1.只用touch   把页面内所有click全部换成touch事件（ touchstart 、’touchend’、’tap’），注意：a标签的href也是click，需要换成js的跳转。
+    * 2.改动最小——350ms后再隐藏B元素
 
 
 		前端是最贴近用户的程序员，前端的能力就是能让产品从 90分进化到 100 分，甚至更好，
