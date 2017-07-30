@@ -5,8 +5,6 @@
 
 [只看问题点这里 ](http://markyun.github.io/2015/Front-end-Developer-Questions/ "Questions")
 
-[看全部问题和答案点这里](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers "Questions-and-Answers")
-
 本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
 
 前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说的一句话：“每18至24个月，前端都会难一倍”，这些变化使前端的能力更加丰富、创造的应用也会更加完美。所以关注各种前端技术，跟上快速变化的节奏，也是身为一个前端程序员必备的技能之一。
@@ -1623,6 +1621,17 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 -  谈一谈你对ECMAScript6的了解？
 
 -  ECMAScript6 怎么写class么，为什么会出现class这种东西?
+   class Ponit{
+		 constructor(x, y){
+			 this.x = x;
+			 this.y = y;
+		 }
+
+		 toString(){
+			 return '(' + this.x +','+ this.y + ')';
+		 }
+	 }
+  JS原型继承方法写法跟传统的面向对象语言（比如 C++ 和 Java）差异很大，很容易让新学习这门语言的程序员感到困惑。ES6提供了更接近传统语言的写法，引入了Class(类)；作为对象的模板。通过class关键字，可以定义类。class其实只是一个语法糖，它的绝大部分功能ES5 都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
 
 -  异步加载JS的方式有哪些？
 
@@ -1641,7 +1650,9 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 - DOM操作——怎样添加、移除、移动、复制、创建和查找节点?
 
 		（1）创建新节点
-		  createDocumentFragment()    //创建一个DOM片段
+		  createDocumentFragment()    //创建一个DOM片段  oFragment.appendChild()
+			//DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的用例是创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的孩子所代替。
+
 		  createElement()   //创建一个具体的元素
 		  createTextNode()   //创建一个文本节点
 		（2）添加、移除、替换、插入
@@ -1655,7 +1666,11 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		  getElementById()    //通过元素Id，唯一性
 
 -  .call() 和 .apply() 的区别？
+   apply：应用某一对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对   象的方法。
+   call：调用一个对象的一个方法，以另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象   调用B对象的方法。
 
+   * apply：最多只能有两个参数——新this对象和一个数组argArray。
+	 * call：它可以接受多个参数，第一个参数与apply一样，后面则是一串参数列表。
 
 		  例子中用 add 来替换 sub，add.call(sub,3,1) == add(3,1) ，所以运行结果为：alert(4);
 
@@ -1676,22 +1691,225 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
 -  数组和对象有哪些原生方法，列举一下？
+   Array : sort slice
+	 forEach() 返回undefinded  currentValue  index array
+	 map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+	 concat join push pop shift unshift toString splice
+
+   Object: toString ValueOf  defineProperty  
+	 assign: Object.assign(target, ...sources)  Object.assign() 方法用于将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+
+   create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
+   Object.create(proto, [ propertiesObject ])
+
+	 proto:一个对象，应该是新创建的对象的原型。
+	 propertiesObject:可选。该参数对象是一组属性与值
+
+   o2 = Object.create({}, { p: { value: 42, writable: true, enumerable: true,  configurable: true } });
 
 -  JS 怎么实现一个类。怎么实例化这个类
+    可以通过构造函数模式，原型模式，混合模式等实现一个类，用 new 来实例化
+    function Human(name){
+     this.name = name;
+    }
+
+    var wangxiaoer = new Human('王小二');    
+
+   对象可以通过 new Object(), Object.create() 方法， 或者使用字面 标记 (初始化 标记)初始化。 对象初始化，由花括号{}包含的一个由0个或者多个对象属性名和关联值组成的列表构成。
 
 -  JavaScript中的作用域与变量声明提升？
 
--  如何编写高性能的Javascript？
+  作用域：只会对某个范围产生作用，而不会对外产生影响的封闭空间。在这样的一些空间里，外部不能访问内部变量，但内部可以访问外部变量。
 
--  那些操作会造成内存泄漏？
+  js 存在声明提升
+	所有声明明都会被提升到作用域的最顶上  包括ES5的var、function，和ES6的function *、let、const、class  但ES6 let const 等声明命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。暂时性死区
+
+	函数声明的优先级优于变量申明，且函数声明会连带定义一起被提升
+	函数提升有两种，1 函数声明 整个函数提升 2函数表达式 只有变量提升，还是undefinded
+
+-  如何编写高性能的Javascript？
+  参考文章//http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/
+  1 垃圾回收方面
+	  * 手动消除引用（设置为null 比 delete 略好）
+		* 解绑无用的事件监听器
+		* 避免大量不被重用的数据被存储  //缓存文章 http://imweb.io/topic/55c6f9bac222e3af6ce235b9
+  2 函数方面
+	  * 减少闭包 定时器 等
+		* 使用时间代理委托 DocumentFragment
+		* 不要使函数体积过大，确保函数职责单一，即确保变量使用相同类型，如不要add(1,2),add('a','b');
+	3 使用数组技巧
+	  * 一般情况下不要删除数组元素
+		* 使用数组字面量 var a = [];
+		* 存储单一类型
+		* 稀疏数组访问速度远远慢于满数组
+	4 避免内存泄漏
+	  * 单页面应用的内存管理，特别移动端单页应用，基本不刷新页面，  遵循的标准规则来管理JavaScript中的内存，当元素被移除时，清理监听器
+		* 减少回流与重绘
+	5 使用HTTP的缓存去减少资源的加载。
+
+-  那些操作会造成内存泄漏？ //https://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/
+   内存泄漏可以定义为：应用程序不再需要占用内存的时候，由于某些原因，内存没有被操作系统或可用内存池回收。
+   垃圾回收机制：标记清除法，引用计数法
+   1 闭包 （去除，造成内存泄露是浏览器的bug，不关闭包的事情，跟闭包和内存泄露有关系的地方是，使用闭包的同时比较容易形成循环引用，如果闭包的作用域链中保存着一些DOM节点，这时候就有可能造成内存泄露。//https://www.zhihu.com/question/31078912）
+	 2 定时器  setInterval用完要clearInterval ，不然回调函数等内存无法回收。
+   3，全局变量,因为挂在window上面，window是不会被清空（在 JavaScript 文件头部加上 'use strict'，可以避免此类错误发生。启用严格模式解析 JavaScript ，避免意外的全局变量，如函数里面用this，然后全局执行的变量。）
+   4，监听器
+	 老版本的 IE 是无法检测 DOM 节点与 JavaScript 代码之间的循环引用，会导致内存泄漏。如今，现代的浏览器（包括 IE 和 Microsoft Edge）使用了更先进的垃圾回收算法，已经可以正确检测和处理循环引用了。换言之，回收节点内存时，不必非要调用 removeEventListener 了。
+   5,脱离Dom的引用
+	   有时，保存dom的数据结构很有用把dom存成json或数组很有意义，但是，当你决定删除元素时，这些引用也需要同时删除。
+		 此外还需考虑DOM树内或子节点的引用问题，加入你的js代码保存了一个td的引用，但你决定删除整个表格的时候，整个表格还是会存在内存中的，因为td 是表格的子节点，子元素与父元素是引用关系，导致表格无法释放。
+
+-  闭包应用？//https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd
+   * 1 ， 函数柯里化
+	         var doSomething = function(do,something){
+						 console.log(do+','+something);
+					 }
+           function Curry(fn){
+						 var stored_args = Array.prototype.slice.call(arguments,1);
+						 return function (){
+							 var new_args = Array.prototype.slice.call(arguments),
+							     args = stored_args.concat(new_args);
+									 return fn.call(null,args);
+						 };
+					 }
+
+					 var newDoSomething  = Curry(doSomething,'hello');
+           newDoSomething('Howard');
+					 newDoSomething('Harden');
+	 * 2 , 单例模式
+	       var getSingleInstance = (function(){
+					   function China () {
+							 this.name = "China";
+						 }
+						 var instance  = new China();
+						 return function () {
+							 return instance;
+						 }
+					 }());
+
+-  快速排序算法
+   快速排序的核心就是选定一个哨兵，然后把它作为标准，对数据进行操作，把小的放前面，把大的放后面。然后执行这个过程若干次，就得到了最终的结果。
+	 算法过程中也实现了分治法的思想，即把复杂的模块分成几个简单的模块，分而治之。
+	 资料（按顺序阅读比较容易理解，）
+	 // https://dsb123dsb.github.io/2016/12/27/js%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88in-place%EF%BC%89%E7%AE%80%E8%BF%B0/
+	 // http://www.jianshu.com/p/fc342a9ffb58
+
+	 someOther
+	 算法可视化网站：//http://zh.visualgo.net/zh/sorting    
+
 
 -  JQuery的源码看过吗？能不能简单概况一下它的实现原理？
+   JQuery、JQuery对象、DOM对象三者之间的关系是： JQuery是个工厂方法，用来构造JQuery对象； JQuery对象是个类数组对象，里面存储了DOM对象；
+   实现原理
+	 1：通过闭包函数避免污染全局变量
+	 2：jQuery.extend可以扩展jQuery，而jQuery.fn.extend可以扩展jQuery对象。
+
 
 -  jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？
+       jQuery = function( selector, context ) {
+           return new jQuery.fn.init( selector, context, rootjQuery );
+       },
+       jQuery.fn = jQuery.prototype = { //fn即对应prototype
+          constructor: jQuery,
+          init: function( selector, context, rootjQuery ) {
+          		...
+          		return this;
+          }
+          ...
+       }
+       jQuery.fn.init.prototype = jQuery.fn;
+
+	 * JQuer.fn.init方法返回this为JQ原型对象实例（如果没有选择器参数为空就是JQ原型对象，可以看jq源码//http://code.jquery.com/jquery-1.9.1.js，ctrl+f搜索jQuery.fn看其具体实现，你就会秒懂了），是一个类数组对象。
+
+
+   * 因为Jq实现了$()来实例化jq对象，通过jq原型上init构造方法去实例化并返回一个对象，这样就可以不用new的方式去创建JQ对象，而且JQuery构造函数就相当于一个工厂函数。
+	   并且，为什么构造函数为什么要 new jQuery.fn.init(),这是因为如果直接利用init函数return出来的对象，会直接暴露了jQuery.prototype原型对象出去（参考//https://github.com/wy-ei/notebook/issues/6），这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的指向对象，从而避开jQuer.fn的直接暴露。
+
+		 new 关键字的作用是创建一个对象，当一个函数使用 new 来调用的时候其实际上进行了下面的几个步骤：
+       创建一个空对象 obj
+       将这个 obj 的 proto 即：obj.proto 指向该函数的原型
+       执行该函数，并将函数中的 this 映射为 该空对象 obj。
+       最后如果该函数有返回值，而且返回值是对象，那么就返回这个对象。如果没有返回值，或者返回值不是对象，那么 new 的结果就是上面步骤构造出来的对象 obj。
+
+			 明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
+
+		 但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype继承的是Object.prototype，并不包含jQuery.fn。这里的解决方法就是将 init.prototype 直接指向 jQuery.prototype 。这下构造出来的对象就可以访问到 jQuery.prototype 中的内容了：
+		 在jq源码中就有这么一句
+		 jQuery.fn.init.prototype = jQuery.fn;
+
+	   参考资料：
+		 * 1 http://elcarim5efil.github.io/blog/2015/07/28/jQuery_analysis_8.html
+     * 2 http://www.cnblogs.com/aaronjs/p/3278578.html （解释不是很清楚）
+     * 3 https://github.com/wy-ei/notebook/issues/7 (第二配合第三来看)
 
 -  jquery中如何将数组转化为json字符串，然后再转化回来？
 
+       // JSON RegExp
+       rvalidchars = /^[\],:{}\s]*$/,
+       rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
+       rvalidescape = /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,
+       rvalidtokens = /"[^"\\\r\n]*"|true|false|null|-?(?:\d+\.|)\d+(?:[eE][+-]?\d+|)/g,
+
+        parseJSON: function( data ) {
+        if ( window.JSON && window.JSON.parse ) {
+        	return window.JSON.parse( data );
+        }
+
+        if ( data === null ) {
+        	return data;
+        }
+
+        if ( typeof data === "string" ) {
+
+        	// Make sure leading/trailing whitespace is removed (IE can't handle it)
+        	data = jQuery.trim( data );
+
+        	if ( data ) {
+        		// Make sure the incoming data is actual JSON
+        		// Logic borrowed from http://json.org/json2.js
+        		if ( rvalidchars.test( data.replace( rvalidescape, "@" )
+        			.replace( rvalidtokens, "]" )
+        			.replace( rvalidbraces, "")) ) {
+
+        			return ( new Function( "return " + data ) )();
+        		}
+        	}
+        }
+
+        jQuery.error( "Invalid JSON: " + data );
+        },
+    jq会检查浏览器是否支持window.JSON.parse，支持的话就调用，不支持的话就正则匹配是否满足某些条件，然后把整个data返回。
+		这里注意new Function()的使用，为什么不使用eval()呢？
+		其实两个有一些作用域上的区别，eval函数可以访问到使用时局部环境变量。而new Function()只能在全局上起作用，而且new Function运行略优于eval，
+		但是两个都是存在风险的，都可能运行json字符串里面违法的代码，应尽可能避免使用，因为ES5的严格模式这两种都是不允许的
+    //https://stackoverflow.com/questions/2449220/jquery-uses-new-functionreturn-data-instead-of-evaldata-to-parse
+
+		数组编程字符串可用Array.toString(),或者谁用Array.join(",") join() 方法用于把数组中的所有元素放入一个字符串。
+
 -  jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？
+
+   我们在 jQuery 中可以通过添加一个参数来实现递归extend。调用$.extend(true, {}, obj)
+   实现原理就是遇到基本值就直接复制，遇到对象就递归调用extend进行深度拷贝。
+
+	 深复制：
+	   function deepCopy(source){
+			 var arr = {};
+			for(key in  source){
+				arr[key] = typeof key === 'Object' ? copy(source[key]):source[key];
+			}
+			return arr;
+		 }
+   浅复制：
+	   function shallowCopy(source) {
+			  var arr = {};
+				for(var temp in source ){
+           if(source.hasOwnproperty[temp]){
+						 arr[temp] = source[temp];
+					 }
+				}
+				 return arr;
+		 }
+  //深入剖析 JavaScript 的深复制  http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/
 
 -  jquery.extend 与 jquery.fn.extend的区别？
 
@@ -1701,21 +1919,56 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		使用：
 		jquery.extend扩展，需要通过jquery类来调用，而jquery.fn.extend扩展，所有jquery实例都可以直接调用。
 
+-  jQuery ready与load谁先执行?
+   ready先执行，load后执行。
+
+	 DOM文档加载的步骤：
+	 (1) 解析HTML结构。
+   (2) 加载外部脚本和样式表文件。
+   (3) 解析并执行脚本代码。
+   (4) 构造HTML DOM模型。//ready
+   (5) 加载图片等外部文件。
+   (6) 页面加载完毕。//load
 
 -  jQuery 的队列是如何实现的？队列可以用在哪些地方？
+   所以队列的本质是利用Array的push和shift来完成先进先出(First In First Out)
 
--  谈一下Jquery中的bind(),live(),delegate(),on()的区别？
+   队列是一种特殊的线性表，只允许在表的前端（队头）进行删除操作（出队），在表的后端（队尾）进行插入操作（入队）。队列的特点是先进先出（FIFO-first in first out），即最   先插入的元素最先被删除。您可以使用push，pop，unshift，shift来处理队列。您可以通过调用.queue()将功能添加到队列中，并使用.dequeue()删除(通过调用)函数。
+
+	 队列可以用在动画中,ajax等。
+
+
+
+-  谈一下Jquery中的bind(),live(),delegate(),on()的区别？ (//http://www.cnblogs.com/moonreplace/archive/2012/10/09/2717136.html)
+   * bind():
+	    优点：直接绑定到元素上 .click() . hover() 都是利用bind()方法，这个方法可以很快就绑定上事件，而且很快执行回调，因为是对当个元素（$()选取元素操作）而且对浏览器的兼容性做了处理
+      缺点：1当元素很多的时候，会有性能问题，2，而且不能对动态增加元素进行自绑定事件,3，当页面加载完才能进行绑定
+	 * live()
+	    优点：利用事件委托，将事件绑定到到document,利用事件冒泡，jQuery查找选择器，再查找对应回调函数处理，绑定事件减少消耗
+			缺点：1执行比较慢，从1.7已经不推荐了
+	 * delegate()
+	   优点：是Live升级版，由你决定绑定元素
+		 缺点：同live，不过因为由我们控制绑定元素，所以比live 好一些。
+	 * on() 以上三种都是通过on来实现的，可用on()代替。
+
 
 -  JQuery一个对象可以同时绑定多个事件，这是如何实现的？
 
 -  是否知道自定义事件。jQuery里的fire函数是什么意思，什么时候用？
+      所谓自定义事件，就是有别于有别于带有浏览器特定行为的事件(类似click, mouseover, submit, keydown等事件)，
+	    事件名称可以随意定义，可以通过特定的方法（jq trigger triggerHandler ）进行添加，触发以及删除。
+
+      callbacks.fire() 函数用于传入指定的参数调用所有的回调。
+      此方法返回一个回调对象到它绑定的回调列表。
+      用于触发$.Callbacks 回调队列函数。
+
+       jQuery的自定义事件是通过on和one绑定的，然后再通过trigger来触发这个事件
 
 -  jQuery 是通过哪个方法和 Sizzle 选择器结合的？（jQuery.fn.find()进入Sizzle）
 
--  针对 jQuery性能的优化方法？
+      jQuery.find = Sizzle;
 
 -  Jquery与jQuery UI 有啥区别？
-
 
 		*jQuery是一个js库，主要提供的功能是选择器，属性修改和事件绑定等等。
 
@@ -1723,27 +1976,13 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
          提供了一些常用的界面元素，诸如对话框、拖动行为、改变大小行为等等
 
 
--  JQuery的源码看过吗？能不能简单说一下它的实现原理？
-
--  jquery 中如何将数组转化为json字符串，然后再转化回来？
-
-jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩展：
-
-		$.fn.stringifyArray = function(array) {
-		    return JSON.stringify(array)
-		}
-
-		$.fn.parseArray = function(array) {
-		    return JSON.parse(array)
-		}
-
-		然后调用：
-		$("").stringifyArray(array)
-
 -  jQuery和Zepto的区别？各自的使用场景？
+     jQuery是用在PC端上的框架，比较大，兼容性也比较好。
+	  而Zepto最初是为移动端开发的库，是jQuery的轻量级替代品，因为它的API和jQuery相似，而文件更小。并且多了一些移动端的触摸交互事件。
+
 
 -  针对 jQuery 的优化方法？
-
+   //http://xujianbin.pw/project/2017/05/09/optimization2-JQueryPerformance/
 		*基于Class的选择性的性能相对于Id选择器开销很大，因为需遍历所有DOM元素。
 
 		*频繁操作的DOM，先缓存起来再操作。用Jquery的链式调用更好。
@@ -1756,6 +1995,25 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 
 
 -  Zepto的点透问题如何解决？
+  [参考资料1](https://zhuanlan.zhihu.com/p/25280160)
+	[参考资料2](https://github.com/mattt/MsgPackSerialization/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E5%BB%B6%E8%BF%9F%E5%8F%8Azepto%E7%9A%84%E7%A9%BF%E9%80%8F%E7%8E%B0%E8%B1%A1)
+  问题现象:
+  在项目中,遇到的问题是有一个弹出层, 弹出层有一个按钮点击之后表示操作完成并且隐藏遮罩与弹出框,但是点击按钮之后
+  弹出层下面的元素却触发了 click 事件,导致 bug 的出现.
+
+	解决方法：
+	1在遮罩之后加一个透明的 div 在 350ms 后消失
+	2遮罩使用动画在 350ms 后消失
+	3使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层元素就不会响应 click 事件了,然后设置一个定时器在 tap 事件响应后的400ms 后将 pointer-events 设置为 auto 恢复正常.
+  4使用 fastclick
+  5 直接将上层元素的tap事件换成click事件（会出现300ms的延迟触发事件）
+	//https://zhangxiang958.github.io/2017/03/04/Zepto%20%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98%E6%B7%B1%E7%A9%B6%E4%B8%8E%E8%A7%A3%E5%86%B3/
+
+	zepto为何不使用e.preventDefault()来解决穿透问题？
+     因为zepto的tap事件统一是在document的touchend时触发的，若在这里使用e.preventDefault()，那页面上所有元素在touchend后触发的事件都不会被执行了。
+		 // 另外一种说法：贺师俊老师说的：就是当初手机浏览器的实现太挫了——为了兼容而模拟鼠标事件，但模拟的鼠标事件在网页的userland代码里是无法被preventDefault的，从dom的角度来说比较合理的应该是当我已经监听touchxxx事件（或退一步说，如果对touchxxx事件preventDefault之后）就不再出现模拟鼠标事件——但是当时webkit的c++程序员水平有点差，不知道应该这样做，所以就产生了很难消除的额外的click。
+
+
 
 -  jQueryUI如何自定义组件?
 
@@ -1768,32 +2026,92 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 		通过判断Global对象是否为window，如果不为window，当前脚本没有运行在浏览器中
 
 -  移动端最小触控区域是多大？
+   ISO和ANSI标准都推荐0.75" x 0.75"（约19 x 19毫米）的尺寸，来自莱特州立大学心理系的一项研究也表明0.75" x 0.75"的按钮对于用户来说是满意率最高的。
+   [参考资料](http://iconmoon.com/blog2/Touchscreen-Button-Dimensions-and-Spacing/)
 
 -  jQuery 的 slideUp动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?
 
-		jquery stop(): 如：$("#div").stop().animate({width:"100px"},100);
+		jquery stop(): 如：$("#div").stop(stopAll,goToEnd).animate({width:"100px"},100);
 
--  把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？
+-  把 Script 标签 放在页面的最底部的body封闭之前和封闭之后有什么区别？浏览器会如何解析它们？
 
--  移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？（click 有 300ms 延迟,为了实现safari的双击事件的设计，浏览器要知道你是不是要双击操作。）
+   按照HTML5标准中的HTML语法规则，如果在</body>后再出现<script>或任何元素的开始标签，都是parse error，浏览器会忽略之前的</body>，即视作仍旧在body内。所以实际效果和写在</body>之前是没有区别的。
+	 但是浏览器对HTML(XHTML)均有容错机制。 错误嵌套的标签、以及位置放置错误的标签都会在paser HTML 过程中尝试修复。修复后得到合法的HTML后在由布局引擎建立相应的DOM对象。在<script>标签放置于</body>标签之后时，源码被所有浏览器【泛指PC上常见的】修复为正常形式，即<script></script></body>。s
+
+-  移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？
+
+   （click 有 300ms 延迟,为了实现safari的双击事件的设计，浏览器要知道你是不是要双击操作。）
+	  解决方法
+		1 设置不能缩放：user-scalable=no。 不能缩放就不会有双击缩放操作，因此click事件也就没了300ms延迟，这个是Chrome首先在Android中提出的。
+    2 设置显示宽度：width=device-width。Chrome 开发团队不久前宣布，在 Chrome 32 这一版中，他们将在包含 width=device-width 或者置为比 viewport 值更小的页面上禁用双击缩放。当然，没有双击缩放就没有 300 毫秒点击延迟。
+    3 IE的指针事件 (Pointer Events)：设置touch-action:none，根据规范，touch-action属性决定 “是否触摸操作会触发用户代理的默认行为。这包括但不限于双指缩放等行为”。从实际应用的角度来看，touch-action决定了用户在点击了目标元素之后，是否能够进行双指缩放或者双击缩放。因此，这也相当完美地解决了 300 毫秒点击延迟的问题。
+    鉴于上述的3种解决方案，现在较为通用的meta设置为：
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		4 指针事件的 polyfill
+    5 FastClick
 
 -  知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
 
 -  Underscore 对哪些 JS 原生对象进行了扩展以及提供了哪些好用的函数方法？
-
--  解释JavaScript中的作用域与变量声明提升？
-
--  那些操作会造成内存泄漏？
-
-	    内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。
-        垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
-
-        setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
-		闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+   Underscore 并没有在JS原生对象上进行扩展，而是类似于jq一样封装在一个自定义对象中
+	   - throttle
+     - debounce
 
 -  JQuery一个对象可以同时绑定多个事件，这是如何实现的？
+    源码：
+		on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
+        // Types can be a map of types/handlers
+           var type, origFn;
+           if ( typeof types === "object" ) {
+           	// ( types-Object, selector, data )
+           	if ( typeof selector !== "string" ) {
+           		// ( types-Object, data )
+           		data = data || selector;
+           		selector = undefined;
+           	}
+           	for ( type in types ) {
+           		this.on( type, selector, data, types[ type ], one );
+           	}
+           	return this;
+           }
 
-		* 多个事件同一个函数：
+           if ( data == null && fn == null ) {
+           	// ( types, fn )
+           	fn = selector;
+           	data = selector = undefined;
+           } else if ( fn == null ) {
+           	if ( typeof selector === "string" ) {
+           		// ( types, selector, fn )
+           		fn = data;
+           		data = undefined;
+           	} else {
+           		// ( types, data, fn )
+           		fn = data;
+           		data = selector;
+           		selector = undefined;
+           	}
+           }
+           if ( fn === false ) {
+           	fn = returnFalse;
+           } else if ( !fn ) {
+           	return this;
+           }
+
+           if ( one === 1 ) {
+           	origFn = fn;
+           	fn = function( event ) {
+           		// Can use an empty set, since event contains the info
+           		jQuery().off( event );
+           		return origFn.apply( this, arguments );
+           	};
+           	// Use same guid so caller can remove using origFn
+           	fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
+           }
+           return this.each( function() {
+           	jQuery.event.add( this, types, fn, data, selector );
+           });
+           },
+    * 多个事件同一个函数：
 			$("div").on("click mouseover", function(){});
 		* 多个事件不同函数
 			$("div").on({
@@ -1802,12 +2120,48 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 			});
 
 -  Node.js的适用场景？
+    Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。
+   因为Node处理并发能力比较强，处理高并发的能力基于其的事件驱动模式，通过异步回调，非阻塞I/O控制事件执行过程，当多个请求发生，主线程并不会阻塞等回应，而是继续执行下去，通过异步回调加入事件队列，再执行，所以比传统的多线程，线程池模式能更好的处理高并发。
+
+   传统的适用于（并发）异步处理相对较少，后台计算量大，后台业务逻辑复杂的应用程序。
+
+	 但是也有比较大的缺点就是如果有长时间的计算（大循环），将导致CPU不能释放 ，使得后续IO无法发起。
+
+	 使用场景；处理数万条连接，本身没有过多的逻辑运算（或者逻辑运算由客户端完成），只需要请求API，组织数据返回即可。
+   实时消息推送 ，实时聊天、客户端逻辑强大的单页APP
+   [Nodejs优缺点及适用场景](http://www.360doc.com/content/15/0721/08/20539824_486347209.shtml)
+   [从原理上理解Nodejs](http://www.cnblogs.com/kevin9103/p/5053517.html)
 
 -  (如果会用node)知道route, middleware, cluster, nodemon, pm2, server-side rendering么?
+   [route路由](http://expressjs.com/zh-cn/starter/basic-routing.html) 对url的处理就叫做路由 路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
+   每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
+   middleware:
 
+	 [知乎.Node.js 的中间件是用来做什么的](https://www.zhihu.com/question/37693420)
+	 [中间件是什么？](https://www.zhihu.com/question/19730582)
+	 [Express](http://www.expressjs.com.cn/guide/using-middleware.html) 是一个自身功能极简，完全是由路由和中间件构成一个的 web 开发框架：从本质上来说，一个 Express 应用就是在调用各种中间件。
+
+   [cluster是一个nodejs内置的模块，用于nodejs多核处理。cluster模块，可以帮助我们简化多进程并行化程序的开发难度，轻松构建一个用于负载均衡的集群。](http://blog.fens.me/nodejs-core-cluster/)
+   [nodemon监控 NodeJS 源代码的任何变化和自动重启你的服务器](http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/)
+	 [pm2 是一个带有负载均衡功能的Node应用的进程管理器](https://www.douban.com/note/314200231/)
+	  [server-side rendering 服务端渲染](https://ssr.vuejs.org/zh/)
 -  解释一下 Backbone 的 MVC 实现方式？
 
 - 什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?
+      路由是根据不同的 url 地址展示不同的内容或页面
+     前端路由:就是把不同路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回不同的页面实现的。
+		 后端路由：每跳转到不同的URL，都是重新访问服务端，然后服务端返回页面，页面也可以是服务端获取数据，然后和模板组合，返回HTML，也可以是直接返回模板HTML，然后由前端js再去请求数据，使用前端模板和数据进行组合，生成想要的HTML。
+
+    前端路由更多用在单页应用上, 也就是SPA, 因为单页应用, 基本上都是前后端分离的, 后端自然也就不会给前端提供路由。
+    优点：
+    1.从性能和用户体验的层面来比较的话，后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。
+    2.在某些场合中，用ajax请求，可以让页面无刷新，页面变了但Url没有变化，用户就不能复制到想要的地址，用前端路由做单页面网页就很好的解决了这个问题
+    缺点：
+    使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
+
+		[前端路由的两种实现方法](https://segmentfault.com/a/1190000007238999)
+    * 1 history.pushState 和 history.replaceState  popState
+		* 2 监听hashchange事件
 
 - 知道什么是webkit么? 知道怎么用浏览器的各种工具来调试和debug代码么?
 
@@ -1817,9 +2171,48 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 
 - 前端templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?
 
-- 简述一下 Handlebars 的基本用法？
+  模板引擎就像是html的解析生成器，将对应的模板填充完数据之后生成静态的html页面。它可以在浏览器端（比如angular中指令所用的模板）也可以在服务器端执行，不过一般用于服务器端。因为它的一个作用是抽象公共页面来重用，如果在服务端填充数据，可以减少回填数据给页面的ajax请求，从而提升浏览器端整体页面渲染速度。
+- 简述一下 Handlerbars 与 angular 或者 vue 这些（静态模板与动态模板的区别）？
+  静态模板是预先写个界面模板，然后通过数据填充，生成字符串，添加到页面中。当被添加到页面后，无论数据如何变化，界面也不再改变，除非再一次compile();
+	动态模板不仅仅有界面模板，还拥有一系列配置，这些配置能被特殊方式解析，从而与数据进行关联，动态变化。
 
-- 简述一下 Handlerbars 的对模板的基本处理流程， 如何编译的？如何缓存的？
+- 简述一下 Handlebars 的基本用法？
+ [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
+  * 1， 编写模板
+	   <script id="handlebars-demo" type="text/x-handlebars-template">
+	     <div>
+	   	   My name is {{name}}. I am a {{occupation}}.
+	     </div>
+     </script>
+	2， 运行时编译模板,使用Handlebars.compile()编译，将会返回一个函数（或者预编译模板。这样的话，就只需要一个更小的运行时库文件，并且对性能来说是一个极大的节约）
+	3，然后通过将数据作为参数来执行此功能。执行完成后，该函数返回所需的HTML，并将所有变量替换为相应的值。
+	4，将html 片段注入到网页中
+
+	       // Retrieve the template data from the HTML (jQuery is used here).
+         var template = $('#handlebars-demo').html();
+
+         // Compile the template data into a function
+         var templateScript = Handlebars.compile(template);
+
+         var context = { "name" : "Ritesh Kumar", "occupation" : "developer" };
+
+         // html = 'My name is Ritesh Kumar. I am a developer.'
+         var html = templateScript(context);
+
+         // Insert the HTML code into the page
+         $(document.body).append(html);
+  优点：
+	  * 1 模板语言简单。继承自mustache，用{{content}}标记出要替换的内容即可。
+		* 2 包含逻辑判断和循环。在mustache基础上加强了这个部分，使得代码更易读。
+		* 3 不支持复杂的逻辑，尤其是嵌套JS。我认为这是模板引擎的关键，任何复杂的逻辑放在表现层都会使得系统不稳定。
+		* 4 支持预编译。可以加快实际运行的速度。
+		* 5 提供扩展功能，可以方便地增加自定义功能。这也是本文重点。
+
+- 简述一下 Handlerbars 的对模板的基本处理流程，如何编译的？如何缓存的？
+   * 1, Handlebars把包含变量的模板编译成一个函数
+	 * 2, 然后通过传递JSON对象作为参数来执行此功能。这个JSON对象被称为上下文，它包含模板中使用的变量的值
+	 * 3，在执行时，该函数在将模板的变量替换为相应的值后返回所需的HTML
+
 
 - 用js实现千位分隔符?(来源：[前端农民工](http://div.io/topic/744)，提示：正则+replace)
 
@@ -1836,18 +2229,23 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 
 
 
-- 检测浏览器版本版本有哪些方式？
+- 检测浏览器版本有哪些方式？
 
 		功能检测、userAgent特征检测
-
-		比如：navigator.userAgent
+    navigator 对象
+		比如：
+    navigator.appName:保存浏览器类型
+		navigator.appVersion:存有浏览器的版本信息
+		navigator.userAgent: 浏览器的用户代理报头
 		//"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36
 		  (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
 
 
 - What is a Polyfill?
-
+   一个shim是一个库,它将一个新的API引入到一个旧的环境中,而且仅靠旧环境中已有的手段实现;
+	 polyfill 是 shim 的一种。
 		polyfill 是“在旧版浏览器上复制标准 API 的 JavaScript 补充”,可以动态地加载 JavaScript 代码或库，在不支持这些标准 API 的浏览器中模拟它们。
+
 		例如，geolocation（地理位置）polyfill 可以在 navigator 对象上添加全局的 geolocation 对象，还能添加 getCurrentPosition 函数以及“坐标”回调对象，
 		所有这些都是 W3C 地理位置 API 定义的对象和函数。因为 polyfill 模拟标准 API，所以能够以一种面向所有浏览器未来的方式针对这些 API 进行开发，
 		一旦对这些 API 的支持变成绝对大多数，则可以方便地去掉 polyfill，无需做任何额外工作。
@@ -1857,12 +2255,13 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 		比如： html5shiv、Geolocation、Placeholder
 
 - 我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
-
+    会执行两次事件，按绑定先后顺序执行。
+		如果父子元素绑定事件，绑定捕获的先执行于冒泡的。
 
 - 使用JS实现获取文件扩展名？
 
 		function getFileExtension(filename) {
-		  return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+		  return filename.slice((filename.lastIndexOf(".") >>> 0) + 1);
 		}
 
 		String.lastIndexOf() 方法返回指定值（本例中的'.'）在调用该方法的字符串中最后出现的位置，如果没找到则返回 -1。
@@ -1888,17 +2287,107 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 #### <a name='other'>前端框架相关</a>
 
 - react-router 路由系统的实现原理？
-
+  * 1 [深入理解 react-router 路由系统](https://zhuanlan.zhihu.com/p/20381597?columnSlug=purerender)
+  * 2 [react-router的实现原理](https://segmentfault.com/a/1190000004527878)
+  没有学过react，但猜想应该都是采用hasn 或者H5 history等路由监听方法来进行封装引用的。
 - React中如何解决第三方类库的问题?
-
+  因为学过VUE ,所以给出[vue的方案](https://github.com/dwqs/blog/issues/51)
+	* 1 全局变量 （不适合服务端）
+	* 2 在每个文件中手动引用（缺点繁琐）
+	* 3 代理到 Vue 的原型对象上
 
 ## <a name='other'>其他问题</a>
 
 - 原来公司工作流程是怎么样的，如何与其他人协作的？如何夸部门合作的？
+  流程：
+	* 1, 与后台沟通接口文档
+	* 2, 使用原型软件设计原型
+	* 3, 进行开发
+	* 4, 后期测试
+	* 5，部署上线
+
 
 - 你遇到过比较难的技术问题是？你是如何解决的？
 
+
 - 设计模式 知道什么是singleton, factory, strategy, decrator么?
+  [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
+	[javascript 设计模式（文章很长，请自备瓜子，水果和眼药水）](http://www.cnblogs.com/Darren_code/archive/2011/08/31/JavascripDesignPatterns.html)
+	[汤姆大叔深入理解JavaScript系列](http://www.cnblogs.com/TomXu/tag/JavaScript/default.html?page=1)
+  singleton：
+	    var singleton = function() {
+	    	var instance;
+	    	var createInstance = function() {
+	    		this.a = 1;
+	    		this.b = 2;
+	    	};
+	    	return {
+	    		getInstance: function() {
+	    			if (!instance) {
+	    				instance = new createInstance();
+	    			}
+	    			return instance;
+	    		}
+	    	}
+	    }
+			var Factory = singleton()
+		  var singleton_1 = Factory.getInstance();
+	[很棒的实例](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/)
+  factory
+	        // A constructor for defining new cars
+	        function Car( options ) {
+
+	        	// some defaults
+	        	this.doors = options.doors || 4;
+	        	this.state = options.state || "brand new";
+	        	this.color = options.color || "silver";
+
+	        }
+
+	        // A constructor for defining new trucks
+	        function Truck( options){
+
+	        	this.state = options.state || "used";
+	        	this.wheelSize = options.wheelSize || "large";
+	        	this.color = options.color || "blue";
+	        }
+
+
+	        // FactoryExample.js
+
+	        // Define a skeleton vehicle factory
+	        function VehicleFactory() {}
+
+	        // Define the prototypes and utilities for this factory
+
+	        // Our default vehicleClass is Car
+	        VehicleFactory.prototype.vehicleClass = Car;
+
+	        // Our Factory method for creating new Vehicle instances
+	        VehicleFactory.prototype.createVehicle = function ( options ) {
+
+	        	switch(options.vehicleType){
+	        		case "car":
+	        			this.vehicleClass = Car;
+	        			break;
+	        		case "truck":
+	        			this.vehicleClass = Truck;
+	        			break;
+	        		//defaults to VehicleFactory.prototype.vehicleClass (Car)
+	        	}
+
+	        	return new this.vehicleClass( options );
+
+	        };
+
+	        // Create an instance of our factory that makes cars
+	        var carFactory = new VehicleFactory();
+	        var car = carFactory.createVehicle( {
+	        						vehicleType: "car",
+	        						color: "yellow",
+	        						doors: 6 } );
+  strategy
+	decrator
 
 - 常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？
 
@@ -2125,6 +2614,8 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 			载入解析到的资源文件，渲染页面，完成。
 
 - 部分地区用户反应网站很卡，请问有哪些可能性的原因，以及解决方法？
+  * 1，
+	* 2，
 
 - 从打开app到刷新出内容，整个过程中都发生了什么，如果感觉慢，怎么定位问题，怎么解决?
 
