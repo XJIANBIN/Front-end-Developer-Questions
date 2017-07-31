@@ -1,7 +1,7 @@
 # 前端开发面试题
 
 ## <a name='preface'>前言</a> ##
-
+本文转自[markyun github博客](http://markyun.github.io/)，在原先的基础上，本人对齐进行补充，基本完成了所有知识的回答。希望能帮到大家！！！
 
 [只看问题点这里 ](http://markyun.github.io/2015/Front-end-Developer-Questions/ "Questions")
 
@@ -36,7 +36,8 @@
 		DOM、BOM、内存泄漏、跨域、异步装载、模板引擎、前端MVC、路由、模块化、Canvas、ECMAScript 6、Nodejs
 
 	其他：
-        移动端、响应式、自动化构建、HTTP、离线存储、WEB安全、优化、重构、团队协作、可维护、易用性、SEO、UED、架构、职业生涯、快速学习能力
+        移动端、响应式、自动化构建、HTTP、离线存储、WEB安全、优化、重构、团队协作、可维护、易用性、SEO、UED、架构、
+				职业生涯、快速学习能力
 
 作为一名前端工程师，**无论工作年头长短都应该掌握的知识点**：
 
@@ -73,10 +74,10 @@
 	格式不断修改更新中。
 
 	更新记录：
-	2016年3月25日：新增ECMAScript6 相关问题
+	2017年7月31日：新增ECMAScript6 相关问题
 
 
-### 更新时间:  2016-3-25
+### 更新时间:  2017-7-31
 
 
 
@@ -84,21 +85,27 @@
 
 - Doctype作用？标准模式与兼容模式各有什么区别?
 
-		（1）、<!DOCTYPE>声明位于位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+		（1）、<!DOCTYPE>声明位于位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。
+		 DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
 
-		（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
-		（3）、标准模式的宽度计算方式与兼容模式不同，给行内元素设置width和height无效，而兼容模式有效;标准模式当父元素没高度，子元素百分比无效，而兼容模式有效，使用margin:0 auto在标准模式下可以使元素水平居中，但在兼容模式下却会失效,解决办法，用text-align属性;兼容模式下设置图片padding失效，Table的字体属性不能继承
-		上层设置，white-space:pre失效
+		（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟
+		 老式浏览器的行为以防止站点无法工作。
+		（3）、标准模式的宽度计算方式与兼容模式不同，给行内元素设置width和height无效，而兼容模式有效;标准模式当父元素没高度，
+		 子元素百分比无效，而兼容模式有效，使用margin:0 auto在标准模式下可以使元素水平居中，但在兼容模式下却会失效,解决办法，
+		 用text-align属性;兼容模式下设置图片padding失效，Table的字体属性不能继承上层设置，white-space:pre失效
 
 - HTML5 为什么只需要写 `<!DOCTYPE HTML>`？
 
-		 HTML5 不基于 SGML，因此不需要对DTD(为了描述文档的结构，SGML定义了一个称为“文档类型定义(Document Type Definition，DTD)”的文件(file)，它为组织文档的文档元素(例如章和章标题，节和主题等)提供了一个框架。此外，DTD还为文档元素之间的相互关系制定了规则。)进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
+		 HTML5 不基于 SGML，因此不需要对DTD(为了描述文档的结构，SGML定义了一个称为“文档类型定义(Document Type Definition，DTD)”
+		 的文件(file)，它为组织文档的文档元素(例如章和章标题，节和主题等)提供了一个框架。此外，DTD还为文档元素之间的相互关系制定了
+		 规则。)进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
 
 		 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 
 - 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
 
-		首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。
+		首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，
+		则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。
 
 		（1）行内元素有：a b span img input select strong（强调的语气）
 		（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p
@@ -116,15 +123,17 @@
 			*  <track> <track> 标签为诸如 video 元素之类的媒介规定外部文本轨道。
 			* <wbr> <p>果想学习 AJAX <wbr>Http<wbr>Request 对象。</p>   规定在文本中的何处适合添加换行符。
 
-		不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
-		参考: http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements
+ 不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
+
+ [参考: ](http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements)
 
 
 
 - 页面导入样式时，使用link和@import有什么区别？
 
 
-		（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;
+		（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，
+		只能用于加载CSS;
 
 		（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
 
@@ -134,7 +143,9 @@
 - 介绍一下你对浏览器内核的理解？
 
 		主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和JS引擎。
-		渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。
+		渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然
+		后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏
+		览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。
 
 		JS引擎则：解析和执行javascript来实现网页的动态效果。
 
@@ -147,7 +158,7 @@
 		Presto内核：Opera7及以上。      [Opera内核原为：Presto，现为：Blink;]
 		Webkit内核：Safari,Chrome等。   [ Chrome的：Blink（WebKit的分支）]
 
-      详细文章：[浏览器内核的解析和对比](http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)
+ [浏览器内核的解析和对比](http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)
 
 
 
@@ -194,7 +205,9 @@ HTML5？
 - HTML5的离线储存怎么使用，工作原理能不能解释一下？
 
 		在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
-		原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
+		原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单
+		离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线
+		存储的数据进行页面展示。
 
 
 		如何使用：
@@ -221,7 +234,10 @@ HTML5？
 
 - 浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？
 
-		在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
+		在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，
+		那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已
+		经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest
+		文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
 		离线的情况下，浏览器就直接使用离线存储的资源。
 	详细请参考：[有趣的HTML5：离线存储](http://segmentfault.com/a/1190000000732617)
 
@@ -292,15 +308,17 @@ HTML5？
 		   <img>通过usemap映射到<map>的circle形<area>。
 		2、border-radius
 		3、纯js实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等
-		     document.onclick = function (e) {
-					 var x1 = 100,y1 = 100,x2 = e.clientX , y2 = clientY;
-					 var distance  = Math.abs(Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2)));
-					 if (distance <= 50 ) {
-               console.log('in');
-					  } else {
-							console.log("out");
-						}
-				 }
+		    ```javascript
+				   document.onclick = function (e) {
+				    var x1 = 100,y1 = 100,x2 = e.clientX , y2 = clientY;
+				    var distance  = Math.abs(Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2)));
+				    if (distance <= 50 ) {
+				   			console.log('in');
+				   	} else {
+				   		console.log("out");
+				   	}
+			    }   
+				```
 
 - 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
 
@@ -492,14 +510,14 @@ HTML5？
 
 - 请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？
 
-		 一个用于页面布局的全新CSS3功能，Flexbox可以把列表放在同一个方向（从上到下排列，从左到右），并让列表能延伸到占用可用的空间。
+		 一个用于页面布局的全新CSS3功能，Flexbox可以把列表放在同一个方向（从上到下排列，从左到右）,并让列表能延伸到占用可用的空间。
 		 较为复杂的布局还可以通过嵌套一个伸缩容器（flex container）来实现。
 		 采用Flex布局的元素，称为Flex容器（flex container），简称"容器"。
 		 它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称"项目"。
 		 常规布局是基于块和内联流方向，而Flex布局是基于flex-flow流可以很方便的用来做局中，能对不同屏幕大小自适应。
 		 在布局上有了比以前更加灵活的空间。
 
-		 具体：http://www.w3cplus.com/css3/flexbox-basics.html
+具体：http://www.w3cplus.com/css3/flexbox-basics.html
 
 - 用纯CSS创建一个三角形的原理是什么？
 
@@ -537,7 +555,8 @@ HTML5？
 
 		  浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 10px;}
 
-	      这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——_display:inline;将其转化为行内属性。(_这个符号只有ie6会识别)
+	      这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——_display:inline;将其转化为行内属性。
+				(_这个符号只有ie6会识别)
 
 		  渐进识别的方式，从总体中逐渐排除局部。
 
@@ -572,7 +591,8 @@ HTML5？
 
 - li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
 
-		行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。
+		行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，
+		所以会有间隔，把字符大小设为0，就没有空格了。
 
 
 - 为什么要初始化CSS样式。
@@ -584,7 +604,8 @@ HTML5？
 		最简单的初始化方法： * {padding: 0; margin: 0;} （强烈不建议）
 
 		淘宝的样式初始化代码：
-		body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+		body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button,
+		input, textarea, th, td { margin:0; padding:0; }
 		body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
 		h1, h2, h3, h4, h5, h6{ font-size:100%; }
 		address, cite, dfn, em, var { font-style:normal; }
@@ -604,7 +625,8 @@ HTML5？
 - absolute的containing block(容器块)计算方式跟正常流有什么不同？
 
 		无论属于哪种，都要先找到其祖先元素中最近的 position 值不为 static 的元素，然后再判断：
-		1、若此元素为 inline 元素，则 containing block 为能够包含这个元素生成的第一个和最后一个 inline box 的 padding box (除 margin, border 外的区域) 的最小矩形；
+		1、若此元素为 inline 元素，则 containing block 为能够包含这个元素生成的第一个和最后一个 inline box 的
+		padding box (除 margin, border 外的区域) 的最小矩形；
 		2、否则,则由这个祖先元素的 padding box 构成。
 		如果都找不到，则为 initial containing block。
 
@@ -621,13 +643,16 @@ HTML5？
 
 - position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？
 
-	如果元素的display为none,那么元素不被渲染,position,float不起作用,如果元素拥有position:absolute;或者position:fixed;属性那么元素将为绝对定位,float不起作用.如果元素float属性不是none,元素会脱离文档流,根据float属性值来显示.有浮动,绝对定位,inline-block属性的元素,margin不会和垂直方向上的其他元素margin折叠.
+	如果元素的display为none,那么元素不被渲染,position,float不起作用,如果元素拥有position:absolute;或者position:fixed;
+	属性那么元素将为绝对定位,float不起作用.如果元素float属性不是none,元素会脱离文档流,根据float属性值来显示.有浮动,绝对
+	定位,inline-block属性的元素,margin不会和垂直方向上的其他元素margin折叠.
 
 - 对BFC规范(块级格式化上下文：block formatting context)的理解？
 
 		（W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）
 		 一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。
-		 不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的元素和外部的元素不会互相影响。
+		 不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,
+		 也就是说BFC内部的元素和外部的元素不会互相影响。
 
 - css定义的权重
 
@@ -686,16 +711,19 @@ HTML5？
 		1) display:block 使生成的元素以块级元素显示,占满剩余空间;
 		2) height:0 避免生成内容破坏原有布局的高度。
 		3) visibility:hidden 使生成的内容不可见，并允许可能被生成内容盖住的内容可以进行点击和交互;
-		4）通过 content:"."生成内容作为最后一个元素，至于content里面是点还是其他都是可以的，例如oocss里面就有经典的 content:".",有些版本可能content 里面内容为空,一丝冰凉是不推荐这样做的,firefox直到7.0 content:”" 仍然会产生额外的空隙；
+		4）通过 content:"."生成内容作为最后一个元素，至于content里面是点还是其他都是可以的，
+		例如oocss里面就有经典的 content:".",有些版本可能content 里面内容为空,一丝冰凉是
+		不推荐这样做的,firefox直到7.0 content:”" 仍然会产生额外的空隙；
 		5）zoom：1 触发IE hasLayout。
 
-		通过分析发现，除了clear：both用来闭合浮动的，其他代码无非都是为了隐藏掉content生成的内容，这也就是其他版本的闭合浮动为什么会有font-size：0，line-height：0。
+		通过分析发现，除了clear：both用来闭合浮动的，其他代码无非都是为了隐藏掉content生成的内容，
+		这也就是其他版本的闭合浮动为什么会有font-size：0，line-height：0。
 
 - 什么是外边距合并？
 
 		外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。
 		合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。
-		w3school介绍网址： http://www.w3school.com.cn/css/css_margin_collapsing.asp
+		[w3school介绍网址：](http://www.w3school.com.cn/css/css_margin_collapsing.asp)
 
 - zoom:1的清除浮动原理?
 
@@ -704,9 +732,11 @@ HTML5？
 		譬如外边距（margin）的重叠，浮动清除，触发ie的haslayout属性等。
 
 		来龙去脉大概如下：
-		当设置了zoom的值之后，所设置的元素就会就会扩大或者缩小，高度宽度就会重新计算了，这里一旦改变zoom值时其实也会发生重新渲染，运用这个原理，也就解决了ie下子元素浮动时候父元素不随着自动扩大的问题。
+		当设置了zoom的值之后，所设置的元素就会就会扩大或者缩小，高度宽度就会重新计算了，这里
+		一旦改变zoom值时其实也会发生重新渲染，运用这个原理，也就解决了ie下子元素浮动时候父元素不随着自动扩大的问题。
 
-		Zoom属是IE浏览器的专有属性，火狐和老版本的webkit核心的浏览器都不支持这个属性。然而，zoom现在已经被逐步标准化，出现在 CSS 3.0 规范草案中。
+		Zoom属是IE浏览器的专有属性，火狐和老版本的webkit核心的浏览器都不支持这个属性。然而，
+		zoom现在已经被逐步标准化，出现在 CSS 3.0 规范草案中。
 
 		目前非ie由于不支持这个属性，它们又是通过什么属性来实现元素的缩放呢？
 		可以通过css3里面的动画属性scale进行缩放。
@@ -745,7 +775,7 @@ HTML5？
 - CSS优化、提高性能的方法有哪些？
 
 		关键选择器（key selector）。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）；
-		如果规则拥有 ID 选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系统就不会浪费时间去匹配它们了）；
+		如果规则拥有 ID 选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系统就不会浪费时间去匹配它们了);
 		提取项目的通用公有样式，增强可复用性，按模块编写组件；增强项目的协同开发性、可维护性和可扩展性;
 		使用预处理工具或构建工具（gulp对css进行语法检查、自动补前缀、打包压缩、自动优雅降级）；
 
@@ -780,16 +810,20 @@ HTML5？
   * 面的设计和开发应当根据用户行为以及设备环境（系统平台、屏幕尺寸、屏幕定向等）进行相应的响应和调整.
 	* 响应式设计的基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。页面头部必须有meta声明viewport：
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”>
-	* 兼容方案 1 第一种：https://github.com/livingston/css3-mediaqueries-js  2 第二种：https://github.com/scottjehl/Respond
-	  3 通过resize方法来实现PC端响应式
+	* 兼容方案
+	  * 1, [第一种：](https://github.com/livingston/css3-mediaqueries-js)  
+		* 2, [第二种：](https://github.com/scottjehl/Respond)
+	  * 3, 通过resize方法来实现PC端响应式
 		$(window).resize(function () {
        screenRespond();
     });
 
+
 - 视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）
-  * 在web设计中，通过运用多层背景在以不同速度运动的情况下，形成的一种立体的运动效果，这种视觉体验，我们称之为视差效果。
-	* 1 实现方式 css background-attachment: fixed; 2 插件
-  * http://www.alloyteam.com/2014/02/optimized-articles-of-parallax-scrolling-love-story/
+   在web设计中，通过运用多层背景在以不同速度运动的情况下，形成的一种立体的运动效果，这种视觉体验，我们称之为视差效果。
+	  * 1, 实现方式 css background-attachment: fixed;
+	  * 2, 插件
+    * 3, [链接](http://www.alloyteam.com/2014/02/optimized-articles-of-parallax-scrolling-love-story/)
 
 - ::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。
 
@@ -822,8 +856,11 @@ HTML5？
 - 怎么让Chrome支持小于12px 的文字？
 
 		1、用图片：如果是内容固定不变情况下，使用将小于12px文字内容切出做图片，这样不影响兼容也不影响美观。
-		2、使用12px及12px以上字体大小：为了兼容各大主流浏览器，建议设计美工图时候设置大于或等于12px的字体大小，如果是接单的这个时候就需要给客户讲解小于12px浏览器不兼容等事宜。
-		3、继续使用小于12px字体大小样式设置：如果不考虑chrome可以不用考虑兼容，同时在设置小于12px对象设置-webkit-text-size-adjust:none(PC上已失效)，做到最大兼容考虑。改为 transform:scale(0.875);实现 https://www.zhihu.com/question/21093147?rf=21339583
+		2、使用12px及12px以上字体大小：为了兼容各大主流浏览器，建议设计美工图时候设置大于或等于12px的字体大小，
+		如果是接单的这个时候就需要给客户讲解小于12px浏览器不兼容等事宜。
+		3、继续使用小于12px字体大小样式设置：如果不考虑chrome可以不用考虑兼容，同时在设置小于12px对象设置
+		-webkit-text-size-adjust:none(PC上已失效)，做到最大兼容考虑。改为 transform:scale(0.875);
+		[实现](https://www.zhihu.com/question/21093147?rf=21339583)
 		4、使用12px以上字体：为了兼容、为了代码更简单 从新考虑权重下兼容性。
 
 - 让页面里的字体变清晰，变细用CSS怎么做？
@@ -832,7 +869,8 @@ HTML5？
 
 - font-style属性可以让它赋值为“oblique” oblique是什么意思？
 
-		倾斜的字体样式（在css规范中这么描述的，让一种字体表示为斜体（oblique），如果没有这样样式，就可以使用 italic。oblique是一种倾斜的文字，不是斜体。）
+		倾斜的字体样式（在css规范中这么描述的，让一种字体表示为斜体（oblique），如果没有这样样式，
+		就可以使用 italic。oblique是一种倾斜的文字，不是斜体。）
 
 - position:fixed;在android下无效怎么处理？
 
@@ -847,35 +885,44 @@ HTML5？
 
 - display:inline-block 什么时候会显示间隙？(携程)
 
-		有空格的时候会有间隙（两个display:inline-block的默认的空格或者换行符），解决方法 移除空格、使用margin负值、使用font-size:0、letter-spacing、word-spacing
+		有空格的时候会有间隙（两个display:inline-block的默认的空格或者换行符），解决方法 移除空格、
+		使用margin负值、使用font-size:0、letter-spacing、word-spacing
 
 - overflow: scroll时不能平滑滚动的问题怎么处理？
 
 		（1）-webkit-overflow-scrolling: touch;，是因为这行代码启用了硬件加速特性，所以滑动很流畅。
-		（2）  http://www.jianshu.com/p/1f4693d0ad2d  isroll 方案
-    overflow: auto 当页面出现滚动条时，会造成跳动问题 http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/
+		（2） [isroll 方案](http://www.jianshu.com/p/1f4693d0ad2d)  
+
+		overflow: auto 当页面出现滚动条时，会造成[跳动问题](http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/)
    * （1）高度尺寸不确定的时候，使用：overflow-y：scroll;
-   *  （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
-   *  （3）.wrap-outer {
-           margin-left: calc(100vw - 100%);
-          }
-         或.wrap-outer {
-           padding-left: calc(100vw - 100%);
-          }
-					首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
-					然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
-					最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
-					于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，主体内容就可以永远居中浏览器啦，从而没有任何跳动！
+   * （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
+   * （3）
+	    ```javascript
+			       .wrap-outer {
+							  margin-left: calc(100vw - 100%);
+						 }
+						或.wrap-outer {
+							  padding-left: calc(100vw - 100%);
+						  }
+			```
+			首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
+			然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
+			最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
+			于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，
+			主体内容就可以永远居中浏览器啦，从而没有任何跳动！
 
 - 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。
     *（1）height：calc（100%-100px）
-    * （2）absolute positioning：外层position：relative；百分百自适应元素 position: absolute; top: 100px; bottom: 0; left: 0
+    * （2）absolute positioning：外层position：relative；百分百自适应元素
+		    position: absolute; top: 100px; bottom: 0; left: 0
     *  flex 父元素display:flex; flex-direction: column; 下面的子元素的设置flex: 1;
 
 - png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
-    *  （1）png是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式， 优点是：压缩比高，色彩好。 大多数地方都可以用。
-    *  （2）jpg是一种针对相片使用的一种失真压缩方法，是一种破坏性的压缩，在色调及颜色平滑变化做的 不错。在www上，被用来储存和传输照片的格式。
-    *  （3）gif是一种位图文件格式，以8位色重现真色彩的图像。可以实现动画效果时候
+    * 1, png是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式，
+		 优点是：压缩比高，色彩好。 大多数地方都可以用。
+    * 2, jpg是一种针对相片使用的一种失真压缩方法，是一种破坏性的压缩，在色调及颜色平滑变化做的 不错。
+		    在www上，被用来储存和传输照片的格式。
+    * 3, gif是一种位图文件格式，以8位色重现真色彩的图像。可以实现动画效果时候
 
     webp格式
     是谷歌在2010年推出的图片格式，压缩率只有jpg的2/3，大小比png小了45%，缺点是压缩的时间更久了
@@ -886,38 +933,37 @@ HTML5？
 		如果静态文件都放在主域名下，那静态文件请求的时候都带有的cookie的数据提交给server的，非常浪费流量，
 		所以不如隔离开。
 
-    静态资源放 CDN ，用 cookie free domain
-		因为cookie有域的限制，因此不能跨域提交请求，故使用非主要域名的时候，请求头中就不会带有cookie数据，
-		这样可以降低请求头的大小，降低请求时间，从而达到降低整体请求延时的目的。
+    静态资源放 CDN ，用 cookie free domain因为cookie有域的限制，因此不能跨域提交请求，故使用非
+		主要域名的时候，请求头中就不会带有cookie数据，这样可以降低请求头的大小，降低请求时间，从而达到
+		降低整体请求延时的目的。
 
 		同时这种方式不会将cookie传入Web Server，也减少了Web Server对cookie的处理分析环节，
 		提高了webserver的http请求的解析速度。
 
 
 - style标签写在body后与body前有什么区别？
-　　　*　写在head标签中利于浏览器逐步渲染（resources downloading->CSSOM+DOM->RenderTree(composite)->Layout->paint）。
-　　　　　CSS，解析CSS会产生CSS规则树。Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
+　　* 1, 写在head标签中利于浏览器逐步渲染（resources downloading->CSSOM+DOM->RenderTree(composite)->Layout->paint）。
+　　CSS，解析CSS会产生CSS规则树。Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
 
-　　　*　写在body标签后由于浏览器以逐行方式对html文档进行解析，当解析到写在尾部的样式表（外联或写在style标签）会导致浏览器停止之前的渲染，
-　　　　　等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）
+　　* 2, 写在body标签后由于浏览器以逐行方式对html文档进行解析，当解析到写在尾部的样式表（外联或写在style标签）会导致浏览
+    器停止之前的渲染，等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）
 
-基础知识——浏览器的渲染过程：(CSSOM视图模块(CSS Object Model View)
+- 基础知识——浏览器的渲染过程：(CSSOM视图模块(CSS Object Model View)
 
-*　Create/Update DOM And request css/image/js：浏览器请求到HTML代码后，在生成DOM的最开始阶段（应该是 Bytes → characters 后），并行发起css、图片、js的请求，无论他们是否在HEAD里。注意：发起 js 文件的下载 request 并不需要 DOM 处理到那个 script 节点，比如：简单的正则匹配就能做到这一点，虽然实际上并不一定是通过正则：）。这是很多人在理解渲染机制的时候存在的误区。
-* Create/Update Render CSSOM：CSS文件下载完成，开始构建CSSOM
-* Create/Update Render Tree：所有CSS文件下载完成，CSSOM构建结束后，和 DOM 一起生成 Render Tree。
-* Layout：有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的CSS定义以及他们的从属关系。下一步操作称之为Layout，顾名思义就是计算出每个节点在屏幕中的位置。
-* Painting：Layout后，浏览器已经知道了哪些节点要显示（which nodes are visible）、每个节点的CSS属性是什么（their computed styles）、每个节点在屏幕中的位置是哪里（geometry）。就进入了最后一步：Painting，按照算出来的规则，通过显卡，把内容画到屏幕上。
-补充：
+* 1, Create/Update DOM And request css/image/js：浏览器请求到HTML代码后，在生成DOM的最开始阶段（应该是 Bytes → characters 后），并行发起css、图片、js的请求，无论他们是否在HEAD里。注意：发起 js 文件的下载 request 并不需要 DOM 处理到那个 script 节点，比如：简单的正则匹配就能做到这一点，虽然实际上并不一定是通过正则：）。这是很多人在理解渲染机制的时候存在的误区。
+* 2, Create/Update Render CSSOM：CSS文件下载完成，开始构建CSSOM
+* 3, Create/Update Render Tree：所有CSS文件下载完成，CSSOM构建结束后，和 DOM 一起生成 Render Tree。
+* 4, Layout：有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的CSS定义以及他们的从属关系。下一步操作称之为Layout，顾名思义就是计算出每个节点在屏幕中的位置。
+* 5, Painting：Layout后，浏览器已经知道了哪些节点要显示（which nodes are visible）、每个节点的CSS属性是什么（their computed styles）、每个节点在屏幕中的位置是哪里（geometry）。就进入了最后一步：Painting，按照算出来的规则，通过显卡，把内容画到屏幕上。
 
-Repaint（重绘）：屏幕的一部分要重画。
-Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Render Tree
-联想——<script>标签放到<body>尾部是有必要的吗？
+  补充：
+* 1, Repaint（重绘）：屏幕的一部分要重画。
+* 2, Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Render Tree
+* 3, 联想——<script>标签放到<body>尾部是有必要的吗？
 
-如果放到<body>开始位置，假如js文件很大，解析到js文件所在的script标签的时候，js文件还没有下载完成，这时会阻塞并停止解析后面的HTML代码。当js文件下载完成并执行完之后才会继续后面的解析。所以是有必要的。
+  如果放到<body>开始位置，假如js文件很大，解析到js文件所在的script标签的时候，js文件还没有下载完成，这时会阻塞并停止解析后面的HTML代码。当js文件下载完成并执行完之后才会继续后面的解析。所以是有必要的。
 
 
-　
 - 什么是CSS 预处理器 / 后处理器？
 
 		- 预处理器例如：LESS、Sass、Stylus，用来预编译Sass或less，增强了css代码的复用性，
@@ -937,7 +983,8 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		 合成类型： Object  细分为 :对象，数组，函数
 
 		 null: 是对象，但为空，参与数值运算时会自动转为0
-		 Undefined: 是全局对象（window）的一个特殊属性，其值是未定义的。但 typeof undefined 返回 ‘undefined’ 。 undefined参与任何数值计算时，其结果一定是NaN。
+		 Undefined: 是全局对象（window）的一个特殊属性，其值是未定义的。但 typeof undefined 返回 ‘undefined’ 。
+		  undefined参与任何数值计算时，其结果一定是NaN。
 		 ECMAScript 2015 新增:Symbol(创建后独一无二且不可变的数据类型 )
 
      JS有两种数据类型：基本类型和引用类型。引用类型值是保存在内存中的对象，并且是按引用访问。因为JS不允许直接访问内存中的位置，也就是不能直接操作对象的内存空间。变量对象上存储的值是指向堆中对象的一个指针（引用）。基本类型的变量对象存储的便是值。
@@ -949,7 +996,7 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		数据封装类对象：Object、Array、Boolean、Number 和 String
 		其他对象：Function、Arguments、Math、Date、RegExp、Error
 
-		参考：http://www.ibm.com/developerworks/cn/web/wa-objectsinjs-v1b/index.html
+		[参考：](http://www.ibm.com/developerworks/cn/web/wa-objectsinjs-v1b/index.html)
 
 -  说几条写JavaScript的基本规范？
 
@@ -981,24 +1028,23 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		关系：instance.constructor.prototype = instance.__proto__
 
 		特点：
-		JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变。
-
+		JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，
+		与之相关的对象也会继承这一改变。
 
 		 当我们需要一个属性的时，Javascript引擎会先看当前对象中是否有这个属性， 如果没有的话，
 		 就会查找他的Prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象。
-			function Func(){}
-			Func.prototype.name = "Sean";
-			Func.prototype.getInfo = function() {
-			  return this.name;
-			}
-			var person = new Func();//现在可以参考var person = Object.create(oldObject);
-			console.log(person.getInfo());//它拥有了Func的属性和方法
-			//"Sean"
-			console.log(Func.prototype);
-			// Func { name="Sean", getInfo=function()}
-
-
-
+     ```javascript
+		    function Func(){}
+		    Func.prototype.name = "Sean";
+		    Func.prototype.getInfo = function() {
+			    return this.name;
+		    }
+		    var person = new Func();//现在可以参考var person = Object.create(oldObject);
+		    console.log(person.getInfo());//它拥有了Func的属性和方法
+		    //"Sean"
+		    console.log(Func.prototype);
+		    // Func { name="Sean", getInfo=function()}
+		 ```     
 
 -  JavaScript有几种类型的值？，你能画一下他们的内存图吗？
 
@@ -1007,7 +1053,9 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 		两种类型的区别是：存储位置不同；
 		原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；
-		引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定。如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体
+		引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定。如果存储在栈中，将会影响程序运行的性能；
+		引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，
+		取得地址后从堆中获得实体
 
 	![Stated Clearly Image](http://www.w3school.com.cn/i/ct_js_value.gif)
 
@@ -1036,19 +1084,22 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 - 如何实现数组的随机排序？
 
 		方法一：
-			var arr = [1,2,3,4,5,6,7,8,9,10];
-			function randSort1(arr){
-				for(var i = 0,len = arr.length;i < len; i++ ){
-					var rand = parseInt(Math.random()*len);
-					var temp = arr[rand];
-					arr[rand] = arr[i];
-					arr[i] = temp;
-				}
-				return arr;
-			}
-			console.log(randSort1(arr));
+			```javascript
+			    var arr = [1,2,3,4,5,6,7,8,9,10];
+		     function randSort1(arr){
+			     for(var i = 0,len = arr.length;i < len; i++ ){
+			    	 var rand = parseInt(Math.random()*len);
+			    	 var temp = arr[rand];
+			    	 arr[rand] = arr[i];
+			    	 arr[i] = temp;
+			     }
+			     return arr;
+		     }
+		     console.log(randSort1(arr));
+			```
 
 		方法二：
+		```javascript
 			var arr = [1,2,3,4,5,6,7,8,9,10];
 			function randSort2(arr){
 				var mixedArray = [];
@@ -1060,16 +1111,17 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 				return mixedArray;
 			}
 			console.log(randSort2(arr));
-
+    ```
 		方法三：
+		```javascript
 			var arr = [1,2,3,4,5,6,7,8,9,10];
 			arr.sort(function(){
 				return Math.random() - 0.5;
 			})
 			console.log(arr);
-
+    ```
 -  Javascript如何实现继承？
-    参考文章： https://kongchenglc.coding.me/blog/js%E7%BB%A7%E6%89%BF20170503/#more
+  [参考文章：](https://kongchenglc.coding.me/blog/js%E7%BB%A7%E6%89%BF20170503/#more)
 		1、构造继承
 		2、原型继承
 		3、实例继承
@@ -1091,7 +1143,8 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 			alert(demo.name);//得到被继承的属性
 
 - JavaScript继承的几种实现方式？
-  - 参考：[构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)，[非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)；
+  * 参考：[构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)，
+	       [非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)；
 
 
 -  javascript创建对象的几种方式？
@@ -1331,14 +1384,16 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 -  事件是？IE与火狐的事件机制有什么区别？ 如何阻止冒泡？
 
-		 1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。
+		 1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。
+		    是可以被 JavaScript 侦测到的行为。
 		 2. 事件处理机制：IE是事件冒泡、Firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件；
 		 3. ev.stopPropagation();（旧ie的方法 ev.cancelBubble = true;）
 
 
 -  什么是闭包（closure），为什么要用它？
 
-		闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。
+		闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，
+		通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。
 
 		闭包的特性：
 
@@ -1347,39 +1402,41 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		3.参数和变量不会被垃圾回收机制回收
 
 		//li节点的onclick事件都能正确的弹出当前被点击的li索引
-		 <ul id="testUL">
-	        <li> index = 0</li>
-	        <li> index = 1</li>
-	        <li> index = 2</li>
-	        <li> index = 3</li>
-	    </ul>
-		<script type="text/javascript">
-		  	var nodes = document.getElementsByTagName("li");
-			for(i = 0;i<nodes.length;i+= 1){
-			    nodes[i].onclick = (function(i){
-			              return function() {
-			                 console.log(i);
-			              } //不用闭包的话，值每次都是4
-			            })(i);
-			}
-		</script>
-
-
+     ```javascript
+		    <ul id="testUL">
+		    		 <li> index = 0</li>
+		    		 <li> index = 1</li>
+		    		 <li> index = 2</li>
+		    		 <li> index = 3</li>
+		     </ul>
+	     <script type="text/javascript">
+		    	 var nodes = document.getElementsByTagName("li");
+		     for(i = 0;i<nodes.length;i+= 1){
+		    		 nodes[i].onclick = (function(i){
+		    							 return function() {
+		    									console.log(i);
+		    							 } //不用闭包的话，值每次都是4
+		    						 })(i);
+		     }
+	     </script>
+		```
 
 		执行say667()后,say667()闭包内部变量会存在,而闭包内部函数的内部变量不会存在
 		使得Javascript的垃圾回收机制GC不会收回say667()所占用的资源
 		因为say667()的内部函数的执行需要依赖say667()中的变量
 		这是对闭包作用的非常直白的描述
 
-		  function say667() {
-			// Local variable that ends up within closure
-			var num = 666;
-			var sayAlert = function() {
-				alert(num);
-			}
-			num++;
-			return sayAlert;
-		}
+		```javascript
+		     function say667() {
+	      // Local variable that ends up within closure
+	      var num = 666;
+	      var sayAlert = function() {
+		      alert(num);
+	      }
+	      num++;
+	      return sayAlert;
+	      }
+		```
 
 		 var sayAlert = say667();
 		 sayAlert()//执行结果应该弹出的667
@@ -1392,7 +1449,8 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		使JS编码更加规范化的模式,消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为。
 		默认支持的糟糕特性都会被禁用，比如不能用with，也不能在意外的情况下给全局变量赋值;
 		全局变量的显示声明,函数必须声明在顶层，不允许在非函数代码块内声明函数,arguments.callee也不允许使用；
-		消除代码运行的一些不安全之处，保证代码运行的安全,限制函数中的arguments修改，严格模式下的eval函数的行为和非严格模式的也不相同;
+		消除代码运行的一些不安全之处，保证代码运行的安全,限制函数中的arguments修改，严格模式下的eval函数的
+		行为和非严格模式的也不相同;
 
 		提高编译器效率，增加运行速度；
 		为未来新版本的Javascript标准化做铺垫。
@@ -1418,24 +1476,27 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 -  用原生JavaScript的实现过什么功能吗？
    * 双向数据绑定 利用Object.defineProperty 设置getter,setter来实现数据双向绑定 或者Object.observe(已废弃) &&DOM.onchange;
-	   Object.defineProperty(user,'name',{
-			 get: function(){return nameValue},
-			 set: function(newValue){nameValue = newValue},
-			 configurable: true
-			 });
+	   ```javascript
+		     Object.defineProperty(user,'name',{
+		    	get: function(){return nameValue},
+		    	set: function(newValue){nameValue = newValue},
+		    	configurable: true
+		    	});
 
-     Object.observe(user, function(changes){
-			 changes.forEach(functon(change){
-				 console.log(change.name);
-				 console.log(change.type);
-				 });
-			 });
+		     Object.observe(user, function(changes){
+		    	changes.forEach(functon(change){
+		    		console.log(change.name);
+		    		console.log(change.type);
+		    		});
+		    	});
 
+	   ```
 -  Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
 
 		hasOwnProperty
 
-		javaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否具有该属性；该属性必须是对象本身的一个成员。
+		javaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法
+		检查该对象的原型链中是否具有该属性；该属性必须是对象本身的一个成员。
 		使用方法：
 		object.hasOwnProperty(proName)
 		其中参数object是必选项。一个对象的实例。
@@ -1450,7 +1511,9 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
         如：{"age":"12", "name":"back"}
 
         JSON字符串转换为JSON对象:
-		var obj =eval('('+ str +')');   //加上括号是为了构造一个表达式上下文，() 会把语句转换成表达式，括号里的代码都会被转换为表达式求值并且返回，对象字面量必须作为表达式而存在。 http://www.cnblogs.com/zichi/p/5202825.html  合法的 label语句是不能带引号
+		var obj =eval('('+ str +')');   //加上括号是为了构造一个表达式上下文，() 会把语句转换成表达式，
+		 括号里的代码都会被转换为表达式求值并且返回，对象字面量必须作为表达式而存在。
+		 [链接：](http://www.cnblogs.com/zichi/p/5202825.html)  合法的 label语句是不能带引号
 
 
 		var obj = JSON.parse(str);
@@ -1459,22 +1522,27 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		var last=JSON.stringify(obj);
 
 -  `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？
-这段代码是给取到页面所有元素加上1px实线随机颜色边框
+
+	 这段代码是给取到页面所有元素加上1px实线随机颜色边框
 
 -  js延迟加载的方式有哪些？
 
 		defer和async、动态创建DOM方式（用得最多）、按需异步载入js
    * <script async src="script.js"></script>
-     有 async，加载和渲染后续文档元素的过程将和 script.js 的加载并行进行（异步）。加载完成立即执行，并阻止页面解析html,并且不能保证按顺序执行。
+     有 async，加载和渲染后续文档元素的过程将和 script.js 的加载并行进行（异步）。加载完成立即执行，
+		 并阻止页面解析html,并且不能保证按顺序执行。
    * <script defer src="myscript.js"></script>
-     有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。按照加载顺序执行脚本的
+     有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js
+		  的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。按照加载顺序执行脚本的
+
    注意：DOM树构建完成。//DOMContentLoaded ，页面加载完毕。//load
 
 -  Ajax 是什么? 如何创建一个Ajax？
 
 		ajax的全称：Asynchronous Javascript And XML。
 		异步传输+js+xml。
-		所谓异步，在这里简单地解释就是：向服务器发送请求的时候，我们不必等待结果，而是可以同时做其他的事情，等到有了结果它自己会根据设定进行后续操作，与此同时，页面是不会发生整页刷新的，提高了用户体验。
+		所谓异步，在这里简单地解释就是：向服务器发送请求的时候，我们不必等待结果，而是可以同时做其他的事情，
+		等到有了结果它自己会根据设定进行后续操作，与此同时，页面是不会发生整页刷新的，提高了用户体验。
 
 		(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象
 		(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息
@@ -1493,11 +1561,13 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
         4、在URL后面加上时间搓："nowtime=" + new Date().getTime();。
 
-        5、如果是使用jQuery，直接这样就可以了 $.ajaxSetup({cache:false})。这样页面的所有ajax都会执行这条语句就是不需要保存缓存记录。
+        5、如果是使用jQuery，直接这样就可以了 $.ajaxSetup({cache:false})。这样页面的所有ajax
+				都会执行这条语句就是不需要保存缓存记录。
 
 -  同步和异步的区别?
 
-	同步的概念应该是来自于OS中关于同步的概念:不同进程为协同完成某项工作而在先后次序上调整(通过阻塞,唤醒等方式).同步强调的是顺序性.谁先谁后.异步则不存在这种顺序性.
+	同步的概念应该是来自于OS中关于同步的概念:不同进程为协同完成某项工作而在先后次序上调整(通过阻塞,唤醒等方式).
+	同步强调的是顺序性.谁先谁后.异步则不存在这种顺序性.
 
 	同步：浏览器访问服务器请求，用户看得到页面刷新，重新发请求,等请求完，页面刷新，新内容出现，用户看到新内容,进行下一步操作。
 
@@ -1506,78 +1576,92 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
  来源网络：
- 1 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻
- 2 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）老张还是觉得自己有点傻，于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。
- 3 老张把响水壶放到火上，立等水开。（异步阻塞）老张觉得这样傻等意义不大
- 4 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）
+ * 1, 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻
+ * 2, 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）老张还是觉得自己有点傻，
+   于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。
+ * 3, 老张把响水壶放到火上，立等水开。（异步阻塞）老张觉得这样傻等意义不大
+ * 4, 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）
 
 
 -  如何解决跨域问题?
 
-  需要html5支持
-  1 window.postMessage('数据',域名); 子域监听Message方法
-  2 利用 cors  通过设置请求头或者在服务器设置 来解决跨域
-  其他
-  3 利用window.name 跨域
-  4 jsonp
-  6 document.domain 只要把子页面的document.domain都指向主域就可以了，比如document.domain='foo.com';   //设置好后父页面和子页面就可以像同一个域下两个页面之间访问了。父页面通过ifr.contentWindow就可以访问子页面的window，子页面通过parent.window或parent访问父页面的window，接下来可以进一步获取dom和js  。
-  7 ie6/7 window.navigator  子域和父域共享同一个对象，通过增加对象属性或方法进行调用
-	8 服务器代理
+   需要html5支持
+
+    * 1, window.postMessage('数据',域名); 子域监听Message方法
+    * 2, 利用 cors  通过设置请求头或者在服务器设置 来解决跨域
+
+	 其他
+
+    * 3, 利用window.name 跨域
+    * 4, jsonp
+    * 6, document.domain 只要把子页面的document.domain都指向主域就可以了，比如document.domain='foo.com';  
+	 //设置好后父页面和子页面就可以像同一个域下两个页面之间访问了。父页面通过ifr.contentWindow就可以访
+	 问子页面的window，子页面通过parent.window或parent访问父页面的window，接下来可以进一步获取dom和js  。
+    * 7, ie6/7 window.navigator  子域和父域共享同一个对象，通过增加对象属性或方法进行调用
+	  * 8, 服务器代理
 
 -  页面编码和被请求的资源编码如果不一致如何处理？
-    [web编码总结](http://yanhaijing.com/web/2014/12/20/web-charset/)
+
+  [web编码总结](http://yanhaijing.com/web/2014/12/20/web-charset/)
+
    * <script src="http://www.xxx.com/test.js" charset="utf-8"></script>  指定编码方式
-   * <link rel="stylesheet" href="gbk-1.css" charset="gbk"> h5废弃了charset这个属性，改为在文件内部写@charset utf-8
+   * <link rel="stylesheet" href="gbk-1.css" charset="gbk"> h5废弃了charset这个属性，
+	 改为在文件内部写@charset utf-8
+
 -  模块化开发怎么做？
 
 	 [ 立即执行函数](http://benalman.com/news/2010/11/immediately-invoked-function-expression/),不暴露私有成员
 
-		    var module1 = (function(){
-		    　　　　var _count = 0;
-		    　　　　var m1 = function(){
-		    　　　　　　//...
-		    　　　　};
-		    　　　　var m2 = function(){
-		    　　　　　　//...
-		    　　　　};
-		    　　　　return {
-		    　　　　　　m1 : m1,
-		    　　　　　　m2 : m2
-		    　　　　};
-		    　　})();
+	```javascript
+	    var module1 = (function(){
+     　　　　var _count = 0;
+     　　　　var m1 = function(){
+     　　　　　　//...
+     　　　　};
+     　　　　var m2 = function(){
+     　　　　　　//...
+     　　　　};
+     　　　　return {
+     　　　　　　m1 : m1,
+     　　　　　　m2 : m2
+     　　　　};
+     　　})();
+	```
 
 	（待完善）
    无模块时代问题
-	 1，全局变量灾难
-	 2，函数命名冲突
-	 3，依赖关系不好处理
+	   * 1，全局变量灾难
+	   * 2，函数命名冲突
+	   * 3，依赖关系不好处理
+
 	 解决方案
 
-	 1,用自执行函数
-	 2,类似java命名空间方式进行管理
-	 3,jquery风格匿名自执行函数
+	   * 1,用自执行函数
+	   * 2,类似java命名空间方式进行管理
+	   * 3,jquery风格匿名自执行函数
+
 	 模块化面临问题
 
-	 1. 如何安全的包装一个模块的代码？（不污染模块外的任何代码）
-   2. 如何唯一标识一个模块？
-   3. 如何优雅的把模块的API暴漏出去？（不能增加全局变量）
-   4. 如何方便的使用所依赖的模块？
+	   * 1. 如何安全的包装一个模块的代码？（不污染模块外的任何代码）
+     * 2. 如何唯一标识一个模块？
+     * 3. 如何优雅的把模块的API暴漏出去？（不能增加全局变量）
+     * 4. 如何方便的使用所依赖的模块？
 
    	Modules/1.x规范 （Commonjs）
-		1. 模块的标识应遵循的规则（书写规范）
-    2. 定义全局函数require，通过传入模块标识来引入其他模块，执行的结果即为别的模块暴漏出来的API
-    3. 如果被require函数引入的模块中也包含依赖，那么依次加载这些依赖
-    4. 如果引入模块失败，那么require函数应该报一个异常
-    5. 模块通过变量exports来向往暴漏API，exports只能是一个对象，暴漏的API须作为此对象的属性。   
+		 * 1. 模块的标识应遵循的规则（书写规范）
+     * 2. 定义全局函数require，通过传入模块标识来引入其他模块，执行的结果即为别的模块暴漏出来的API
+     * 3. 如果被require函数引入的模块中也包含依赖，那么依次加载这些依赖
+     * 4. 如果引入模块失败，那么require函数应该报一个异常
+     * 5. 模块通过变量exports来向往暴漏API，exports只能是一个对象，暴漏的API须作为此对象的属性。   
 
     前端问题
-		1变量暴露在全局
-		2资源加载方式不同，浏览器需http请求获得，服务端直接从内存读取
+		* 1, 变量暴露在全局
+		* 2, 资源加载方式不同，浏览器需http请求获得，服务端直接从内存读取
 
 	  解决方法
-		1,升级Modules/1.0规范
-		2，重新制定浏览器端规范AMD（Asynchronous Module Definition）(requireJS)
-    3,中间派  Modules/Wrappings规范 （seajs）
+		 * 1, 升级Modules/1.0规范
+		 * 2，重新制定浏览器端规范AMD（Asynchronous Module Definition）(requireJS)
+     * 3, 中间派  Modules/Wrappings规范 （seajs）
 -  AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？
 
 	> AMD 规范在这里：https://github.com/amdjs/amdjs-api/wiki/AMD
@@ -1591,46 +1675,54 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		    1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
 		    2. CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：
 
-		// CMD
-		define(function(require, exports, module) {
-		    var a = require('./a')
-		    a.doSomething()
-		    // 此处略去 100 行
-		    var b = require('./b') // 依赖可以就近书写
-		    b.doSomething()
-		    // ...
-		})
+     ```javascript
+		    // CMD
+		      define(function(require, exports, module) {
+		     		 var a = require('./a')
+		     		 a.doSomething()
+		     		 // 此处略去 100 行
+		     		 var b = require('./b') // 依赖可以就近书写
+		     		 b.doSomething()
+		     		 // ...
+		      })
 
-		// AMD 默认推荐
-		define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
-		    a.doSomething()
-		    // 此处略去 100 行
-		    b.doSomething()
-		    // ...
-		})
+		      // AMD 默认推荐
+		      define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
+		     		 a.doSomething()
+		     		 // 此处略去 100 行
+		     		 b.doSomething()
+		     		 // ...
+		      })
+		 ```
 
-     [SeaJS 和 RequireJS 的异同](https://lifesinger.wordpress.com/2011/05/17/the-difference-between-seajs-and-requirejs/)
+  > [SeaJS 和 RequireJS 的异同](https://lifesinger.wordpress.com/2011/05/17/the-difference-between-seajs-and-requirejs/)
 
 -  requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何
 缓存的？）
 
-		参考：http://annn.me/how-to-realize-cmd-loader/
+		> [参考：](http://annn.me/how-to-realize-cmd-loader/)
 
 -  JS模块加载器的轮子怎么造，也就是如何实现一个模块加载器？
+
+   > [如何实现一个 CMD 模块加载器](http://annn.me/how-to-realize-cmd-loader/)
 
 -  谈一谈你对ECMAScript6的了解？
 
 -  ECMAScript6 怎么写class么，为什么会出现class这种东西?
-   class Ponit{
-		 constructor(x, y){
-			 this.x = x;
-			 this.y = y;
-		 }
 
-		 toString(){
-			 return '(' + this.x +','+ this.y + ')';
-		 }
-	 }
+   ```javascript
+	     class Ponit{
+	    	constructor(x, y){
+	    		this.x = x;
+	    		this.y = y;
+	    	}
+
+	    	toString(){
+	    		return '(' + this.x +','+ this.y + ')';
+	    	}
+	    }
+	 ```
+
   JS原型继承方法写法跟传统的面向对象语言（比如 C++ 和 Java）差异很大，很容易让新学习这门语言的程序员感到困惑。ES6提供了更接近传统语言的写法，引入了Class(类)；作为对象的模板。通过class关键字，可以定义类。class其实只是一个语法糖，它的绝大部分功能ES5 都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
 
 -  异步加载JS的方式有哪些？
@@ -1691,48 +1783,62 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
 -  数组和对象有哪些原生方法，列举一下？
-   Array : sort slice
-	 forEach() 返回undefinded  currentValue  index array
-	 map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
-	 concat join push pop shift unshift toString splice
 
-   Object: toString ValueOf  defineProperty  
-	 assign: Object.assign(target, ...sources)  Object.assign() 方法用于将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+   Array :
+	    * 1, sort
+	    * 2, slice
+	    * 3, forEach() 返回undefinded  currentValue  index array
+	    * 4, map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+	    * 5, concat join push pop shift unshift toString splice
 
-   create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
-   Object.create(proto, [ propertiesObject ])
+   Object:
+	    * 1, toString
+	    * 2, ValueOf  
+	    * 3, defineProperty  
+	    * 4, assign: Object.assign(target, ...sources)  Object.assign() 方法用于将所有可枚举的属性的值从
+	        一个或多个源对象复制到目标对象。它将返回目标对象。
 
-	 proto:一个对象，应该是新创建的对象的原型。
-	 propertiesObject:可选。该参数对象是一组属性与值
+      * 5,
+			 create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
+       Object.create(proto, [ propertiesObject ])
 
-   o2 = Object.create({}, { p: { value: 42, writable: true, enumerable: true,  configurable: true } });
+	     proto:一个对象，应该是新创建的对象的原型。
+	     propertiesObject:可选。该参数对象是一组属性与值
+
+        o2 = Object.create({}, { p: { value: 42, writable: true, enumerable: true,  configurable: true } });
 
 -  JS 怎么实现一个类。怎么实例化这个类
-    可以通过构造函数模式，原型模式，混合模式等实现一个类，用 new 来实例化
-    function Human(name){
-     this.name = name;
-    }
 
-    var wangxiaoer = new Human('王小二');    
+  可以通过构造函数模式，原型模式，混合模式等实现一个类，用 new 来实例化
+  ```JavaScript
+	    function Human(name){
+	     this.name = name;
+	    }
 
-   对象可以通过 new Object(), Object.create() 方法， 或者使用字面 标记 (初始化 标记)初始化。 对象初始化，由花括号{}包含的一个由0个或者多个对象属性名和关联值组成的列表构成。
+	    var wangxiaoer = new Human('王小二');   
+	```
+
+   对象可以通过 new Object(), Object.create() 方法， 或者使用字面 标记 (初始化 标记)初始化。 对象初始化，
+	 由花括号{}包含的一个由0个或者多个对象属性名和关联值组成的列表构成。
 
 -  JavaScript中的作用域与变量声明提升？
 
-  作用域：只会对某个范围产生作用，而不会对外产生影响的封闭空间。在这样的一些空间里，外部不能访问内部变量，但内部可以访问外部变量。
+     作用域：只会对某个范围产生作用，而不会对外产生影响的封闭空间。在这样的一些空间里，外部不能访问内部变量，但内部可以访问外部变量。
 
-  js 存在声明提升
-	所有声明明都会被提升到作用域的最顶上  包括ES5的var、function，和ES6的function *、let、const、class  但ES6 let const 等声明命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。暂时性死区
+     js 存在声明提升:
 
-	函数声明的优先级优于变量申明，且函数声明会连带定义一起被提升
-	函数提升有两种，1 函数声明 整个函数提升 2函数表达式 只有变量提升，还是undefinded
+	  所有声明明都会被提升到作用域的最顶上  包括ES5的var、function，和ES6的function *、let、const、class  但ES6 let const 等声明命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。暂时性死区
+
+	  函数声明的优先级优于变量申明，且函数声明会连带定义一起被提升
+	  函数提升有两种，1 函数声明 整个函数提升 2函数表达式 只有变量提升，还是undefinded
 
 -  如何编写高性能的Javascript？
-  参考文章//http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/
+
+  > [参考文章](http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/)
   1 垃圾回收方面
 	  * 手动消除引用（设置为null 比 delete 略好）
 		* 解绑无用的事件监听器
-		* 避免大量不被重用的数据被存储  //缓存文章 http://imweb.io/topic/55c6f9bac222e3af6ce235b9
+		* 避免大量不被重用的数据被存储  [缓存文章](http://imweb.io/topic/55c6f9bac222e3af6ce235b9)
   2 函数方面
 	  * 减少闭包 定时器 等
 		* 使用时间代理委托 DocumentFragment
@@ -1747,95 +1853,115 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		* 减少回流与重绘
 	5 使用HTTP的缓存去减少资源的加载。
 
--  那些操作会造成内存泄漏？ //https://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/
+-  那些操作会造成内存泄漏？
+   >[参考资料](https://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
+
    内存泄漏可以定义为：应用程序不再需要占用内存的时候，由于某些原因，内存没有被操作系统或可用内存池回收。
+
    垃圾回收机制：标记清除法，引用计数法
-   1 闭包 （去除，造成内存泄露是浏览器的bug，不关闭包的事情，跟闭包和内存泄露有关系的地方是，使用闭包的同时比较容易形成循环引用，如果闭包的作用域链中保存着一些DOM节点，这时候就有可能造成内存泄露。//https://www.zhihu.com/question/31078912）
-	 2 定时器  setInterval用完要clearInterval ，不然回调函数等内存无法回收。
-   3，全局变量,因为挂在window上面，window是不会被清空（在 JavaScript 文件头部加上 'use strict'，可以避免此类错误发生。启用严格模式解析 JavaScript ，避免意外的全局变量，如函数里面用this，然后全局执行的变量。）
-   4，监听器
+      * 1, 闭包 （去除，造成内存泄露是浏览器的bug，不关闭包的事情，跟闭包和内存泄露有关系的地方是，使用闭包的同时比较容易形成循环引用，如果闭包的作用域链中保存着一些DOM节点，这时候就有可能造成内存泄露。[链接](https://www.zhihu.com/question/31078912)
+	    * 2, 定时器  setInterval用完要clearInterval ，不然回调函数等内存无法回收。
+      * 3, 全局变量,因为挂在window上面，window是不会被清空（在 JavaScript 文件头部加上 'use strict'，可以避免此类错误发生。启用严格模式解析 JavaScript ，避免意外的全局变量，如函数里面用this，然后全局执行的变量。）
+      * 4, 监听器
 	 老版本的 IE 是无法检测 DOM 节点与 JavaScript 代码之间的循环引用，会导致内存泄漏。如今，现代的浏览器（包括 IE 和 Microsoft Edge）使用了更先进的垃圾回收算法，已经可以正确检测和处理循环引用了。换言之，回收节点内存时，不必非要调用 removeEventListener 了。
-   5,脱离Dom的引用
-	   有时，保存dom的数据结构很有用把dom存成json或数组很有意义，但是，当你决定删除元素时，这些引用也需要同时删除。
-		 此外还需考虑DOM树内或子节点的引用问题，加入你的js代码保存了一个td的引用，但你决定删除整个表格的时候，整个表格还是会存在内存中的，因为td 是表格的子节点，子元素与父元素是引用关系，导致表格无法释放。
+      * 5, 脱离Dom的引用
+	     有时，保存dom的数据结构很有用把dom存成json或数组很有意义，但是，当你决定删除元素时，这些引用也需要同时删除。
+		   此外还需考虑DOM树内或子节点的引用问题，加入你的js代码保存了一个td的引用，但你决定删除整个表格的时候，整个表格还是会存在内存中的，因为td 是表格的子节点，子元素与父元素是引用关系，导致表格无法释放。
 
--  闭包应用？//https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd
-   * 1 ， 函数柯里化
-	         var doSomething = function(do,something){
-						 console.log(do+','+something);
-					 }
-           function Curry(fn){
-						 var stored_args = Array.prototype.slice.call(arguments,1);
-						 return function (){
-							 var new_args = Array.prototype.slice.call(arguments),
-							     args = stored_args.concat(new_args);
-									 return fn.call(null,args);
-						 };
-					 }
+-  闭包应用
+> [参考资料](https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd)
+   * 1, 函数柯里化
 
-					 var newDoSomething  = Curry(doSomething,'hello');
-           newDoSomething('Howard');
-					 newDoSomething('Harden');
-	 * 2 , 单例模式
-	       var getSingleInstance = (function(){
-					   function China () {
-							 this.name = "China";
-						 }
-						 var instance  = new China();
-						 return function () {
-							 return instance;
-						 }
-					 }());
+   ```javascript
+	      var doSomething = function(do,something){
+	     	 console.log(do+','+something);
+	      }
+	      function Curry(fn){
+	     	 var stored_args = Array.prototype.slice.call(arguments,1);
+	     	 return function (){
+	     		 var new_args = Array.prototype.slice.call(arguments),
+	     				 args = stored_args.concat(new_args);
+	     				 return fn.call(null,args);
+	     	 };
+	      }
+
+	      var newDoSomething  = Curry(doSomething,'hello');
+	      newDoSomething('Howard');
+	      newDoSomething('Harden');
+	 ```
+
+	 * 2, 单例模式
+	   ```javascript
+		     var getSingleInstance = (function(){
+			   	 function China () {
+			   		 this.name = "China";
+			   	 }
+			   	 var instance  = new China();
+			   	 return function () {
+			   		 return instance;
+			   	 }
+			    }());
+		 ```
 
 -  快速排序算法
-   快速排序的核心就是选定一个哨兵，然后把它作为标准，对数据进行操作，把小的放前面，把大的放后面。然后执行这个过程若干次，就得到了最终的结果。
-	 算法过程中也实现了分治法的思想，即把复杂的模块分成几个简单的模块，分而治之。
-	 资料（按顺序阅读比较容易理解，）
-	 // https://dsb123dsb.github.io/2016/12/27/js%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88in-place%EF%BC%89%E7%AE%80%E8%BF%B0/
-	 // http://www.jianshu.com/p/fc342a9ffb58
+
+   快速排序的核心就是选定一个哨兵，然后把它作为标准，对数据进行操作，把小的放前面，把大的放后面。然后执行
+	 这个过程若干次，就得到了最终的结果。算法过程中也实现了分治法的思想，即把复杂的模块分成几个简单的模块，分而治之。
+
+	 资料:(按顺序阅读比较容易理解)
+	   >[参考资  料1](https://dsb123dsb.github.io/2016/12/27/js%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88in-place%EF%BC%89%E7%AE%80%E8%BF%B0/)
+	   >[参考资料2](http://www.jianshu.com/p/fc342a9ffb58)
 
 	 someOther
-	 算法可视化网站：//http://zh.visualgo.net/zh/sorting    
+	   >[算法可视化网站：](http://zh.visualgo.net/zh/sorting)    
 
 
 -  JQuery的源码看过吗？能不能简单概况一下它的实现原理？
+
    JQuery、JQuery对象、DOM对象三者之间的关系是： JQuery是个工厂方法，用来构造JQuery对象； JQuery对象是个类数组对象，里面存储了DOM对象；
    实现原理
-	 1：通过闭包函数避免污染全局变量
-	 2：jQuery.extend可以扩展jQuery，而jQuery.fn.extend可以扩展jQuery对象。
+	  * 1, 通过闭包函数避免污染全局变量
+	  * 2, jQuery.extend可以扩展jQuery，而jQuery.fn.extend可以扩展jQuery对象。
 
 
 -  jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？
-       jQuery = function( selector, context ) {
-           return new jQuery.fn.init( selector, context, rootjQuery );
-       },
-       jQuery.fn = jQuery.prototype = { //fn即对应prototype
-          constructor: jQuery,
-          init: function( selector, context, rootjQuery ) {
-          		...
-          		return this;
-          }
-          ...
-       }
-       jQuery.fn.init.prototype = jQuery.fn;
+      ```javascript
+		      	jQuery = function( selector, context ) {
+		      			return new jQuery.fn.init( selector, context, rootjQuery );
+		      	},
+		      	jQuery.fn = jQuery.prototype = { //fn即对应prototype
+		      		 constructor: jQuery,
+		      		 init: function( selector, context, rootjQuery ) {
+		      				...
+		      				return this;
+		      		 }
+		      		 ...
+		      	}
+		      	jQuery.fn.init.prototype = jQuery.fn;
+			```
 
-	 * JQuer.fn.init方法返回this为JQ原型对象实例（如果没有选择器参数为空就是JQ原型对象，可以看jq源码//http://code.jquery.com/jquery-1.9.1.js，ctrl+f搜索jQuery.fn看其具体实现，你就会秒懂了），是一个类数组对象。
+	   * JQuer.fn.init方法返回this为JQ原型对象实例（如果没有选择器参数为空就是JQ原型对象，
+		   可以看[jq源码](http://code.jquery.com/jquery-1.9.1.js)，ctrl+f搜索jQuery.fn看其具体实现，你就会秒懂了），是一个类数组对象。
 
 
-   * 因为Jq实现了$()来实例化jq对象，通过jq原型上init构造方法去实例化并返回一个对象，这样就可以不用new的方式去创建JQ对象，而且JQuery构造函数就相当于一个工厂函数。
-	   并且，为什么构造函数为什么要 new jQuery.fn.init(),这是因为如果直接利用init函数return出来的对象，会直接暴露了jQuery.prototype原型对象出去（参考//https://github.com/wy-ei/notebook/issues/6），这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的指向对象，从而避开jQuer.fn的直接暴露。
+     * 因为Jq实现了$()来实例化jq对象，通过jq原型上init构造方法去实例化并返回一个对象，这样就可以不用new的方式去创建JQ对象，
+		   而且JQuery构造函数就相当于一个工厂函数。并且，为什么构造函数为什么要 new jQuery.fn.init(),这是因为如果直接利用
+			 init函数return出来的对象，会直接暴露了jQuery.prototype原型对象出去（[参考](https://github.com/wy-ei/notebook/issues/6)），这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的指向对象，从而避开jQuer.fn的直接暴露。
 
-		 new 关键字的作用是创建一个对象，当一个函数使用 new 来调用的时候其实际上进行了下面的几个步骤：
-       创建一个空对象 obj
-       将这个 obj 的 proto 即：obj.proto 指向该函数的原型
-       执行该函数，并将函数中的 this 映射为 该空对象 obj。
-       最后如果该函数有返回值，而且返回值是对象，那么就返回这个对象。如果没有返回值，或者返回值不是对象，那么 new 的结果就是上面步骤构造出来的对象 obj。
+		 * new 关键字的作用是创建一个对象，当一个函数使用 new 来调用的时候其实际上进行了下面的几个步骤：
 
-			 明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
+         * 1, 创建一个空对象 obj
+         * 2, 将这个 obj 的 proto 即：obj.proto 指向该函数的原型
+         * 3, 执行该函数，并将函数中的 this 映射为 该空对象 obj。
+         * 4, 最后如果该函数有返回值，而且返回值是对象，那么就返回这个对象。如果没有返回值，或者返回值不是对象，
+				      那么 new 的结果就是上面步骤构造出来的对象 obj。
 
-		 但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype继承的是Object.prototype，并不包含jQuery.fn。这里的解决方法就是将 init.prototype 直接指向 jQuery.prototype 。这下构造出来的对象就可以访问到 jQuery.prototype 中的内容了：
-		 在jq源码中就有这么一句
-		 jQuery.fn.init.prototype = jQuery.fn;
+
+ 明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
+
+		 但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype继承的是Object.prototype，
+		 并不包含jQuery.fn。这里的解决方法就是将 init.prototype 直接指向 jQuery.prototype 。这下构造出来的对象就可以访问到 jQuery.prototype 中的内容了：
+		 在jq源码中就有这么一句jQuery.fn.init.prototype = jQuery.fn;
 
 	   参考资料：
 		 * 1 http://elcarim5efil.github.io/blog/2015/07/28/jQuery_analysis_8.html
@@ -1844,45 +1970,48 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 -  jquery中如何将数组转化为json字符串，然后再转化回来？
 
-       // JSON RegExp
-       rvalidchars = /^[\],:{}\s]*$/,
-       rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
-       rvalidescape = /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,
-       rvalidtokens = /"[^"\\\r\n]*"|true|false|null|-?(?:\d+\.|)\d+(?:[eE][+-]?\d+|)/g,
+   ```javascript
+	      // JSON RegExp
+	      rvalidchars = /^[\],:{}\s]*$/,
+	      rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
+	      rvalidescape = /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,
+	      rvalidtokens = /"[^"\\\r\n]*"|true|false|null|-?(?:\d+\.|)\d+(?:[eE][+-]?\d+|)/g,
 
-        parseJSON: function( data ) {
-        if ( window.JSON && window.JSON.parse ) {
-        	return window.JSON.parse( data );
-        }
+	     	parseJSON: function( data ) {
+	     	if ( window.JSON && window.JSON.parse ) {
+	     		return window.JSON.parse( data );
+	     	}
 
-        if ( data === null ) {
-        	return data;
-        }
+	     	if ( data === null ) {
+	     		return data;
+	     	}
 
-        if ( typeof data === "string" ) {
+	     	if ( typeof data === "string" ) {
 
-        	// Make sure leading/trailing whitespace is removed (IE can't handle it)
-        	data = jQuery.trim( data );
+	     		// Make sure leading/trailing whitespace is removed (IE can't handle it)
+	     		data = jQuery.trim( data );
 
-        	if ( data ) {
-        		// Make sure the incoming data is actual JSON
-        		// Logic borrowed from http://json.org/json2.js
-        		if ( rvalidchars.test( data.replace( rvalidescape, "@" )
-        			.replace( rvalidtokens, "]" )
-        			.replace( rvalidbraces, "")) ) {
+	     		if ( data ) {
+	     			// Make sure the incoming data is actual JSON
+	     			// Logic borrowed from http://json.org/json2.js
+	     			if ( rvalidchars.test( data.replace( rvalidescape, "@" )
+	     				.replace( rvalidtokens, "]" )
+	     				.replace( rvalidbraces, "")) ) {
 
-        			return ( new Function( "return " + data ) )();
-        		}
-        	}
-        }
+	     				return ( new Function( "return " + data ) )();
+	     			}
+	     		}
+	     	}
 
-        jQuery.error( "Invalid JSON: " + data );
-        },
+	     	jQuery.error( "Invalid JSON: " + data );
+	     	},
+	 ```
+
     jq会检查浏览器是否支持window.JSON.parse，支持的话就调用，不支持的话就正则匹配是否满足某些条件，然后把整个data返回。
 		这里注意new Function()的使用，为什么不使用eval()呢？
 		其实两个有一些作用域上的区别，eval函数可以访问到使用时局部环境变量。而new Function()只能在全局上起作用，而且new Function运行略优于eval，
 		但是两个都是存在风险的，都可能运行json字符串里面违法的代码，应尽可能避免使用，因为ES5的严格模式这两种都是不允许的
-    //https://stackoverflow.com/questions/2449220/jquery-uses-new-functionreturn-data-instead-of-evaldata-to-parse
+    >[链接](https://stackoverflow.com/questions/2449220/jquery-uses-new-functionreturn-data-instead-of-evaldata-to-parse)
 
 		数组编程字符串可用Array.toString(),或者谁用Array.join(",") join() 方法用于把数组中的所有元素放入一个字符串。
 
@@ -1891,44 +2020,47 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
    我们在 jQuery 中可以通过添加一个参数来实现递归extend。调用$.extend(true, {}, obj)
    实现原理就是遇到基本值就直接复制，遇到对象就递归调用extend进行深度拷贝。
 
-	 深复制：
-	   function deepCopy(source){
-			 var arr = {};
-			for(key in  source){
-				arr[key] = typeof key === 'Object' ? copy(source[key]):source[key];
-			}
-			return arr;
-		 }
-   浅复制：
-	   function shallowCopy(source) {
-			  var arr = {};
-				for(var temp in source ){
-           if(source.hasOwnproperty[temp]){
-						 arr[temp] = source[temp];
-					 }
-				}
-				 return arr;
-		 }
-  //深入剖析 JavaScript 的深复制  http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/
+	 ```JavaScript
+	     深复制：
+	    	 function deepCopy(source){
+	    		 var arr = {};
+	    		for(key in  source){
+	    			arr[key] = typeof key === 'Object' ? copy(source[key]):source[key];
+	    		}
+	    		return arr;
+	    	 }
+	     浅复制：
+	    	 function shallowCopy(source) {
+	    			var arr = {};
+	    			for(var temp in source ){
+	    				 if(source.hasOwnproperty[temp]){
+	    					 arr[temp] = source[temp];
+	    				 }
+	    			}
+	    			 return arr;
+	    	 }
+	 ```
+  >[深入剖析 JavaScript 的深复制](http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)
 
 -  jquery.extend 与 jquery.fn.extend的区别？
 
 		* jquery.extend 为jquery类添加类方法，可以理解为添加静态方法
-		* jquery.fn.extend:
-			源码中jquery.fn = jquery.prototype，所以对jquery.fn的扩展，就是为jquery类添加成员函数
+		* jquery.fn.extend:源码中jquery.fn = jquery.prototype，所以对jquery.fn的扩展，就是为jquery类添加成员函数
+
 		使用：
 		jquery.extend扩展，需要通过jquery类来调用，而jquery.fn.extend扩展，所有jquery实例都可以直接调用。
 
 -  jQuery ready与load谁先执行?
-   ready先执行，load后执行。
 
-	 DOM文档加载的步骤：
-	 (1) 解析HTML结构。
-   (2) 加载外部脚本和样式表文件。
-   (3) 解析并执行脚本代码。
-   (4) 构造HTML DOM模型。//ready
-   (5) 加载图片等外部文件。
-   (6) 页面加载完毕。//load
+    ready先执行，load后执行。
+
+	  > DOM文档加载的步骤：
+	    * (1) 解析HTML结构。
+      * (2) 加载外部脚本和样式表文件。
+      * (3) 解析并执行脚本代码。
+      * (4) 构造HTML DOM模型。//ready
+      * (5) 加载图片等外部文件。
+      * (6) 页面加载完毕。//load
 
 -  jQuery 的队列是如何实现的？队列可以用在哪些地方？
    所以队列的本质是利用Array的push和shift来完成先进先出(First In First Out)
@@ -1939,30 +2071,34 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
 
--  谈一下Jquery中的bind(),live(),delegate(),on()的区别？ (//http://www.cnblogs.com/moonreplace/archive/2012/10/09/2717136.html)
-   * bind():
+-  谈一下Jquery中的bind(),live(),delegate(),on()的区别？
+
+  >[参考资料](http://www.cnblogs.com/moonreplace/archive/2012/10/09/2717136.html)
+
+   * 1, bind():
 	    优点：直接绑定到元素上 .click() . hover() 都是利用bind()方法，这个方法可以很快就绑定上事件，而且很快执行回调，因为是对当个元素（$()选取元素操作）而且对浏览器的兼容性做了处理
       缺点：1当元素很多的时候，会有性能问题，2，而且不能对动态增加元素进行自绑定事件,3，当页面加载完才能进行绑定
-	 * live()
+	 * 2, live()
 	    优点：利用事件委托，将事件绑定到到document,利用事件冒泡，jQuery查找选择器，再查找对应回调函数处理，绑定事件减少消耗
 			缺点：1执行比较慢，从1.7已经不推荐了
-	 * delegate()
+	 * 3, delegate()
 	   优点：是Live升级版，由你决定绑定元素
 		 缺点：同live，不过因为由我们控制绑定元素，所以比live 好一些。
-	 * on() 以上三种都是通过on来实现的，可用on()代替。
+	 * 4, on() 以上三种都是通过on来实现的，可用on()代替。
 
 
 -  JQuery一个对象可以同时绑定多个事件，这是如何实现的？
 
 -  是否知道自定义事件。jQuery里的fire函数是什么意思，什么时候用？
-      所谓自定义事件，就是有别于有别于带有浏览器特定行为的事件(类似click, mouseover, submit, keydown等事件)，
-	    事件名称可以随意定义，可以通过特定的方法（jq trigger triggerHandler ）进行添加，触发以及删除。
 
-      callbacks.fire() 函数用于传入指定的参数调用所有的回调。
-      此方法返回一个回调对象到它绑定的回调列表。
-      用于触发$.Callbacks 回调队列函数。
+    所谓自定义事件，就是有别于有别于带有浏览器特定行为的事件(类似click, mouseover, submit, keydown等事件)，
+	  事件名称可以随意定义，可以通过特定的方法（jq trigger triggerHandler ）进行添加，触发以及删除。
 
-       jQuery的自定义事件是通过on和one绑定的，然后再通过trigger来触发这个事件
+    callbacks.fire() 函数用于传入指定的参数调用所有的回调。
+    此方法返回一个回调对象到它绑定的回调列表。
+    用于触发$.Callbacks 回调队列函数。
+
+    jQuery的自定义事件是通过on和one绑定的，然后再通过trigger来触发这个事件
 
 -  jQuery 是通过哪个方法和 Sizzle 选择器结合的？（jQuery.fn.find()进入Sizzle）
 
@@ -1977,12 +2113,15 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
 -  jQuery和Zepto的区别？各自的使用场景？
-     jQuery是用在PC端上的框架，比较大，兼容性也比较好。
-	  而Zepto最初是为移动端开发的库，是jQuery的轻量级替代品，因为它的API和jQuery相似，而文件更小。并且多了一些移动端的触摸交互事件。
+
+  > jQuery是用在PC端上的框架，比较大，兼容性也比较好。
+  > 而Zepto最初是为移动端开发的库，是jQuery的轻量级替代品，因为它的API和jQuery相似，而文件更小。并且多了一些移动端的触摸交互事件。
 
 
 -  针对 jQuery 的优化方法？
-   //http://xujianbin.pw/project/2017/05/09/optimization2-JQueryPerformance/
+
+	 >[参考资料](http://xujianbin.pw/project/2017/05/09/optimization2-JQueryPerformance/)
+
 		*基于Class的选择性的性能相对于Id选择器开销很大，因为需遍历所有DOM元素。
 
 		*频繁操作的DOM，先缓存起来再操作。用Jquery的链式调用更好。
@@ -1995,24 +2134,27 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
 -  Zepto的点透问题如何解决？
-  [参考资料1](https://zhuanlan.zhihu.com/p/25280160)
-	[参考资料2](https://github.com/mattt/MsgPackSerialization/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E5%BB%B6%E8%BF%9F%E5%8F%8Azepto%E7%9A%84%E7%A9%BF%E9%80%8F%E7%8E%B0%E8%B1%A1)
-  问题现象:
+
+  > [参考资料1](https://zhuanlan.zhihu.com/p/25280160)
+	> [参考资料2](https://github.com/mattt/MsgPackSerialization/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E5%BB%B6%E8%BF%9F%E5%8F%8Azepto%E7%9A%84%E7%A9%BF%E9%80%8F%E7%8E%B0%E8%B1%A1)
+
+  > 问题现象:
   在项目中,遇到的问题是有一个弹出层, 弹出层有一个按钮点击之后表示操作完成并且隐藏遮罩与弹出框,但是点击按钮之后
   弹出层下面的元素却触发了 click 事件,导致 bug 的出现.
 
 	解决方法：
-	1在遮罩之后加一个透明的 div 在 350ms 后消失
-	2遮罩使用动画在 350ms 后消失
-	3使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层元素就不会响应 click 事件了,然后设置一个定时器在 tap 事件响应后的400ms 后将 pointer-events 设置为 auto 恢复正常.
-  4使用 fastclick
-  5 直接将上层元素的tap事件换成click事件（会出现300ms的延迟触发事件）
-	//https://zhangxiang958.github.io/2017/03/04/Zepto%20%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98%E6%B7%B1%E7%A9%B6%E4%B8%8E%E8%A7%A3%E5%86%B3/
+	* 1, 在遮罩之后加一个透明的 div 在 350ms 后消失
+	* 2, 遮罩使用动画在 350ms 后消失
+	* 3, 使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层元素就不会响应 click 事件了,
+	     然后设置一个定时器在, tap事件响应后的400ms 后将 pointer-events 设置为 auto 恢复正常.
+  * 4, 使用 fastclick
+  * 5,  直接将上层元素的tap事件换成click事件（会出现300ms的延迟触发事件）
+	[链接：](https://zhangxiang958.github.io/2017/03/04/Zepto%20%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98%E6%B7%B1%E7%A9%B6%E4%B8%8E%E8%A7%A3%E5%86%B3/)
 
-	zepto为何不使用e.preventDefault()来解决穿透问题？
-     因为zepto的tap事件统一是在document的touchend时触发的，若在这里使用e.preventDefault()，那页面上所有元素在touchend后触发的事件都不会被执行了。
-		 // 另外一种说法：贺师俊老师说的：就是当初手机浏览器的实现太挫了——为了兼容而模拟鼠标事件，但模拟的鼠标事件在网页的userland代码里是无法被preventDefault的，从dom的角度来说比较合理的应该是当我已经监听touchxxx事件（或退一步说，如果对touchxxx事件preventDefault之后）就不再出现模拟鼠标事件——但是当时webkit的c++程序员水平有点差，不知道应该这样做，所以就产生了很难消除的额外的click。
+ -  zepto为何不使用e.preventDefault()来解决穿透问题？
 
+  因为zepto的tap事件统一是在document的touchend时触发的，若在这里使用e.preventDefault()，那页面上所有元素在touchend后触发的事件都不会被执行了。
+	// 另外一种说法：贺师俊老师说的：就是当初手机浏览器的实现太挫了——为了兼容而模拟鼠标事件，但模拟的鼠标事件在网页的userland代码里是无法被preventDefault从dom的角度来说比较合理的应该是当我已经监听touchxxx事件（或退一步说，如果对touchxxx事件preventDefault之后）就不再出现模拟鼠标事件——但是当时webkit的c++程水平有点差，不知道应该这样做，所以就产生了很难消除的额外的click。
 
 
 -  jQueryUI如何自定义组件?
@@ -2036,91 +2178,99 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 -  把 Script 标签 放在页面的最底部的body封闭之前和封闭之后有什么区别？浏览器会如何解析它们？
 
    按照HTML5标准中的HTML语法规则，如果在</body>后再出现<script>或任何元素的开始标签，都是parse error，浏览器会忽略之前的</body>，即视作仍旧在body内。所以实际效果和写在</body>之前是没有区别的。
+
 	 但是浏览器对HTML(XHTML)均有容错机制。 错误嵌套的标签、以及位置放置错误的标签都会在paser HTML 过程中尝试修复。修复后得到合法的HTML后在由布局引擎建立相应的DOM对象。在<script>标签放置于</body>标签之后时，源码被所有浏览器【泛指PC上常见的】修复为正常形式，即<script></script></body>。s
 
 -  移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？
 
    （click 有 300ms 延迟,为了实现safari的双击事件的设计，浏览器要知道你是不是要双击操作。）
-	  解决方法
-		1 设置不能缩放：user-scalable=no。 不能缩放就不会有双击缩放操作，因此click事件也就没了300ms延迟，这个是Chrome首先在Android中提出的。
-    2 设置显示宽度：width=device-width。Chrome 开发团队不久前宣布，在 Chrome 32 这一版中，他们将在包含 width=device-width 或者置为比 viewport 值更小的页面上禁用双击缩放。当然，没有双击缩放就没有 300 毫秒点击延迟。
-    3 IE的指针事件 (Pointer Events)：设置touch-action:none，根据规范，touch-action属性决定 “是否触摸操作会触发用户代理的默认行为。这包括但不限于双指缩放等行为”。从实际应用的角度来看，touch-action决定了用户在点击了目标元素之后，是否能够进行双指缩放或者双击缩放。因此，这也相当完美地解决了 300 毫秒点击延迟的问题。
+	  解决方法:
+		  * 1, 设置不能缩放：user-scalable=no。 不能缩放就不会有双击缩放操作，因此click事件也就没了300ms延迟，这个是Chrome首先在Android中提出的。
+      * 2, 设置显示宽度：width=device-width。Chrome 开发团队不久前宣布，在 Chrome 32 这一版中，他们将在包含 width=device-width 或者置为比 viewport 值更小的页面上禁用双击缩放。当然，没有双击缩放就没有 300 毫秒点击延迟。
+      * 3, IE的指针事件 (Pointer Events)：设置touch-action:none，根据规范，touch-action属性决定 “是否触摸操作会触发用户代理的默认行为。这包括但不限于双指缩放等行为”。从实际应用的角度来看，touch-action决定了用户在点击了目标元素之后，是否能够进行双指缩放或者双击缩放。因此，这也相当完美地解决了 300 毫秒点击延迟的问题。
     鉴于上述的3种解决方案，现在较为通用的meta设置为：
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-		4 指针事件的 polyfill
-    5 FastClick
+		  * 4, 指针事件的 polyfill
+      * 5, FastClick
 
 -  知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
 
 -  Underscore 对哪些 JS 原生对象进行了扩展以及提供了哪些好用的函数方法？
+
    Underscore 并没有在JS原生对象上进行扩展，而是类似于jq一样封装在一个自定义对象中
+
 	   - throttle
      - debounce
 
 -  JQuery一个对象可以同时绑定多个事件，这是如何实现的？
+
     源码：
-		on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
-        // Types can be a map of types/handlers
-           var type, origFn;
-           if ( typeof types === "object" ) {
-           	// ( types-Object, selector, data )
-           	if ( typeof selector !== "string" ) {
-           		// ( types-Object, data )
-           		data = data || selector;
-           		selector = undefined;
-           	}
-           	for ( type in types ) {
-           		this.on( type, selector, data, types[ type ], one );
-           	}
-           	return this;
-           }
+		   ```javascript
+			     on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
+					 // Types can be a map of types/handlers
+							var type, origFn;
+							if ( typeof types === "object" ) {
+								// ( types-Object, selector, data )
+								if ( typeof selector !== "string" ) {
+									// ( types-Object, data )
+									data = data || selector;
+									selector = undefined;
+								}
+								for ( type in types ) {
+									this.on( type, selector, data, types[ type ], one );
+								}
+								return this;
+							}
 
-           if ( data == null && fn == null ) {
-           	// ( types, fn )
-           	fn = selector;
-           	data = selector = undefined;
-           } else if ( fn == null ) {
-           	if ( typeof selector === "string" ) {
-           		// ( types, selector, fn )
-           		fn = data;
-           		data = undefined;
-           	} else {
-           		// ( types, data, fn )
-           		fn = data;
-           		data = selector;
-           		selector = undefined;
-           	}
-           }
-           if ( fn === false ) {
-           	fn = returnFalse;
-           } else if ( !fn ) {
-           	return this;
-           }
+							if ( data == null && fn == null ) {
+								// ( types, fn )
+								fn = selector;
+								data = selector = undefined;
+							} else if ( fn == null ) {
+								if ( typeof selector === "string" ) {
+									// ( types, selector, fn )
+									fn = data;
+									data = undefined;
+								} else {
+									// ( types, data, fn )
+									fn = data;
+									data = selector;
+									selector = undefined;
+								}
+							}
+							if ( fn === false ) {
+								fn = returnFalse;
+							} else if ( !fn ) {
+								return this;
+							}
 
-           if ( one === 1 ) {
-           	origFn = fn;
-           	fn = function( event ) {
-           		// Can use an empty set, since event contains the info
-           		jQuery().off( event );
-           		return origFn.apply( this, arguments );
-           	};
-           	// Use same guid so caller can remove using origFn
-           	fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
-           }
-           return this.each( function() {
-           	jQuery.event.add( this, types, fn, data, selector );
-           });
-           },
-    * 多个事件同一个函数：
+							if ( one === 1 ) {
+								origFn = fn;
+								fn = function( event ) {
+									// Can use an empty set, since event contains the info
+									jQuery().off( event );
+									return origFn.apply( this, arguments );
+								};
+								// Use same guid so caller can remove using origFn
+								fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
+							}
+							return this.each( function() {
+								jQuery.event.add( this, types, fn, data, selector );
+							});
+							},
+			 ```
+    * 1, 多个事件同一个函数：
 			$("div").on("click mouseover", function(){});
-		* 多个事件不同函数
+
+		* 2, 多个事件不同函数
 			$("div").on({
 				click: function(){},
 				mouseover: function(){}
 			});
 
 -  Node.js的适用场景？
-    Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。
+
+   Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。
    因为Node处理并发能力比较强，处理高并发的能力基于其的事件驱动模式，通过异步回调，非阻塞I/O控制事件执行过程，当多个请求发生，主线程并不会阻塞等回应，而是继续执行下去，通过异步回调加入事件队列，再执行，所以比传统的多线程，线程池模式能更好的处理高并发。
 
    传统的适用于（并发）异步处理相对较少，后台计算量大，后台业务逻辑复杂的应用程序。
@@ -2129,37 +2279,51 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 	 使用场景；处理数万条连接，本身没有过多的逻辑运算（或者逻辑运算由客户端完成），只需要请求API，组织数据返回即可。
    实时消息推送 ，实时聊天、客户端逻辑强大的单页APP
-   [Nodejs优缺点及适用场景](http://www.360doc.com/content/15/0721/08/20539824_486347209.shtml)
-   [从原理上理解Nodejs](http://www.cnblogs.com/kevin9103/p/5053517.html)
+
+   > [Nodejs优缺点及适用场景](http://www.360doc.com/content/15/0721/08/20539824_486347209.shtml)
+
+   > [从原理上理解Nodejs](http://www.cnblogs.com/kevin9103/p/5053517.html)
 
 -  (如果会用node)知道route, middleware, cluster, nodemon, pm2, server-side rendering么?
-   [route路由](http://expressjs.com/zh-cn/starter/basic-routing.html) 对url的处理就叫做路由 路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
-   每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
+
+   > [route路由](http://expressjs.com/zh-cn/starter/basic-routing.html) 对url的处理就叫做路由 路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
+
    middleware:
 
-	 [知乎.Node.js 的中间件是用来做什么的](https://www.zhihu.com/question/37693420)
-	 [中间件是什么？](https://www.zhihu.com/question/19730582)
-	 [Express](http://www.expressjs.com.cn/guide/using-middleware.html) 是一个自身功能极简，完全是由路由和中间件构成一个的 web 开发框架：从本质上来说，一个 Express 应用就是在调用各种中间件。
+	 > [知乎.Node.js 的中间件是用来做什么的](https://www.zhihu.com/question/37693420)
 
-   [cluster是一个nodejs内置的模块，用于nodejs多核处理。cluster模块，可以帮助我们简化多进程并行化程序的开发难度，轻松构建一个用于负载均衡的集群。](http://blog.fens.me/nodejs-core-cluster/)
-   [nodemon监控 NodeJS 源代码的任何变化和自动重启你的服务器](http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/)
-	 [pm2 是一个带有负载均衡功能的Node应用的进程管理器](https://www.douban.com/note/314200231/)
-	  [server-side rendering 服务端渲染](https://ssr.vuejs.org/zh/)
+	 > [中间件是什么？](https://www.zhihu.com/question/19730582)
+
+	 > [Express](http://www.expressjs.com.cn/guide/using-middleware.html) 是一个自身功能极简，完全是由路由和中间件构成一个的 web 开发框架：从本质上来说，一个   Express 应用就是在调用各种中间件。
+
+   > [cluster是一个nodejs内置的模块，用于nodejs多核处理。cluster模块，可以帮助我们简化多进程并行化程序的开发难度，轻松构建一个用于负载均衡的集群。](http://blog.fens.me/nodejs-core-cluster/)
+
+   > [nodemon监控 NodeJS 源代码的任何变化和自动重启你的服务器](http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/)
+
+	 > [pm2 是一个带有负载均衡功能的Node应用的进程管理器](https://www.douban.com/note/314200231/)
+
+	 > [server-side rendering 服务端渲染](https://ssr.vuejs.org/zh/)
+
 -  解释一下 Backbone 的 MVC 实现方式？
 
 - 什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?
-      路由是根据不同的 url 地址展示不同的内容或页面
-     前端路由:就是把不同路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回不同的页面实现的。
-		 后端路由：每跳转到不同的URL，都是重新访问服务端，然后服务端返回页面，页面也可以是服务端获取数据，然后和模板组合，返回HTML，也可以是直接返回模板HTML，然后由前端js再去请求数据，使用前端模板和数据进行组合，生成想要的HTML。
 
-    前端路由更多用在单页应用上, 也就是SPA, 因为单页应用, 基本上都是前后端分离的, 后端自然也就不会给前端提供路由。
-    优点：
-    1.从性能和用户体验的层面来比较的话，后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。
-    2.在某些场合中，用ajax请求，可以让页面无刷新，页面变了但Url没有变化，用户就不能复制到想要的地址，用前端路由做单页面网页就很好的解决了这个问题
-    缺点：
+  路由是根据不同的 url 地址展示不同的内容或页面
+
+  前端路由:就是把不同路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回不同的页面实现的。
+
+	后端路由：每跳转到不同的URL，都是重新访问服务端，然后服务端返回页面，页面也可以是服务端获取数据，然后和模板组合，返回HTML，也可以是直接返回模板HTML，然后由前端js再去请求数据，使用前端模板和数据进行组合，生成想要的HTML。
+
+  前端路由更多用在单页应用上, 也就是SPA, 因为单页应用, 基本上都是前后端分离的, 后端自然也就不会给前端提供路由。
+
+  优点：
+    * 1. 从性能和用户体验的层面来比较的话，后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。
+    * 2. 在某些场合中，用ajax请求，可以让页面无刷新，页面变了但Url没有变化，用户就不能复制到想要的地址，用前端路由做单页面网页就很好的解决了这个问题
+  缺点：
     使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
 
-		[前端路由的两种实现方法](https://segmentfault.com/a/1190000007238999)
+	> [前端路由的两种实现方法](https://segmentfault.com/a/1190000007238999)
+
     * 1 history.pushState 和 history.replaceState  popState
 		* 2 监听hashchange事件
 
@@ -2177,38 +2341,47 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 	动态模板不仅仅有界面模板，还拥有一系列配置，这些配置能被特殊方式解析，从而与数据进行关联，动态变化。
 
 - 简述一下 Handlebars 的基本用法？
- [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
-  * 1， 编写模板
-	   <script id="handlebars-demo" type="text/x-handlebars-template">
-	     <div>
-	   	   My name is {{name}}. I am a {{occupation}}.
-	     </div>
-     </script>
-	2， 运行时编译模板,使用Handlebars.compile()编译，将会返回一个函数（或者预编译模板。这样的话，就只需要一个更小的运行时库文件，并且对性能来说是一个极大的节约）
-	3，然后通过将数据作为参数来执行此功能。执行完成后，该函数返回所需的HTML，并将所有变量替换为相应的值。
-	4，将html 片段注入到网页中
 
-	       // Retrieve the template data from the HTML (jQuery is used here).
-         var template = $('#handlebars-demo').html();
+ > [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
+ * 1， 编写模板
+	   ```javascript
+		     <script id="handlebars-demo" type="text/x-handlebars-template">
+			    <div>
+			    	My name is {{name}}. I am a {{occupation}}.
+			    </div>
+		     </script>
+		 ```
+* 2， 运行时编译模板,使用Handlebars.compile()编译，将会返回一个函数（或者预编译模板。这样的话，就只需要一个更小的运行时库文件，并且对性能来说是一个极大的节约）
+* 3，然后通过将数据作为参数来执行此功能。执行完成后，该函数返回所需的HTML，并将所有变量替换为相应的值。
+* 4，将html 片段注入到网页中
 
-         // Compile the template data into a function
-         var templateScript = Handlebars.compile(template);
+	 示例：
+      ```javascript
+			    // Retrieve the template data from the HTML (jQuery is used here).
+			    var template = $('#handlebars-demo').html();
 
-         var context = { "name" : "Ritesh Kumar", "occupation" : "developer" };
+			    // Compile the template data into a function
+			    var templateScript = Handlebars.compile(template);
 
-         // html = 'My name is Ritesh Kumar. I am a developer.'
-         var html = templateScript(context);
+			    var context = { "name" : "Ritesh Kumar", "occupation" : "developer" };
 
-         // Insert the HTML code into the page
-         $(document.body).append(html);
+			    // html = 'My name is Ritesh Kumar. I am a developer.'
+			    var html = templateScript(context);
+
+			    // Insert the HTML code into the page
+			    $(document.body).append(html);
+			```
+
   优点：
-	  * 1 模板语言简单。继承自mustache，用{{content}}标记出要替换的内容即可。
-		* 2 包含逻辑判断和循环。在mustache基础上加强了这个部分，使得代码更易读。
-		* 3 不支持复杂的逻辑，尤其是嵌套JS。我认为这是模板引擎的关键，任何复杂的逻辑放在表现层都会使得系统不稳定。
-		* 4 支持预编译。可以加快实际运行的速度。
-		* 5 提供扩展功能，可以方便地增加自定义功能。这也是本文重点。
+
+	  * 1, 模板语言简单。继承自mustache，用{{content}}标记出要替换的内容即可。
+		* 2, 包含逻辑判断和循环。在mustache基础上加强了这个部分，使得代码更易读。
+		* 3, 不支持复杂的逻辑，尤其是嵌套JS。我认为这是模板引擎的关键，任何复杂的逻辑放在表现层都会使得系统不稳定。
+		* 4, 支持预编译。可以加快实际运行的速度。
+		* 5, 提供扩展功能，可以方便地增加自定义功能。这也是本文重点。
 
 - 简述一下 Handlerbars 的对模板的基本处理流程，如何编译的？如何缓存的？
+
    * 1, Handlebars把包含变量的模板编译成一个函数
 	 * 2, 然后通过传递JSON对象作为参数来执行此功能。这个JSON对象被称为上下文，它包含模板中使用的变量的值
 	 * 3，在执行时，该函数在将模板的变量替换为相应的值后返回所需的HTML
@@ -2217,15 +2390,18 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 - 用js实现千位分隔符?(来源：[前端农民工](http://div.io/topic/744)，提示：正则+replace)
 
 
-		参考：http://www.tuicool.com/articles/ArQZfui
-		function commafy(num) {
-		    return num && num
-		        .toString()
-		        .replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
-		            return $1 + ",";
-		        });
-		}
-		console.log(commafy(1234567.90)); //1,234,567.90
+		> [参考：](http://www.tuicool.com/articles/ArQZfui)
+
+		```javascript
+	      	function commafy(num) {
+	      		 return num && num
+	      				 .toString()
+	      				 .replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
+	      						 return $1 + ",";
+	      				 });
+	       }
+	       console.log(commafy(1234567.90)); //1,234,567.90
+		```
 
 
 
@@ -2233,18 +2409,22 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 		功能检测、userAgent特征检测
     navigator 对象
-		比如：
-    navigator.appName:保存浏览器类型
-		navigator.appVersion:存有浏览器的版本信息
-		navigator.userAgent: 浏览器的用户代理报头
+
+		> 比如：
+
+      * navigator.appName:保存浏览器类型
+		  * navigator.appVersion:存有浏览器的版本信息
+		  * navigator.userAgent: 浏览器的用户代理报头
 		//"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36
 		  (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
 
 
 - What is a Polyfill?
+
    一个shim是一个库,它将一个新的API引入到一个旧的环境中,而且仅靠旧环境中已有的手段实现;
 	 polyfill 是 shim 的一种。
-		polyfill 是“在旧版浏览器上复制标准 API 的 JavaScript 补充”,可以动态地加载 JavaScript 代码或库，在不支持这些标准 API 的浏览器中模拟它们。
+
+	polyfill 是“在旧版浏览器上复制标准 API 的 JavaScript 补充”,可以动态地加载 JavaScript 代码或库，在不支持这些标准 API 的浏览器中模拟它们。
 
 		例如，geolocation（地理位置）polyfill 可以在 navigator 对象上添加全局的 geolocation 对象，还能添加 getCurrentPosition 函数以及“坐标”回调对象，
 		所有这些都是 W3C 地理位置 API 定义的对象和函数。因为 polyfill 模拟标准 API，所以能够以一种面向所有浏览器未来的方式针对这些 API 进行开发，
@@ -2255,17 +2435,21 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		比如： html5shiv、Geolocation、Placeholder
 
 - 我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
+
     会执行两次事件，按绑定先后顺序执行。
 		如果父子元素绑定事件，绑定捕获的先执行于冒泡的。
 
 - 使用JS实现获取文件扩展名？
 
-		function getFileExtension(filename) {
-		  return filename.slice((filename.lastIndexOf(".") >>> 0) + 1);
-		}
+		```javascript
+		    function getFileExtension(filename) {
+		    	return filename.slice((filename.lastIndexOf(".") >>> 0) + 1);
+		    }
+		```
 
 		String.lastIndexOf() 方法返回指定值（本例中的'.'）在调用该方法的字符串中最后出现的位置，如果没找到则返回 -1。
-		对于'filename'和'.hiddenfile'，lastIndexOf的返回值分别为0和-1无符号右移操作符(»>) 将-1转换为4294967295，将-2转换为4294967294，这个方法可以保证边缘情况时文件名不变。
+		对于'filename'和'.hiddenfile'，lastIndexOf的返回值分别为0和-1无符号右移操作符(»>) 将-1转换为4294967295，
+		将-2转换为4294967294，这个方法可以保证边缘情况时文件名不变。
 		String.prototype.slice() 从上面计算的索引处提取文件的扩展名。如果索引比文件名的长度大，结果为""。
 
 
@@ -2273,25 +2457,28 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 - Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？
 
-		两等号判等，会在比较时进行类型转换；
-		三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）；
+		> 两等号判等，会在比较时进行类型转换；
+		> 三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）；
 
-		Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，
-		但 Object.is(NaN, NaN) 会返回 true.
+		> Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，
+		> 但 Object.is(NaN, NaN) 会返回 true.
 
- 		Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。
-
-
+ 		> Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。
 
 
 #### <a name='other'>前端框架相关</a>
 
 - react-router 路由系统的实现原理？
-  * 1 [深入理解 react-router 路由系统](https://zhuanlan.zhihu.com/p/20381597?columnSlug=purerender)
-  * 2 [react-router的实现原理](https://segmentfault.com/a/1190000004527878)
+
+  * 1 > [深入理解 react-router 路由系统](https://zhuanlan.zhihu.com/p/20381597?columnSlug=purerender)
+  * 2 > [react-router的实现原理](https://segmentfault.com/a/1190000004527878)
+
   没有学过react，但猜想应该都是采用hasn 或者H5 history等路由监听方法来进行封装引用的。
+
 - React中如何解决第三方类库的问题?
+
   因为学过VUE ,所以给出[vue的方案](https://github.com/dwqs/blog/issues/51)
+
 	* 1 全局变量 （不适合服务端）
 	* 2 在每个文件中手动引用（缺点繁琐）
 	* 3 代理到 Vue 的原型对象上
@@ -2299,7 +2486,9 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 ## <a name='other'>其他问题</a>
 
 - 原来公司工作流程是怎么样的，如何与其他人协作的？如何夸部门合作的？
+
   流程：
+
 	* 1, 与后台沟通接口文档
 	* 2, 使用原型软件设计原型
 	* 3, 进行开发
@@ -2311,9 +2500,13 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 
 - 设计模式 知道什么是singleton, factory, strategy, decrator么?
-  [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
-	[javascript 设计模式（文章很长，请自备瓜子，水果和眼药水）](http://www.cnblogs.com/Darren_code/archive/2011/08/31/JavascripDesignPatterns.html)
-	[汤姆大叔深入理解JavaScript系列](http://www.cnblogs.com/TomXu/tag/JavaScript/default.html?page=1)
+
+  > [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
+
+	> [javascript 设计模式（文章很长，请自备瓜子，水果和眼药水）](http://www.cnblogs.com/Darren_code/archive/2011/08/31/JavascripDesignPatterns.html)
+
+	> [汤姆大叔深入理解JavaScript系列](http://www.cnblogs.com/TomXu/tag/JavaScript/default.html?page=1)
+
   singleton：
 	    var singleton = function() {
 	    	var instance;
@@ -2332,7 +2525,9 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 	    }
 			var Factory = singleton()
 		  var singleton_1 = Factory.getInstance();
-	[很棒的实例](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/)
+
+	> [很棒的实例](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/)
+
   factory
 	        // A constructor for defining new cars
 	        function Car( options ) {
@@ -2386,7 +2581,9 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 	        						vehicleType: "car",
 	        						color: "yellow",
 	        						doors: 6 } );
+
   strategy
+
 	decrator
 
 - 常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？
@@ -2425,9 +2622,11 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 		   	触发事件的元素被认为是目标（target）。而在 IE 中，目标包含在 event 对象的 srcElement 属性；
 
-			获取字符代码、如果按键代表一个字符（shift、ctrl、alt除外），IE 的 keyCode 会返回字符代码（Unicode），DOM 中按键的代码和字符是分离的，要获取字符代码，需要使用 charCode 属性；
+			获取字符代码、如果按键代表一个字符（shift、ctrl、alt除外），IE 的 keyCode 会返回字符代码（Unicode），
+			DOM 中按键的代码和字符是分离的，要获取字符代码，需要使用 charCode 属性；
 
-			阻止某个事件的默认行为，IE 中阻止某个事件的默认行为，必须将 returnValue 属性设置为 false，Mozilla 中，需要调用 preventDefault() 方法；
+			阻止某个事件的默认行为，IE 中阻止某个事件的默认行为，必须将 returnValue 属性设置为 false，Mozilla 中，
+			需要调用 preventDefault() 方法；
 
 			停止事件冒泡，IE 中阻止事件进一步冒泡，需要设置 cancelBubble 为 true，Mozzilla 中，需要调用 stopPropagation()；
 
@@ -2438,10 +2637,12 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 - 什么叫优雅降级和渐进增强？
 
-		优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会针对旧版本的IE进行降级处理了,使之在旧式浏览器上以某种形式降级体验却不至于完全不能用。
+		优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会针对旧版本的
+		IE进行降级处理了,使之在旧式浏览器上以某种形式降级体验却不至于完全不能用。
 		如：border-shadow
 
-		渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新版本浏览器才支持的功能,向页面增加不影响基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。
+		渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新版本浏览器才支持的功能,向页面增加
+		不影响基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。
 		如：默认使用flash上传，但如果浏览器支持 HTML5 的文件上传功能，则使用HTML5实现更好的体验；
 
 - 是否了解公钥加密和私钥加密。
@@ -2614,12 +2815,52 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 			载入解析到的资源文件，渲染页面，完成。
 
 - 部分地区用户反应网站很卡，请问有哪些可能性的原因，以及解决方法？
-  * 1，
-	* 2，
 
-- 从打开app到刷新出内容，整个过程中都发生了什么，如果感觉慢，怎么定位问题，怎么解决?
+   当用户输入url到看到首屏输出，我们可以把整个过程分为三个路径：
+
+	   * 1、第一段在用户和浏览器端，主要负责发出用户请求，以及接受响应数据进行计算渲染显示给用户；
+     * 2、第二段在网络上，负责对请求数据、响应数据的传输；
+	   * 3、第三段在网站服务器端，负责对请求数据进行处理（执行程序、访问数据库、文件等），并将结果返回；
+
+   第一路径花费的时间包括输入域名发起请求的时间和浏览器收到响应后计算渲染的时间，优化点:
+
+	   * 1, 减少DNS解析次数，可通过主动告知浏览器我的网站需要做DNS预取：<meta http-equiv=”x-dns-prefetch-control” content=”on” />（主流浏览器默认已设置此功能）
+	   * 2, 浏览器渲染时间，可通过控制页面大小，将多个css，js压缩合并减少下载次数和大小，另外注意将CSS放在页面前面，JS访问页面后面，这样便于页面首先能渲染出来，再执行js脚本，对于用户来说有更好的体验。最后我还可以设置浏览器缓存，下次访问时从缓存读取内容，减少http请求。
+	 <meta http-equiv=”Cache-Control” content=”max-age=5″ /> //该代码说明了浏览器启用了缓存并在5秒内不会再次访问服务器。注意缓存的设置需要结合你的业务特性来适当配置。
+
+	 第二路径在网络上，花费的时间同样包括请求数据的传输时间和响应数据的传输时间，这个两个时间取决于数据传输的速度
+
+     * 1，我们能决定的是网站服务器的上传、下载速度，所以我们可以做的是适当的增加服务器带宽（带宽是很贵的，盲目的增加只会增加不必要成本）。购买合适的带宽需要根据网站业务特性、规模以及结合运维人员的经验来选择。通常可以考虑的算法，即根据一次响应数据的大小，乘以PV数，除以对应的高峰时间段，从而大致估算出网站带宽的需求。
+     * 2、在各运营商发达的地区的IDC（互联网数据中心，可以理解成机房）部署网站服务器，各运营商的用户即可通过各自的骨干网访问服务器。
+     * 3，购买代理服务，也就是原来联通用户需要通过联通骨干网——>联通互联互通路由器——>电信骨干网——>网站服务器的过程。通过代理服务，代理服务器直连到电信骨干网，访问网站服务器。
+	   * 4 在主要地区城市购买CDN服务，缓存对应的数据，用户可先从最近的CDN运营商获取请求数据。
+
+   第三路径主要是网站服务器内部处理的过程，当中包括执行程序、访问文件、数据库等资源。
+
+     * 1 使用缓存，根据需要使用本地缓存或分布式缓存；
+     * 2 使用异步操作，这种方式不仅可以提高性能，也提高了系统的扩展性；
+	   * 3 代码优化，存储优化
+
+   > [大型网站的灵魂——性能](http://www.cnblogs.com/leefreeman/p/3998757.html)
+   > [大型网站系统架构的演化](http://www.cnblogs.com/leefreeman/p/3993449.html)
+
+- 从打开webapp到刷新出内容，整个过程中都发生了什么，如果感觉慢，怎么定位问题，怎么解决?
+
+  * 1, 用户输入url浏览器解析url（解析域名，通过本地host文件,本地DNS服务器，根服务器请求过程）
+  * 2，浏览器发起链接，再构造http报文发送请求，
+  * 3, 服务器返回报文，浏览器渲染页面(包括1、浏览器解析响应数据；2、浏览器创建DOM树；3、浏览器下载CSS样式，并应用到DOM树，进行渲染；4、浏览器下载JS文件，开始解析执行；5、显示给用户。)
+
+	 测试工具
+
+	 * 1 ,google 控制台工具 timeline network
+	 * 2 ,[前端自动化监测工具（BerserkJS）](http://tapir-dream.github.io/berserkJS/)
+	 * 3 ,[PhantomJS is](http://phantomjs.org/examples/)
+
+	 参考资料：[URL输入到页面展示经过的所有过程？](http://www.jianshu.com/p/184ebd448c7f)
 
 - 除了前端以外还了解什么其它技术么？你最最厉害的技能是什么？
+
+
 
 - 你用的得心应手用的熟练地编辑器&开发环境是什么样子？
 
@@ -2635,39 +2876,6 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 		2、提升用户体验
 		3、有了Node.js，前端可以实现服务端的一些事情
 
-- 移动端300ms 延迟，怎么解决？
-  // http://www.jianshu.com/p/6e2b68a93c88
- 移动端浏览器会有一些默认的行为，比如双击缩放、双击滚动。而浏览器为了辨别是双击还是单击事件，便会等待300ms来判别。
- 目前，浏览器开发商的解决方案主要有一下三种方案：
- * 1 <meta name="viewport" content="user-scalable=no">
-     <meta name="viewport" content="initial-scale=1,maximum-scale=1">
-		 缺点——就是必须通过完全禁用缩放来达到去掉点击延迟的目的，然而完全禁用缩放并不是我们的初衷，我们只是想禁掉默认的双击缩放行为，这样就不用等待300ms来判断当前操作是否是双击。
- * 2 <meta name="viewport" content="width=device-width"/>
-     如果设置了上述meta标签，那浏览器就可以认为该网站已经对移动端做过了适配和优化，就无需双击缩放操作了。
-     这个方案相比方案一的好处在于，它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放操作来缩放页面。
- *　３　CSS touch-action
- 这个属性指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。如果将该属性值设置为touch-action: none，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。
-
-	对于方案一和方案二，Chrome是率先支持的，Firefox紧随其后，然而令Safari头疼的是，它除了双击缩放还有双击滚动操作，如果采用这种两种方案，那势必连双击滚动也要一起禁用。对于方案三，IE是支持的，但是其他浏览器支持不完善。
-　*  4 指针事件的polyfill
-        * [Google 的 Polymer](https://github.com/jquery/PEP)
-        * [微软的 HandJS](http://handjs.codeplex.com/)
-        * [@Rich-Harris 的 Points] (https://github.com/Rich-Harris/Points)
-  *  5 [FastClick](https://github.com/ftlabs/fastclick)  
-	     FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。
--什么是点击穿透？
-  假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素，B元素被隐藏了，随后，A元素触发了click事件。
-
-  这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。什么是点击穿透？
-  假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素 ，B元素被隐藏了，随后，A元素触发了click事件。
-
-  这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。
-
- 解决方案：
-    * 1.只用touch   把页面内所有click全部换成touch事件（ touchstart 、’touchend’、’tap’），注意：a标签的href也是click，需要换成js的跳转。
-    * 2.改动最小——350ms后再隐藏B元素
-
-
 		前端是最贴近用户的程序员，前端的能力就是能让产品从 90分进化到 100 分，甚至更好，
 
 		参与项目，快速高质量完成实现效果图，精确到1px；
@@ -2680,16 +2888,55 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 		针对服务器的优化、拥抱最新前端技术。
 
+- 移动端300ms 延迟，怎么解决？
+
+  >[链接](http://www.jianshu.com/p/6e2b68a93c88)
+
+ 移动端浏览器会有一些默认的行为，比如双击缩放、双击滚动。而浏览器为了辨别是双击还是单击事件，便会等待300ms来判别。
+ 目前，浏览器开发商的解决方案主要有一下三种方案：
+
+ * 1 <meta name="viewport" content="user-scalable=no">
+     <meta name="viewport" content="initial-scale=1,maximum-scale=1">
+		 缺点——就是必须通过完全禁用缩放来达到去掉点击延迟的目的，然而完全禁用缩放并不是我们的初衷，我们只是想禁掉默认的双击缩放行为，这样就不用等待300ms来判断当前操作是否是双击。
+ * 2 <meta name="viewport" content="width=device-width"/>
+     如果设置了上述meta标签，那浏览器就可以认为该网站已经对移动端做过了适配和优化，就无需双击缩放操作了。
+     这个方案相比方案一的好处在于，它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放操作来缩放页面。
+ * 3　CSS touch-action
+ 这个属性指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。如果将该属性值设置为touch-action: none，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。
+
+	对于方案一和方案二，Chrome是率先支持的，Firefox紧随其后，然而令Safari头疼的是，它除了双击缩放还有双击滚动操作，如果采用这种两种方案，那势必连双击滚动也要一起禁用。对于方案三，IE是支持的，但是其他浏览器支持不完善。
+
+　*  4 指针事件的polyfill
+        * > [Google 的 Polymer](https://github.com/jquery/PEP)
+        * > [微软的 HandJS](http://handjs.codeplex.com/)
+        * > [@Rich-Harris 的 Points] (https://github.com/Rich-Harris/Points)
+
+  *  5 [FastClick](https://github.com/ftlabs/fastclick)  
+	     FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。
+
+- 什么是点击穿透？
+
+  假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素，B元素被隐藏了，随后，A元素触发了click事件。
+
+  这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。什么是点击穿透？
+  假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素 ，B元素被隐藏了，随后，A元素触发了click事件。
+
+  这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。
+
+ 解决方案：
+
+    * 1.只用touch   把页面内所有click全部换成touch事件（ touchstart 、’touchend’、’tap’），注意：a标签的href也是click，需要换成js的跳转。
+    * 2.改动最小——350ms后再隐藏B元素
+
 - 你怎么看待Web App 、hybrid App、Native App？
+
+   > [Native App、Web App与Hybrid App的比较](http://www.jianshu.com/p/cf956e7f2054)
 
 - 你移动端前端开发的理解？（和 Web 前端开发的主要区别是什么？）
 
 - 你对加班的看法？
 
-
    		加班就像借钱，原则应当是------救急不救穷
-
-
 
 - 平时如何管理你的项目？
 
@@ -2716,8 +2963,24 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 			ES6\WebAssembly\Node\MVVM\Web Components\React\React Native\Webpack 组件化
 
+			codepen/csstrick/张鑫旭博客/github/博客园/小密圈/知乎
+
 - 知道什么是SEO并且怎么优化么? 知道各种meta data的含义么?
 
+  SEO(搜索引擎优化),主要目标就是让你的网站内容尽可能地出现在搜索结果靠前位置
+	具体通过以下四个步骤：1.抓取系统，2.关键词调研，3.页面优化，4.外链建设
+  参考资料: [知乎赵宁回答请在跳转后ctrl+f搜索](https://www.zhihu.com/question/19808905)
+
+  从重构侧出发的seo实战:
+
+	* 1,TDK优化 title,description,keywords
+	   * title是最有用的，是非常值得优化的；title的分隔符一般有"_","-"等，其中_对百度比较友好，而-对谷歌比较友好，如文章title_关键词_网站名称而keywords因为以前被seo人员过度使用，所以现在对这个进行优化对搜索引擎是没用的，这里就不说了；description的描述会直接显示在搜索的介绍中，所以对用户的判断是否点击还是非常有效的。这个标签存在与否不影响网页权值，只会用做搜索结果摘要的一个选择目标。摘要更具可读性，可以让用户更了解网站的内容。
+  * 2 , 页面内容优化
+	    * 1 使用html5结构如果条件允许（如移动端，兼容ie9+，如果ie8+就针对ie8引入html5.js吧），是时候开始考虑使用html5语义化标签。如header,footer,section,aside,nav,article等，这里我们截图看一个整体布局
+      * 2 img设置alt属性
+  * 3 , url优化 越短越好,避免太多参数,目录层次尽量少,文件及目录名具描述性,URL中包括关键词(中文除外),字母全部小写,连词符使用-而不是_,目录形式而非文件形式
+  * 4 , 使用robots.txt 网络爬虫排除标准”（Robots Exclusion Protocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。
+  * 5 ，sitemap站点地图 ，格式分为HTML和XML两种。可以列出站点的所有主要链接
 
 - 移动端（Android IOS）怎么做好用户体验?
 
@@ -2738,9 +3001,30 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 - 你有自己的技术博客吗，用了哪些技术？
 
+  > [XUJIANBIN BLOB](xujianbin.pw)  使用了github page+ jekky搭建
+
 - 对前端安全有什么看法？
 
+  开发者不可能确保自己的应用绝对无法被攻击，但是只要攻击我们的时候，黑客花费的成本远比他可以获取的利益大得多，黑客就不会去攻击。
+	虽然我们有一些必要的手段来防止WEB攻击，但永远不会有一枚silver bullet来彻底解决问题，先不谈那些数不胜数的已知的、可被攻击的漏洞，对于谜一样的0-day漏洞，我们所能做的只是提前发现并及时修补它们。安全的问题大部分还是更依赖于后端的过滤和拦截措施。
+
 - 是否了解Web注入攻击，说下原理，最常见的两种攻击（XSS 和 CSRF）了解到什么程度？
+
+     * 1, XSS(cross-site scripting跨域脚本攻击)是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。
+     其实在web前端方面，可以简单的理解为一种javascript代码注入。
+     解决方法：将前端输出数据都进行转义（$lt,$gt）
+
+     * 2, CSRF（cross-site request forgery），翻译为跨站请求伪造，与XSS非常相似，但XSS是利用用户对当前网站的信任来发起攻击，而CSRF是利用网站对用户的信任来发起攻击(即模拟请求攻击)。
+
+		 对于CSRF攻击，我们所能做的可以有：
+
+        * 1. 检查报头中的Referer参数确保请求发自正确的网站（但XHR请求可调用setRequestHeader方法来修改Referer报头）；
+
+        * 2. 对于任何重要的请求都需要重新验证用户的身份；
+
+        * 3. 创建一个唯一的令牌（Token），将其存在服务端的session中及客户端的cookie中，对任何请求，都检查二者是否一致。
+
+  > [浅谈WEB安全性（前端向）](http://www.cnblogs.com/vajoy/p/4176908.html)
 
 - 项目中遇到国哪些印象深刻的技术难题，具体是什么问题，怎么解决？。
 
@@ -2818,9 +3102,7 @@ Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Re
 
 		2016年3月25日：新增ECMAScript6 相关问题
 
+		2017年7月31日：基本完成全部问题答案更新
 
-### 更新时间:  2016年10月20日
 
-	爱机车、爱骑行、爱旅行、爱摄影、爱阅读的前端开发攻城师。
-
-	我的微博：http://weibo.com/920802999
+### 更新时间:  2017年7月31日
