@@ -2959,7 +2959,7 @@ HTML5？
   解决方案：
 
     * 1. 只用touch   把页面内所有click全部换成touch事件（ touchstart 、’touchend’、’tap’），注意：a标签的href也是click，需要换成js的跳转。
-    * 2. 改动最小——350ms后再隐藏B元素
+    * 2. 改动最小——350ms后再隐藏B元素（测试设置一个定时器延时为0就可以了）
 
 - 你怎么看待Web App 、hybrid App、Native App？
 
@@ -3003,7 +3003,7 @@ HTML5？
   SEO(搜索引擎优化),主要目标就是让你的网站内容尽可能地出现在搜索结果靠前位置
 
 	具体通过以下四个步骤：1.抓取系统，2.关键词调研，3.页面优化，4.外链建设
-	
+
   参考资料: [知乎赵宁回答请在跳转后ctrl+f搜索](https://www.zhihu.com/question/19808905)
 
   从重构侧出发的seo实战:
