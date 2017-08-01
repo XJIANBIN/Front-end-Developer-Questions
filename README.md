@@ -2554,7 +2554,7 @@ HTML5？
 
   > factory
 
- ```javascript
+   ```javascript
 	     // A constructor for defining new cars
 	     function Car( options ) {
 
@@ -2607,7 +2607,7 @@ HTML5？
 	    						 vehicleType: "car",
 	    						 color: "yellow",
 	    						 doors: 6 } );
-	 ```
+	  ```
 
   strategy
 
