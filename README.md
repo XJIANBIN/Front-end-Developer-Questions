@@ -2274,13 +2274,13 @@ HTML5？
     			},
     ```
 
-  * 1, 多个事件同一个函数：
+    * 1, 多个事件同一个函数：
 
 		  ```javascript
 		  	 $("div").on("click mouseover", function(){});
       ```
 
-   * 2, 多个事件不同函数
+    * 2, 多个事件不同函数
 
 		  ```javascript
 		   	$("div").on({
@@ -2344,9 +2344,8 @@ HTML5？
     使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
 
 	> [前端路由的两种实现方法](https://segmentfault.com/a/1190000007238999)
-
-    * 1 history.pushState 和 history.replaceState  popState
-		* 2 监听hashchange事件
+  * 1 history.pushState 和 history.replaceState  popState
+	* 2 监听hashchange事件
 
 - 知道什么是webkit么? 知道怎么用浏览器的各种工具来调试和debug代码么?
 
@@ -2357,14 +2356,16 @@ HTML5？
 - 前端templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?
 
   模板引擎就像是html的解析生成器，将对应的模板填充完数据之后生成静态的html页面。它可以在浏览器端（比如angular中指令所用的模板）也可以在服务器端执行，不过一般用于服务器端。因为它的一个作用是抽象公共页面来重用，如果在服务端填充数据，可以减少回填数据给页面的ajax请求，从而提升浏览器端整体页面渲染速度。
+
 - 简述一下 Handlerbars 与 angular 或者 vue 这些（静态模板与动态模板的区别）？
+
   静态模板是预先写个界面模板，然后通过数据填充，生成字符串，添加到页面中。当被添加到页面后，无论数据如何变化，界面也不再改变，除非再一次compile();
 	动态模板不仅仅有界面模板，还拥有一系列配置，这些配置能被特殊方式解析，从而与数据进行关联，动态变化。
 
 - 简述一下 Handlebars 的基本用法？
 
- > [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
- * 1， 编写模板
+   > [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
+   * 1， 编写模板
 	   ```javascript
 		     <script id="handlebars-demo" type="text/x-handlebars-template">
 			    <div>
@@ -2372,9 +2373,9 @@ HTML5？
 			    </div>
 		     </script>
 		 ```
-* 2， 运行时编译模板,使用Handlebars.compile()编译，将会返回一个函数（或者预编译模板。这样的话，就只需要一个更小的运行时库文件，并且对性能来说是一个极大的节约）
-* 3，然后通过将数据作为参数来执行此功能。执行完成后，该函数返回所需的HTML，并将所有变量替换为相应的值。
-* 4，将html 片段注入到网页中
+   * 2， 运行时编译模板,使用Handlebars.compile()编译，将会返回一个函数（或者预编译模板。这样的话，就只需要一个更小的运行时库文件，并且对性能来说是一个极大的节约）
+   * 3，然后通过将数据作为参数来执行此功能。执行完成后，该函数返回所需的HTML，并将所有变量替换为相应的值。
+   * 4，将html 片段注入到网页中
 
 	 示例：
       ```javascript
