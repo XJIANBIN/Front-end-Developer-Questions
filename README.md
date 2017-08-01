@@ -2080,7 +2080,7 @@ HTML5？
 
 
 -  谈一下Jquery中的bind(),live(),delegate(),on()的区别？
-    > [参考资料](http://www.cnblogs.com/moonreplace/archive/2012/10/09/2717136.html)
+    >[参考资料](http://www.cnblogs.com/moonreplace/archive/2012/10/09/2717136.html)
       * 1, bind():
 	      * 优点：直接绑定到元素上 .click() . hover() 都是利用bind()方法，这个方法可以很快就绑定上事件，而且很快执行回调，因为是对当个元素（$()选取元素操作）而且对浏览器的兼容性做了处理
         * 缺点：1当元素很多的时候，会有性能问题，2，而且不能对动态增加元素进行自绑定事件,3，当页面加载完才能进行绑定
