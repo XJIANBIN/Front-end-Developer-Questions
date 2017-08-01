@@ -2145,17 +2145,17 @@ HTML5？
 
   > [参考资料1](https://zhuanlan.zhihu.com/p/25280160)
 
-	> [参考资料2](https://github.com/mattt/MsgPackSerialization/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E5%BB%B6%E8%BF%9F%E5%8F%8Azepto%E7%9A%84%E7%A9%BF%E9%80%8F%E7%8E%B0%E8%B1%A1)
+  > [参考资料2](https://github.com/mattt/MsgPackSerialization/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E5%BB%B6%E8%BF%9F%E5%8F%8Azepto%E7%9A%84%E7%A9%BF%E9%80%8F%E7%8E%B0%E8%B1%A1)
 
   > 问题现象:
+
   在项目中,遇到的问题是有一个弹出层, 弹出层有一个按钮点击之后表示操作完成并且隐藏遮罩与弹出框,但是点击按钮之后
   弹出层下面的元素却触发了 click 事件,导致 bug 的出现.
 
- 解决方法：
-
-	* 1, 在遮罩之后加一个透明的 div 在 350ms 后消失
-	* 2, 遮罩使用动画在 350ms 后消失
-	* 3, 使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层
+ > 解决方法：
+  * 1, 在遮罩之后加一个透明的 div 在 350ms 后消失
+  * 2, 遮罩使用动画在 350ms 后消失
+  * 3, 使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层
 	    元素就不会响应 click 事件了,然后设置一个定时器在, tap事件响应后的400ms 后将 pointer-events 设置为 auto 恢复正常.
   * 4, 使用 fastclick
   * 5,  直接将上层元素的tap事件换成click事件（会出现300ms的延迟触发事件）
