@@ -2220,7 +2220,6 @@ HTML5？
     源码：
 
 	    ```javascript
-
         on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
     	 // Types can be a map of types/handlers
     			var type, origFn;
@@ -2273,27 +2272,22 @@ HTML5？
     				jQuery.event.add( this, types, fn, data, selector );
     			});
     			},
-
     ```
 
     * 1, 多个事件同一个函数：
 
-		```javascript
-
-			$("div").on("click mouseover", function(){});
-
-    ```
+		  ```javascript
+		  	 $("div").on("click mouseover", function(){});
+      ```
 
 		* 2, 多个事件不同函数
 
-		```javascript
-
-			$("div").on({
-				click: function(){},
-				mouseover: function(){}
-			});
-			
-      ```
+		  ```javascript
+		   	$("div").on({
+		   		click: function(){},
+		   		mouseover: function(){}
+		   	});
+       ```
 
 -  Node.js的适用场景？
 
