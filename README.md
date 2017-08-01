@@ -2410,9 +2410,7 @@ HTML5？
 
 
 - 用js实现千位分隔符?(来源：[前端农民工](http://div.io/topic/744)，提示：正则+replace)
-
-
-		> [参考：](http://www.tuicool.com/articles/ArQZfui)
+  > [参考：](http://www.tuicool.com/articles/ArQZfui)
 
 		```javascript
 	      	function commafy(num) {
