@@ -2937,12 +2937,12 @@ HTML5？
 
 	  对于方案一和方案二，Chrome是率先支持的，Firefox紧随其后，然而令Safari头疼的是，它除了双击缩放还有双击滚动操作，如果采用这种两种方案，那势必连双击滚动也要一起禁用。对于方案三，IE是支持的，但是其他浏览器支持不完善。
 
-　  *  4 指针事件的polyfill
+　  * 4 指针事件的polyfill
       * [Google 的 Polymer](https://github.com/jquery/PEP)
       * [微软的 HandJS](http://handjs.codeplex.com/)
       * [Rich-Harris 的 Points](https://github.com/Rich-Harris/Points)
 
-    *  5 [FastClick](https://github.com/ftlabs/fastclick)  
+    * 5 [FastClick](https://github.com/ftlabs/fastclick)  
 	     FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。
 			 FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，
 			 并把浏览器在300ms之后的click事件阻止掉。
