@@ -1912,11 +1912,11 @@ HTML5？
 	 这个过程若干次，就得到了最终的结果。算法过程中也实现了分治法的思想，即把复杂的模块分成几个简单的模块，分而治之。
 
 	 资料:(按顺序阅读比较容易理解)
-	   >[参考资  料1](https://dsb123dsb.github.io/2016/12/27/js%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88in-place%EF%BC%89%E7%AE%80%E8%BF%B0/)
-	   >[参考资料2](http://www.jianshu.com/p/fc342a9ffb58)
+	   > [参考资  料1](https://dsb123dsb.github.io/2016/12/27/js%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88in-place%EF%BC%89%E7%AE%80%E8%BF%B0/)
+	   > [参考资料2](http://www.jianshu.com/p/fc342a9ffb58)
 
 	 someOther
-	   >[算法可视化网站：](http://zh.visualgo.net/zh/sorting)    
+	   > [算法可视化网站：](http://zh.visualgo.net/zh/sorting)    
 
 
 -  JQuery的源码看过吗？能不能简单概况一下它的实现原理？
@@ -1944,12 +1944,15 @@ HTML5？
 			```
 
 	   * JQuer.fn.init方法返回this为JQ原型对象实例（如果没有选择器参数为空就是JQ原型对象，
-		   可以看[jq源码](http://code.jquery.com/jquery-1.9.1.js)，ctrl+f搜索jQuery.fn看其具体实现，你就会秒懂了），是一个类数组对象。
+		   可以看 [jq源码](http://code.jquery.com/jquery-1.9.1.js) ，ctrl+f搜索jQuery.fn看其具体实现，你就会秒懂了），是一个
+			 类数组对象。
 
 
      * 因为Jq实现了$()来实例化jq对象，通过jq原型上init构造方法去实例化并返回一个对象，这样就可以不用new的方式去创建JQ对象，
 		   而且JQuery构造函数就相当于一个工厂函数。并且，为什么构造函数为什么要 new jQuery.fn.init(),这是因为如果直接利用
-			 init函数return出来的对象，会直接暴露了jQuery.prototype原型对象出去（[参考](https://github.com/wy-ei/notebook/issues/6)），这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的指向对象，从而避开jQuer.fn的直接暴露。
+			 init函数return出来的对象，会直接暴露了jQuery.prototype原型对象出去 [参考](https://github.com/wy-ei/notebook/issues/6)，
+			 这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的
+			 指向对象，从而避开jQuer.fn的直接暴露。
 
 		 * new 关键字的作用是创建一个对象，当一个函数使用 new 来调用的时候其实际上进行了下面的几个步骤：
 
@@ -1960,16 +1963,17 @@ HTML5？
 				      那么 new 的结果就是上面步骤构造出来的对象 obj。
 
 
- 明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
+    明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
 
-		 但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype继承的是Object.prototype，
-		 并不包含jQuery.fn。这里的解决方法就是将 init.prototype 直接指向 jQuery.prototype 。这下构造出来的对象就可以访问到 jQuery.prototype 中的内容了：
-		 在jq源码中就有这么一句jQuery.fn.init.prototype = jQuery.fn;
+		但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype
+		继承的是Object.prototype，并不包含jQuery.fn。这里的解决方法就是将 init.prototype 直接指向 jQuery.prototype
+		。这下构造出来的对象就可以访问到 jQuery.prototype 中的内容了：在jq源码中就有这么一句jQuery.fn.init.prototype = jQuery.fn;
 
-	   参考资料：
-		 * 1 http://elcarim5efil.github.io/blog/2015/07/28/jQuery_analysis_8.html
-     * 2 http://www.cnblogs.com/aaronjs/p/3278578.html （解释不是很清楚）
-     * 3 https://github.com/wy-ei/notebook/issues/7 (第二配合第三来看)
+	参考资料：
+
+		 * 1 [Link1](http://elcarim5efil.github.io/blog/2015/07/28/jQuery_analysis_8.html)
+     * 2 [Link2](http://www.cnblogs.com/aaronjs/p/3278578.html) （解释不是很清楚）
+     * 3 [link3](https://github.com/wy-ei/notebook/issues/7 )(第二配合第三来看)
 
 -  jquery中如何将数组转化为json字符串，然后再转化回来？
 
