@@ -1949,8 +1949,8 @@ HTML5？
 		你就会秒懂了），是一个类数组对象。
 
 
-    * 因为Jq实现了$()来实例化jq对象，通过jq原型上init构造方法去实例化并返回一个对象，这样就可以不用new的方式去创建JQ对象，
-		  而且JQuery构造函数就相当于一个工厂函数。并且，为什么构造函数为什么要 new jQuery.fn.init(),这是因为如果直接利用
+     因为Jq实现了$()来实例化jq对象，通过jq原型上init构造方法去实例化并返回一个对象，这样就可以不用new的方式去创建JQ对象，
+		 而且JQuery构造函数就相当于一个工厂函数。并且，为什么构造函数为什么要 new jQuery.fn.init(),这是因为如果直接利用
 		 init函数return出来的对象，会直接暴露了jQuery.prototype原型对象出去 [参考](https://github.com/wy-ei/notebook/issues/6)，
 		 这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的
 		 指向对象，从而避开jQuer.fn的直接暴露。
@@ -1961,7 +1961,6 @@ HTML5？
        * 3, 执行该函数，并将函数中的 this 映射为 该空对象 obj。
        * 4, 最后如果该函数有返回值，而且返回值是对象，那么就返回这个对象。如果没有返回值，或者返回值不是对象，
 			      那么 new 的结果就是上面步骤构造出来的对象 obj。
-
 
     > 明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
 
