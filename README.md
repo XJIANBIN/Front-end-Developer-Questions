@@ -1835,7 +1835,7 @@ HTML5？
 
 -  如何编写高性能的Javascript？
 
-       > [参考文章](http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/)
+    > [参考文章](http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/)
 
   * 1, 垃圾回收方面：
 	  * 手动消除引用（设置为null 比 delete 略好）
