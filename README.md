@@ -1862,19 +1862,19 @@ HTML5？
    内存泄漏可以定义为：应用程序不再需要占用内存的时候，由于某些原因，内存没有被操作系统或可用内存池回收。
 
    垃圾回收机制：标记清除法，引用计数法
+
       * 1, 闭包 （去除，造成内存泄露是浏览器的bug，不关闭包的事情，跟闭包和内存泄露有关系的地方是，使用闭包的同时比较容易形成循环引用，如果闭包的作用域链中保存着一些DOM节点，这时候就有可能造成内存泄露。[链接](https://www.zhihu.com/question/31078912)
-			* 2, 定时器  setInterval用完要clearInterval ，不然回调函数等内存无法回收。
+
+      * 2, 定时器  setInterval用完要clearInterval ，不然回调函数等内存无法回收。
       * 3, 全局变量,因为挂在window上面，window是不会被清空（在 JavaScript 文件头部加上 'use strict'，可以避免此类错误发生。启用严格模式解析 JavaScript ，避免意外的全局变量，如函数里面用this，然后全局执行的变量。）
-      * 4, 监听器
-	 老版本的 IE 是无法检测 DOM 节点与 JavaScript 代码之间的循环引用，会导致内存泄漏。如今，现代的浏览器（包括 IE 和 Microsoft Edge）使用了更先进的垃圾回收算法，已经可以正确检测和处理循环引用了。换言之，回收节点内存时，不必非要调用 removeEventListener 了。
-      * 5, 脱离Dom的引用
-	     有时，保存dom的数据结构很有用把dom存成json或数组很有意义，但是，当你决定删除元素时，这些引用也需要同时删除。
+      * 4, 监听器 老版本的 IE 是无法检测 DOM 节点与 JavaScript 代码之间的循环引用，会导致内存泄漏。如今，现代的浏览器（包括 IE 和 Microsoft Edge）使用了更先进的垃圾回收算法，已经可以正确检测和处理循环引用了。换言之，回收节点内存时，不必非要调用 removeEventListener 了。
+      * 5, 脱离Dom的引用。有时，保存dom的数据结构很有用把dom存成json或数组很有意义，但是，当你决定删除元素时，这些引用也需要同时删除。
 		   此外还需考虑DOM树内或子节点的引用问题，加入你的js代码保存了一个td的引用，但你决定删除整个表格的时候，整个表格还是会存在内存中的，因为td 是表格的子节点，子元素与父元素是引用关系，导致表格无法释放。
 
 -  闭包应用
-  > [参考资料](https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd)
-	
-    * 1, 函数柯里化
+   > [参考资料](https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd)
+
+   * 1, 函数柯里化
 
             ```javascript
     	           var doSomething = function(do,something){
@@ -1892,7 +1892,8 @@ HTML5？
     	           var newDoSomething  = Curry(doSomething,'hello');
     	           newDoSomething('Howard');
     	           newDoSomething('Harden');
-    * 2, 单例模式
+   * 2, 单例模式
+
     	   ```javascript
     		     var getSingleInstance = (function(){
     			   	 function China () {
