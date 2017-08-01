@@ -2273,15 +2273,18 @@ HTML5？
     			});
     			},
     ```
-    * 1, 多个事件同一个函数：
-			$("div").on("click mouseover", function(){});
 
+    * 1, 多个事件同一个函数：
+		```javascript
+			$("div").on("click mouseover", function(){});
+    ```
 		* 2, 多个事件不同函数
+		```javascript
 			$("div").on({
 				click: function(){},
 				mouseover: function(){}
 			});
-
+      ```
 -  Node.js的适用场景？
 
    Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。
