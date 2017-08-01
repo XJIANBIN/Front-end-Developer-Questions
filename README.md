@@ -2273,22 +2273,26 @@ HTML5？
     				jQuery.event.add( this, types, fn, data, selector );
     			});
     			},
-					
+
     ```
 
     * 1, 多个事件同一个函数：
 
 		```javascript
+
 			$("div").on("click mouseover", function(){});
+
     ```
 
 		* 2, 多个事件不同函数
 
 		```javascript
+
 			$("div").on({
 				click: function(){},
 				mouseover: function(){}
 			});
+			
       ```
 
 -  Node.js的适用场景？
