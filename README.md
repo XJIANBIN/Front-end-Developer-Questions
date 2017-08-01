@@ -2553,7 +2553,8 @@ HTML5？
 	> [很棒的实例](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/)
 
   > factory
-	  ```javascript
+
+ ```javascript
 	     // A constructor for defining new cars
 	     function Car( options ) {
 
