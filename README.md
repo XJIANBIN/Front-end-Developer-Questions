@@ -2130,12 +2130,12 @@ HTML5？
 
 	 >[参考资料](http://xujianbin.pw/project/2017/05/09/optimization2-JQueryPerformance/)
 
-	 *基于Class的选择性的性能相对于Id选择器开销很大，因为需遍历所有DOM元素。
+	 * 基于Class的选择性的性能相对于Id选择器开销很大，因为需遍历所有DOM元素。
 
-	 *频繁操作的DOM，先缓存起来再操作。用Jquery的链式调用更好。
+	 * 频繁操作的DOM，先缓存起来再操作。用Jquery的链式调用更好。
          比如：var str=$("a").attr("href");
 
-	 *for (var i = size; i < arr.length; i++) {}
+	 * for (var i = size; i < arr.length; i++) {}
          for 循环每一次循环都查找了数组 (arr) 的.length 属性，在开始循环的时候设置一个变量来存储这个数字，可以让循环跑得更快：
          for (var i = size, length = arr.length; i < length; i++) {}
 
