@@ -2274,7 +2274,7 @@ HTML5？
     			},
     ```
 
-   * 1, 多个事件同一个函数：
+  * 1, 多个事件同一个函数：
 
 		  ```javascript
 		  	 $("div").on("click mouseover", function(){});
