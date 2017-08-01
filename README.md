@@ -2431,9 +2431,9 @@ HTML5？
    navigator 对象
 
 	> 比如：
-   * navigator.appName:保存浏览器类型
-	 * navigator.appVersion:存有浏览器的版本信息
-	 * navigator.userAgent: 浏览器的用户代理报头
+* navigator.appName:保存浏览器类型
+* navigator.appVersion:存有浏览器的版本信息
+* navigator.userAgent: 浏览器的用户代理报头
 		//"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36
 		  (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
 
@@ -2461,11 +2461,11 @@ HTML5？
 
 - 使用JS实现获取文件扩展名？
 
-		```javascript
-		    function getFileExtension(filename) {
-		    	return filename.slice((filename.lastIndexOf(".") >>> 0) + 1);
-		    }
-		```
+```javascript
+    function getFileExtension(filename) {
+    	return filename.slice((filename.lastIndexOf(".") >>> 0) + 1);
+    }
+```
 
 		String.lastIndexOf() 方法返回指定值（本例中的'.'）在调用该方法的字符串中最后出现的位置，如果没找到则返回 -1。
 		对于'filename'和'.hiddenfile'，lastIndexOf的返回值分别为0和-1无符号右移操作符(»>) 将-1转换为4294967295，
