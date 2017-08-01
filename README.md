@@ -2274,13 +2274,13 @@ HTML5？
     			},
     ```
 
-    * 1, 多个事件同一个函数：
+   * 1, 多个事件同一个函数：
 
 		  ```javascript
 		  	 $("div").on("click mouseover", function(){});
       ```
 
-		* 2, 多个事件不同函数
+   * 2, 多个事件不同函数
 
 		  ```javascript
 		   	$("div").on({
