@@ -2552,59 +2552,61 @@ HTML5？
 
 	> [很棒的实例](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/)
 
-  factory
-	        // A constructor for defining new cars
-	        function Car( options ) {
+  > factory
+	  ```javascript
+	     // A constructor for defining new cars
+	     function Car( options ) {
 
-	        	// some defaults
-	        	this.doors = options.doors || 4;
-	        	this.state = options.state || "brand new";
-	        	this.color = options.color || "silver";
+	    	 // some defaults
+	    	 this.doors = options.doors || 4;
+	    	 this.state = options.state || "brand new";
+	    	 this.color = options.color || "silver";
 
-	        }
+	     }
 
-	        // A constructor for defining new trucks
-	        function Truck( options){
+	     // A constructor for defining new trucks
+	     function Truck( options){
 
-	        	this.state = options.state || "used";
-	        	this.wheelSize = options.wheelSize || "large";
-	        	this.color = options.color || "blue";
-	        }
+	    	 this.state = options.state || "used";
+	    	 this.wheelSize = options.wheelSize || "large";
+	    	 this.color = options.color || "blue";
+	     }
 
 
-	        // FactoryExample.js
+	     // FactoryExample.js
 
-	        // Define a skeleton vehicle factory
-	        function VehicleFactory() {}
+	     // Define a skeleton vehicle factory
+	     function VehicleFactory() {}
 
-	        // Define the prototypes and utilities for this factory
+	     // Define the prototypes and utilities for this factory
 
-	        // Our default vehicleClass is Car
-	        VehicleFactory.prototype.vehicleClass = Car;
+	     // Our default vehicleClass is Car
+	     VehicleFactory.prototype.vehicleClass = Car;
 
-	        // Our Factory method for creating new Vehicle instances
-	        VehicleFactory.prototype.createVehicle = function ( options ) {
+	     // Our Factory method for creating new Vehicle instances
+	     VehicleFactory.prototype.createVehicle = function ( options ) {
 
-	        	switch(options.vehicleType){
-	        		case "car":
-	        			this.vehicleClass = Car;
-	        			break;
-	        		case "truck":
-	        			this.vehicleClass = Truck;
-	        			break;
-	        		//defaults to VehicleFactory.prototype.vehicleClass (Car)
-	        	}
+	    	 switch(options.vehicleType){
+	    		 case "car":
+	    			 this.vehicleClass = Car;
+	    			 break;
+	    		 case "truck":
+	    			 this.vehicleClass = Truck;
+	    			 break;
+	    		 //defaults to VehicleFactory.prototype.vehicleClass (Car)
+	    	 }
 
-	        	return new this.vehicleClass( options );
+	    	 return new this.vehicleClass( options );
 
-	        };
+	     };
 
-	        // Create an instance of our factory that makes cars
-	        var carFactory = new VehicleFactory();
-	        var car = carFactory.createVehicle( {
-	        						vehicleType: "car",
-	        						color: "yellow",
-	        						doors: 6 } );
+	     // Create an instance of our factory that makes cars
+	     var carFactory = new VehicleFactory();
+	     var car = carFactory.createVehicle( {
+	    						 vehicleType: "car",
+	    						 color: "yellow",
+	    						 doors: 6 } );
+	 ```
 
   strategy
 
@@ -2652,7 +2654,8 @@ HTML5？
 			阻止某个事件的默认行为，IE 中阻止某个事件的默认行为，必须将 returnValue 属性设置为 false，Mozilla 中，
 			需要调用 preventDefault() 方法；
 
-			停止事件冒泡，IE 中阻止事件进一步冒泡，需要设置 cancelBubble 为 true，Mozzilla 中，需要调用 stopPropagation()；
+			停止事件冒泡，IE 中阻止事件进一步冒泡，需要设置 cancelBubble 为 true，Mozzilla 中，
+			需要调用 stopPropagation()；
 
 
 - 99%的网站都需要被重构是那本书上写的？
