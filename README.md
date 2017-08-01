@@ -2412,16 +2412,16 @@ HTML5？
 - 用js实现千位分隔符?(来源：[前端农民工](http://div.io/topic/744)，提示：正则+replace)
   > [参考：](http://www.tuicool.com/articles/ArQZfui)
 
-		```javascript
-	      	function commafy(num) {
-	      		 return num && num
-	      				 .toString()
-	      				 .replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
-	      						 return $1 + ",";
-	      				 });
-	       }
-	       console.log(commafy(1234567.90)); //1,234,567.90
-		```
+```javascript
+	    	function commafy(num) {
+	    		 return num && num
+	    				 .toString()
+	    				 .replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
+	    						 return $1 + ",";
+	    				 });
+	     }
+	     console.log(commafy(1234567.90)); //1,234,567.90
+```
 
 
 
