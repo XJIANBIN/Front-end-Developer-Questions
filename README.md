@@ -2431,9 +2431,9 @@ HTML5？
    navigator 对象
 
 	> 比如：
-  * navigator.appName:保存浏览器类型
-	* navigator.appVersion:存有浏览器的版本信息
-	* navigator.userAgent: 浏览器的用户代理报头
+   * navigator.appName:保存浏览器类型
+	 * navigator.appVersion:存有浏览器的版本信息
+	 * navigator.userAgent: 浏览器的用户代理报头
 		//"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36
 		  (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
 
