@@ -2147,16 +2147,16 @@ HTML5？
 
      > 问题现象:
 
-  在项目中,遇到的问题是有一个弹出层, 弹出层有一个按钮点击之后表示操作完成并且隐藏遮罩与弹出框,但是点击按钮之后
-  弹出层下面的元素却触发了 click 事件,导致 bug 的出现.
+      在项目中,遇到的问题是有一个弹出层, 弹出层有一个按钮点击之后表示操作完成并且隐藏遮罩与弹出框,但是点击按钮之后
+      弹出层下面的元素却触发了 click 事件,导致 bug 的出现.
 
      > 解决方法：
-      * 1, 在遮罩之后加一个透明的 div 在 350ms 后消失
-      * 2, 遮罩使用动画在 350ms 后消失
-      * 3, 使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层
+     * 1, 在遮罩之后加一个透明的 div 在 350ms 后消失
+     * 2, 遮罩使用动画在 350ms 后消失
+     * 3, 使用 CSS3 pointer-events:none 在 tap 事件触发的时候, 将下层元素添加一个属性 poniter-events 为 none, 然后下层
 	    元素就不会响应 click 事件了,然后设置一个定时器在, tap事件响应后的400ms 后将 pointer-events 设置为 auto 恢复正常.
-      * 4, 使用 fastclick
-      * 5,  直接将上层元素的tap事件换成click事件（会出现300ms的延迟触发事件）
+     * 4, 使用 fastclick
+     * 5,  直接将上层元素的tap事件换成click事件（会出现300ms的延迟触发事件）
 	   [链接：](https://zhangxiang958.github.io/2017/03/04/Zepto%20%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98%E6%B7%B1%E7%A9%B6%E4%B8%8E%E8%A7%A3%E5%86%B3/)
 
  -  zepto为何不使用e.preventDefault()来解决穿透问题？
