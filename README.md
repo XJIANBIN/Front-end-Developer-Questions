@@ -1955,7 +1955,7 @@ HTML5？
 		 这样就可能让jQuery.prototype的受到破坏或被方法被覆盖了。这样我们就需要用new 关键字新建一个对象，改变this的
 		 指向对象，从而避开jQuer.fn的直接暴露。
 
-		* new 关键字的作用是创建一个对象，当一个函数使用 new 来调用的时候其实际上进行了下面的几个步骤：
+		> new 关键字的作用是创建一个对象，当一个函数使用 new 来调用的时候其实际上进行了下面的几个步骤：
        * 1, 创建一个空对象 obj
        * 2, 将这个 obj 的 proto 即：obj.proto 指向该函数的原型
        * 3, 执行该函数，并将函数中的 this 映射为 该空对象 obj。
@@ -1963,20 +1963,17 @@ HTML5？
 			      那么 new 的结果就是上面步骤构造出来的对象 obj。
 
 
-    明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
+    > 明白了 new 关键字的作用，也就明白了 new jQuery.prototype.init(selector,context); 的结果是 init.prototype 对象。（注意任何函数都有其原型对象）
 
-		但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype
+    但是这也会带来一个问题,new jQuery.fn.init()所返回的新对象并没有继承jQuery.fn，因为jQuery.fn.init.prototype
 		继承的是Object.prototype，并不包含jQuery.fn。这里的解决方法就是将 init.prototype 直接指向 jQuery.prototype
 		。这下构造出来的对象就可以访问到 jQuery.prototype 中的内容了：在jq源码中就有这么一句
     ```javascript
 		jQuery.fn.init.prototype = jQuery.fn;
     ```
 	参考资料:
-
-		 * 1 [Link1](http://elcarim5efil.github.io/blog/2015/07/28/jQuery_analysis_8.html)
-
+     * 1 [Link1](http://elcarim5efil.github.io/blog/2015/07/28/jQuery_analysis_8.html)
      * 2 [Link2](http://www.cnblogs.com/aaronjs/p/3278578.html) （解释不是很清楚）
-		 
      * 3 [link3](https://github.com/wy-ei/notebook/issues/7 )(第二配合第三来看)
 
 -  jquery中如何将数组转化为json字符串，然后再转化回来？
