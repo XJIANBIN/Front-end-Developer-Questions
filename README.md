@@ -2942,7 +2942,8 @@ HTML5？
       * [微软的 HandJS](http://handjs.codeplex.com/)
       * [Rich-Harris 的 Points](https://github.com/Rich-Harris/Points)
 
-    * 5 [FastClick](https://github.com/ftlabs/fastclick)  
+     * 5
+		   [FastClick](https://github.com/ftlabs/fastclick)  
 	     FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。
 			 FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，
 			 并把浏览器在300ms之后的click事件阻止掉。
@@ -2956,10 +2957,10 @@ HTML5？
 
   这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。
 
- 解决方案：
+  解决方案：
 
-    * 1.只用touch   把页面内所有click全部换成touch事件（ touchstart 、’touchend’、’tap’），注意：a标签的href也是click，需要换成js的跳转。
-    * 2.改动最小——350ms后再隐藏B元素
+    * 1. 只用touch   把页面内所有click全部换成touch事件（ touchstart 、’touchend’、’tap’），注意：a标签的href也是click，需要换成js的跳转。
+    * 2. 改动最小——350ms后再隐藏B元素
 
 - 你怎么看待Web App 、hybrid App、Native App？
 
