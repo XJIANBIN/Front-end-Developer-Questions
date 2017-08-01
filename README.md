@@ -1809,14 +1809,15 @@ HTML5？
 
 -  JS 怎么实现一个类。怎么实例化这个类
 
-  可以通过构造函数模式，原型模式，混合模式等实现一个类，用 new 来实例化
+   可以通过构造函数模式，原型模式，混合模式等实现一个类，用 new 来实例化
+
   ```JavaScript
 	    function Human(name){
 	     this.name = name;
 	    }
 
 	    var wangxiaoer = new Human('王小二');   
-
+  ```
    对象可以通过 new Object(), Object.create() 方法， 或者使用字面 标记 (初始化 标记)初始化。 对象初始化，
 	 由花括号{}包含的一个由0个或者多个对象属性名和关联值组成的列表构成。
 
