@@ -1827,7 +1827,8 @@ HTML5？
   作用域：只会对某个范围产生作用，而不会对外产生影响的封闭空间。在这样的一些空间里，外部不能访问内部变量，但内部可以访问外部变量。
   js 存在声明提升:
 
-	所有声明明都会被提升到作用域的最顶上  包括ES5的var、function，和ES6的function *、let、const、class  但ES6 let const 等声明命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。暂时性死区
+	所有声明明都会被提升到作用域的最顶上  包括ES5的var、function，和ES6的function *、let、const、class
+	但ES6 let const 等声明命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。暂时性死区
 
 	函数声明的优先级优于变量申明，且函数声明会连带定义一起被提升
 	函数提升有两种，1 函数声明 整个函数提升 2函数表达式 只有变量提升，还是undefinded
@@ -1835,23 +1836,24 @@ HTML5？
 -  如何编写高性能的Javascript？
 
   > [参考文章](http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/)
-  1 垃圾回收方面
+
+  * 1, 垃圾回收方面：
 	  * 手动消除引用（设置为null 比 delete 略好）
 		* 解绑无用的事件监听器
 		* 避免大量不被重用的数据被存储  [缓存文章](http://imweb.io/topic/55c6f9bac222e3af6ce235b9)
-  2 函数方面
+  * 2, 函数方面：
 	  * 减少闭包 定时器 等
 		* 使用时间代理委托 DocumentFragment
 		* 不要使函数体积过大，确保函数职责单一，即确保变量使用相同类型，如不要add(1,2),add('a','b');
-	3 使用数组技巧
+	* 3, 使用数组技巧：
 	  * 一般情况下不要删除数组元素
 		* 使用数组字面量 var a = [];
 		* 存储单一类型
 		* 稀疏数组访问速度远远慢于满数组
-	4 避免内存泄漏
+	* 4, 避免内存泄漏:
 	  * 单页面应用的内存管理，特别移动端单页应用，基本不刷新页面，  遵循的标准规则来管理JavaScript中的内存，当元素被移除时，清理监听器
 		* 减少回流与重绘
-	5 使用HTTP的缓存去减少资源的加载。
+	* 5, 使用HTTP的缓存去减少资源的加载。
 
 -  那些操作会造成内存泄漏？
 
@@ -1860,7 +1862,8 @@ HTML5？
    内存泄漏可以定义为：应用程序不再需要占用内存的时候，由于某些原因，内存没有被操作系统或可用内存池回收。
 
    垃圾回收机制：标记清除法，引用计数法
-      * 1, 闭包 （去除，造成内存泄露是浏览器的bug，不关闭包的事情，跟闭包和内存泄露有关系的地方是，使用闭包的同时比较容易形成循环引用，如果闭包的作用域链中保存着一些DOM节点，这时候就有可能造成内存泄露。[链接](https://www.zhihu.com/question/31078912)
+      * 1, 闭包 （去除，造成内存泄露是浏览器的bug，不关闭包的事情，跟闭包和内存泄露有关系的地方是，使用闭包的同时比较容易形成循环引用，如果闭包的作用域链中保存着一些DOM节点，这时候就有可能造成内存泄露。
+			[链接](https://www.zhihu.com/question/31078912)
 	    * 2, 定时器  setInterval用完要clearInterval ，不然回调函数等内存无法回收。
       * 3, 全局变量,因为挂在window上面，window是不会被清空（在 JavaScript 文件头部加上 'use strict'，可以避免此类错误发生。启用严格模式解析 JavaScript ，避免意外的全局变量，如函数里面用this，然后全局执行的变量。）
       * 4, 监听器
@@ -1870,28 +1873,26 @@ HTML5？
 		   此外还需考虑DOM树内或子节点的引用问题，加入你的js代码保存了一个td的引用，但你决定删除整个表格的时候，整个表格还是会存在内存中的，因为td 是表格的子节点，子元素与父元素是引用关系，导致表格无法释放。
 
 -  闭包应用
-> [参考资料](https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd)
-   * 1, 函数柯里化
+ > [参考资料](https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd)
+* 1, 函数柯里化
 
-   ```javascript
-	      var doSomething = function(do,something){
-	     	 console.log(do+','+something);
-	      }
-	      function Curry(fn){
-	     	 var stored_args = Array.prototype.slice.call(arguments,1);
-	     	 return function (){
-	     		 var new_args = Array.prototype.slice.call(arguments),
-	     				 args = stored_args.concat(new_args);
-	     				 return fn.call(null,args);
-	     	 };
-	      }
+        ```javascript
+	           var doSomething = function(do,something){
+	          	 console.log(do+','+something);
+	           }
+	           function Curry(fn){
+	          	 var stored_args = Array.prototype.slice.call(arguments,1);
+	          	 return function (){
+	          		 var new_args = Array.prototype.slice.call(arguments),
+	          				 args = stored_args.concat(new_args);
+	          				 return fn.call(null,args);
+	          	 };
+	           }
 
-	      var newDoSomething  = Curry(doSomething,'hello');
-	      newDoSomething('Howard');
-	      newDoSomething('Harden');
-	 ```
-
-	 * 2, 单例模式
+	           var newDoSomething  = Curry(doSomething,'hello');
+	           newDoSomething('Howard');
+	           newDoSomething('Harden');
+* 2, 单例模式
 	   ```javascript
 		     var getSingleInstance = (function(){
 			   	 function China () {
