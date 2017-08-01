@@ -2872,7 +2872,7 @@ HTML5？
 	* 3 代码优化，存储优化
 
    > [大型网站的灵魂——性能](http://www.cnblogs.com/leefreeman/p/3998757.html)
-	 
+
    > [大型网站系统架构的演化](http://www.cnblogs.com/leefreeman/p/3993449.html)
 
 - 从打开webapp到刷新出内容，整个过程中都发生了什么，如果感觉慢，怎么定位问题，怎么解决?
@@ -2881,11 +2881,11 @@ HTML5？
   * 2，浏览器发起链接，再构造http报文发送请求，
   * 3, 服务器返回报文，浏览器渲染页面(包括1、浏览器解析响应数据；2、浏览器创建DOM树；3、浏览器下载CSS样式，并应用到DOM树，进行渲染；4、浏览器下载JS文件，开始解析执行；5、显示给用户。)
 
-	 测试工具
+	测试工具
 
-	 * 1 ,google 控制台工具 timeline network
-	 * 2 ,[前端自动化监测工具（BerserkJS）](http://tapir-dream.github.io/berserkJS/)
-	 * 3 ,[PhantomJS is](http://phantomjs.org/examples/)
+	* 1 ,google 控制台工具 timeline network
+	* 2 ,[前端自动化监测工具（BerserkJS）](http://tapir-dream.github.io/berserkJS/)
+	* 3 ,[PhantomJS is](http://phantomjs.org/examples/)
 
 	 参考资料：[URL输入到页面展示经过的所有过程？](http://www.jianshu.com/p/184ebd448c7f)
 
