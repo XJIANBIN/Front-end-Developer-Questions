@@ -1818,8 +1818,8 @@ HTML5？
 
 	    var wangxiaoer = new Human('王小二');   
   ```
-   对象可以通过 new Object(), Object.create() 方法， 或者使用字面 标记 (初始化 标记)初始化。 对象初始化，
-	 由花括号{}包含的一个由0个或者多个对象属性名和关联值组成的列表构成。
+      对象可以通过 new Object(), Object.create() 方法， 或者使用字面 标记 (初始化 标记)初始化。 对象初始化，
+	    由花括号{}包含的一个由0个或者多个对象属性名和关联值组成的列表构成。
 
 
 -  JavaScript中的作用域与变量声明提升？
@@ -1835,7 +1835,7 @@ HTML5？
 
 -  如何编写高性能的Javascript？
 
-  > [参考文章](http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/)
+       > [参考文章](http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/)
 
   * 1, 垃圾回收方面：
 	  * 手动消除引用（设置为null 比 delete 略好）
@@ -1874,36 +1874,36 @@ HTML5？
 
 -  闭包应用
  > [参考资料](https://mp.weixin.qq.com/s?__biz=MzU5NzEwMDQyNA==&mid=2247483769&idx=1&sn=9278d4dc8f4c4c268eeb918b7e126220&chksm=fe59d39ec92e5a888fa8d3fd38d0dd8ba05ab71489266c2adb6aafe0ec7221f0ee0179baf0d7&mpshare=1&scene=22&srcid=0724byORwgBQcYhrSLOuBqhD#rd)
-* 1, 函数柯里化
+        * 1, 函数柯里化
 
-        ```javascript
-	           var doSomething = function(do,something){
-	          	 console.log(do+','+something);
-	           }
-	           function Curry(fn){
-	          	 var stored_args = Array.prototype.slice.call(arguments,1);
-	          	 return function (){
-	          		 var new_args = Array.prototype.slice.call(arguments),
-	          				 args = stored_args.concat(new_args);
-	          				 return fn.call(null,args);
-	          	 };
-	           }
+                ```javascript
+        	           var doSomething = function(do,something){
+        	          	 console.log(do+','+something);
+        	           }
+        	           function Curry(fn){
+        	          	 var stored_args = Array.prototype.slice.call(arguments,1);
+        	          	 return function (){
+        	          		 var new_args = Array.prototype.slice.call(arguments),
+        	          				 args = stored_args.concat(new_args);
+        	          				 return fn.call(null,args);
+        	          	 };
+        	           }
 
-	           var newDoSomething  = Curry(doSomething,'hello');
-	           newDoSomething('Howard');
-	           newDoSomething('Harden');
-* 2, 单例模式
-	   ```javascript
-		     var getSingleInstance = (function(){
-			   	 function China () {
-			   		 this.name = "China";
-			   	 }
-			   	 var instance  = new China();
-			   	 return function () {
-			   		 return instance;
-			   	 }
-			    }());
-		 ```
+        	           var newDoSomething  = Curry(doSomething,'hello');
+        	           newDoSomething('Howard');
+        	           newDoSomething('Harden');
+        * 2, 单例模式
+        	   ```javascript
+        		     var getSingleInstance = (function(){
+        			   	 function China () {
+        			   		 this.name = "China";
+        			   	 }
+        			   	 var instance  = new China();
+        			   	 return function () {
+        			   		 return instance;
+        			   	 }
+        			    }());
+        		 ```
 
 -  快速排序算法
 
