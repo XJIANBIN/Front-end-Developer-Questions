@@ -1928,20 +1928,21 @@ HTML5？
 
 
 -  jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？
-      ```javascript
-		      	jQuery = function( selector, context ) {
-		      			return new jQuery.fn.init( selector, context, rootjQuery );
-		      	},
-		      	jQuery.fn = jQuery.prototype = { //fn即对应prototype
-		      		 constructor: jQuery,
-		      		 init: function( selector, context, rootjQuery ) {
-		      				...
-		      				return this;
-		      		 }
-		      		 ...
-		      	}
-		      	jQuery.fn.init.prototype = jQuery.fn;
-			```
+
+     ```javascript
+	         	jQuery = function( selector, context ) {
+	         			return new jQuery.fn.init( selector, context, rootjQuery );
+	         	},
+	         	jQuery.fn = jQuery.prototype = { //fn即对应prototype
+	         		 constructor: jQuery,
+	         		 init: function( selector, context, rootjQuery ) {
+	         				...
+	         				return this;
+	         		 }
+	         		 ...
+	         	}
+	         	jQuery.fn.init.prototype = jQuery.fn;
+     ```
 
 	   * JQuer.fn.init方法返回this为JQ原型对象实例（如果没有选择器参数为空就是JQ原型对象，
 		   可以看 [jq源码](http://code.jquery.com/jquery-1.9.1.js) ，ctrl+f搜索jQuery.fn看其具体实现，你就会秒懂了），是一个
