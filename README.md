@@ -2111,13 +2111,13 @@ HTML5？
 
 -  jQuery 是通过哪个方法和 Sizzle 选择器结合的？（jQuery.fn.find()进入Sizzle）
 
-      jQuery.find = Sizzle;
+      > jQuery.find = Sizzle;
 
 -  Jquery与jQuery UI 有啥区别？
 
-		*jQuery是一个js库，主要提供的功能是选择器，属性修改和事件绑定等等。
+	 * jQuery是一个js库，主要提供的功能是选择器，属性修改和事件绑定等等。
 
-		*jQuery UI则是在jQuery的基础上，利用jQuery的扩展性，设计的插件。
+	 * jQuery UI则是在jQuery的基础上，利用jQuery的扩展性，设计的插件。
          提供了一些常用的界面元素，诸如对话框、拖动行为、改变大小行为等等
 
 
