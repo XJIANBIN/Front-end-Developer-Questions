@@ -2427,11 +2427,10 @@ HTML5？
 
 - 检测浏览器版本有哪些方式？
 
-		功能检测、userAgent特征检测
-    navigator 对象
+   功能检测、userAgent特征检测
+   navigator 对象
 
 		> 比如：
-
       * navigator.appName:保存浏览器类型
 		  * navigator.appVersion:存有浏览器的版本信息
 		  * navigator.userAgent: 浏览器的用户代理报头
@@ -2444,10 +2443,11 @@ HTML5？
    一个shim是一个库,它将一个新的API引入到一个旧的环境中,而且仅靠旧环境中已有的手段实现;
 	 polyfill 是 shim 的一种。
 
-	polyfill 是“在旧版浏览器上复制标准 API 的 JavaScript 补充”,可以动态地加载 JavaScript 代码或库，在不支持这些标准 API 的浏览器中模拟它们。
+	 polyfill 是“在旧版浏览器上复制标准 API 的 JavaScript 补充”,可以动态地加载 JavaScript 代码或库，在不支持这些标准 API 的浏览器中模拟它们。
 
-		例如，geolocation（地理位置）polyfill 可以在 navigator 对象上添加全局的 geolocation 对象，还能添加 getCurrentPosition 函数以及“坐标”回调对象，
-		所有这些都是 W3C 地理位置 API 定义的对象和函数。因为 polyfill 模拟标准 API，所以能够以一种面向所有浏览器未来的方式针对这些 API 进行开发，
+		例如，geolocation（地理位置）polyfill 可以在 navigator 对象上添加全局的 geolocation 对象，
+		还能添加 getCurrentPosition 函数以及“坐标”回调对象，所有这些都是 W3C 地理位置 API 定义的对象和函数。
+		因为 polyfill 模拟标准 API，所以能够以一种面向所有浏览器未来的方式针对这些 API 进行开发，
 		一旦对这些 API 的支持变成绝对大多数，则可以方便地去掉 polyfill，无需做任何额外工作。
 
 - 做的项目中，有没有用过或自己实现一些 polyfill 方案（兼容性处理方案）？
