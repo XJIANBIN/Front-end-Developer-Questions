@@ -2478,9 +2478,11 @@ HTML5？
 - Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？
 
 > 两等号判等，会在比较时进行类型转换；
+
 > 三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）；
 
 > Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，
+
 > 但 Object.is(NaN, NaN) 会返回 true.
 
 > Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。
@@ -2527,24 +2529,26 @@ HTML5？
 
 	> [汤姆大叔深入理解JavaScript系列](http://www.cnblogs.com/TomXu/tag/JavaScript/default.html?page=1)
 
-  singleton：
-	    var singleton = function() {
-	    	var instance;
-	    	var createInstance = function() {
-	    		this.a = 1;
-	    		this.b = 2;
-	    	};
-	    	return {
-	    		getInstance: function() {
-	    			if (!instance) {
-	    				instance = new createInstance();
-	    			}
-	    			return instance;
-	    		}
-	    	}
-	    }
-			var Factory = singleton()
-		  var singleton_1 = Factory.getInstance();
+  > singleton：
+	 ```javascript
+	     var singleton = function() {
+	    	 var instance;
+	    	 var createInstance = function() {
+	    		 this.a = 1;
+	    		 this.b = 2;
+	    	 };
+	    	 return {
+	    		 getInstance: function() {
+	    			 if (!instance) {
+	    				 instance = new createInstance();
+	    			 }
+	    			 return instance;
+	    		 }
+	    	 }
+	     }
+	     var Factory = singleton()
+	     var singleton_1 = Factory.getInstance();
+	 ```
 
 	> [很棒的实例](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/)
 
