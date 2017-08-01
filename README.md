@@ -2161,8 +2161,8 @@ HTML5？
 
  -  zepto为何不使用e.preventDefault()来解决穿透问题？
 
-  因为zepto的tap事件统一是在document的touchend时触发的，若在这里使用e.preventDefault()，那页面上所有元素在touchend后触发的事件都不会被执行了。
-	// 另外一种说法：贺师俊老师说的：就是当初手机浏览器的实现太挫了——为了兼容而模拟鼠标事件，但模拟的鼠标事件在网页的userland代码里是无法被preventDefault从dom的角度来说比较合理的应该是当我已经监听touchxxx事件（或退一步说，如果对touchxxx事件preventDefault之后）就不再出现模拟鼠标事件——但是当时webkit的c++程水平有点差，不知道应该这样做，所以就产生了很难消除的额外的click。
+     因为zepto的tap事件统一是在document的touchend时触发的，若在这里使用e.preventDefault()，那页面上所有元素在touchend后触发的事件都不会被执行了。
+	   // 另外一种说法：贺师俊老师说的：就是当初手机浏览器的实现太挫了——为了兼容而模拟鼠标事件，但模拟的鼠标事件在网页的userland代码里是无法被preventDefault从dom的角度来说比较合理的应该是当我已经监听touchxxx事件（或退一步说，如果对touchxxx事件preventDefault之后）就不再出现模拟鼠标事件——但是当时webkit的c++程水平有点差，不知道应该这样做，所以就产生了很难消除的额外的click。
 
 
 -  jQueryUI如何自定义组件?
