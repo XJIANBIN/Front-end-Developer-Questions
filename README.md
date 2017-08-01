@@ -2923,26 +2923,26 @@ HTML5？
 
   >[链接](http://www.jianshu.com/p/6e2b68a93c88)
 
- 移动端浏览器会有一些默认的行为，比如双击缩放、双击滚动。而浏览器为了辨别是双击还是单击事件，便会等待300ms来判别。
- 目前，浏览器开发商的解决方案主要有一下三种方案：
+    移动端浏览器会有一些默认的行为，比如双击缩放、双击滚动。而浏览器为了辨别是双击还是单击事件，便会等待300ms来判别。
+    目前，浏览器开发商的解决方案主要有一下三种方案：
 
- * 1 <meta name="viewport" content="user-scalable=no">
+   * 1 <meta name="viewport" content="user-scalable=no">
      <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 		 缺点——就是必须通过完全禁用缩放来达到去掉点击延迟的目的，然而完全禁用缩放并不是我们的初衷，我们只是想禁掉默认的双击缩放行为，这样就不用等待300ms来判断当前操作是否是双击。
- * 2 <meta name="viewport" content="width=device-width"/>
+   * 2 <meta name="viewport" content="width=device-width"/>
      如果设置了上述meta标签，那浏览器就可以认为该网站已经对移动端做过了适配和优化，就无需双击缩放操作了。
      这个方案相比方案一的好处在于，它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放操作来缩放页面。
- * 3　CSS touch-action
+   * 3　CSS touch-action
  这个属性指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。如果将该属性值设置为touch-action: none，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。
 
 	对于方案一和方案二，Chrome是率先支持的，Firefox紧随其后，然而令Safari头疼的是，它除了双击缩放还有双击滚动操作，如果采用这种两种方案，那势必连双击滚动也要一起禁用。对于方案三，IE是支持的，但是其他浏览器支持不完善。
 
-　*  4 指针事件的polyfill
+　 *  4 指针事件的polyfill
         * > [Google 的 Polymer](https://github.com/jquery/PEP)
         * > [微软的 HandJS](http://handjs.codeplex.com/)
         * > [@Rich-Harris 的 Points] (https://github.com/Rich-Harris/Points)
 
-  *  5 [FastClick](https://github.com/ftlabs/fastclick)  
+   *  5 [FastClick](https://github.com/ftlabs/fastclick)  
 	     FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。
 
 - 什么是点击穿透？
