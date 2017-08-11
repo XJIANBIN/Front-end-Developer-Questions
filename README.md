@@ -4,7 +4,9 @@
 本文转自[markyun github博客](http://markyun.github.io/)，在原先的基础上，本人对齐进行补充，基本完成了所有知识的回答。希望能帮到大家！！！
 
 [只看问题点这里 ](http://markyun.github.io/2015/Front-end-Developer-Questions/ "Questions")
+
 [高级前端开发工程师面试题](https://github.com/cuitianze/Front-end-Developer-Interview-Questions-of-Chinese)
+
 [heicx/FE-Interview](https://github.com/heicx/FE-Article/blob/master/FE-Interview.md)
 
 本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
