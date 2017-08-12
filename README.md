@@ -1233,6 +1233,7 @@ HTML5？
   - this总是指向函数的直接调用者（而非间接调用者）；
   - 如果有new关键字，this指向new出来的那个对象；
   - 在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window；
+  
 -  js new construct()加不加括号有区别吗？
   
   > [JavaScript 中不使用 new 的构造函数（以及由此引发的联想）](https://zhanglun.github.io/2015/01/28/JavaScript%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8new%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/) 	
