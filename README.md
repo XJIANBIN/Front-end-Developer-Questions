@@ -1237,7 +1237,7 @@ HTML5？
   
 -  js new construct()加不加括号有区别吗？
   
-  [JavaScript 中不使用 new 的构造函数（以及由此引发的联想）](https://zhanglun.github.io/2015/01/28/JavaScript%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8new%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/) 	
+     [JavaScript 中不使用 new 的构造函数（以及由此引发的联想）](https://zhanglun.github.io/2015/01/28/JavaScript%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8new%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/) 	
 
 -  eval是做什么的？
 
