@@ -15,7 +15,7 @@
 
 前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说的一句话：“每18至24个月，前端都会难一倍”，这些变化使前端的能力更加丰富、创造的应用也会更加完美。所以关注各种前端技术，跟上快速变化的节奏，也是身为一个前端程序员必备的技能之一。
 
-最近也收到许多微博私信的鼓励和更正题目信息，后面会经常更新题目和答案到[github博客](http://markyun.github.io/)。希望前端er达到既能使用也会表达，对理论知识有自己的理解。可根据下面的知识点一个一个去进阶学习，形成自己的职业技能链。
+希望前端er达到既能使用也会表达，对理论知识有自己的理解。可根据下面的知识点一个一个去进阶学习，形成自己的职业技能链。
 
 **面试有几点需注意：(来源[寒冬winter](http://weibo.com/wintercn "微博：寒冬winter") 老师，github:@wintercn)**
 
@@ -3152,3 +3152,26 @@ HTML5？
 
 
 ### 更新时间:  2017年7月31日
+
+
+### 框架方面
+- 传统JQ与MVVM框架的区别，优缺点？
+ 
+  > [参考资料](http://xujianbin.pw/project/2017/05/01/whyselectmvvm/)
+
+- Vue响应式原理
+  
+ *  在生命周期的 initState 方法中将 data、prop、method、computed、watch 中的数据劫持，通过 observe 方法与 defineReactive 方法将相关对象转换为 Observer 对象；每个 Observer 又会初始化一个 Dep 实例；
+
+ *  依赖收集：模板中的每个指令和数据绑定都会生成一个 Watcher 实例，实例化的过程中，会计算这个 Watcher 对应表达式的值；计算开始之前，Watcher 会设置 Dep 的静态属性 Dep.target 指向其自身，开始依赖收集；
+ 计算表达式的过程中，该 Watcher 依赖的数据项会被访问，从而触发其 getter 中的代码；数据项 getter 中会判断 Dep.target 是否存在，若存在则将自身的 Dep 实例保存到 Watcher 的列表中，并在此 Dep 实例中注册 Watcher 为订阅者；重复上述过程直至 Watcher 计算结束，Dep.target 被清除，依赖收集完成；在依赖关系建立后，
+ 每当数据项发生变化（setter 被访问），Observer 会调用其 Dep 实例的 notify 方法，在这个 Dep 实例中注册的 Watcher 将会被通知，并重新进行计算及依赖收集的过程，然后执行相应的回调函数。
+
+  > 参考资料
+   
+   * [Vue2.0 源码阅读：响应式原理](https://zhouweicsu.github.io/blog/2017/03/07/vue-2-0-reactivity/)
+   * [Vue 响应式原理探析](https://zjy.name/archives/vue-reactive-study.html)
+
+- Vue模板渲染过程
+
+  > [参考资料](http://xujianbin.pw/project/2017/08/06/Vue-templateRender/)
