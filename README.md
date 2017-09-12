@@ -821,7 +821,9 @@ HTML5？
 
   * 面的设计和开发应当根据用户行为以及设备环境（系统平台、屏幕尺寸、屏幕定向等）进行相应的响应和调整.
   * 响应式设计的基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。页面头部必须有meta声明viewport：
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”>
+	```javascript
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”>
+	```
   * 兼容方案
 	  * 1, [第一种：](https://github.com/livingston/css3-mediaqueries-js)  
 	  * 2, [第二种：](https://github.com/scottjehl/Respond)
