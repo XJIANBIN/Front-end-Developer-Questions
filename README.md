@@ -1680,26 +1680,30 @@ HTML5？
 
 	 模块化面临问题
 
-	   * 1. 如何安全的包装一个模块的代码？（不污染模块外的任何代码）
+	 * 1. 如何安全的包装一个模块的代码？（不污染模块外的任何代码）
      * 2. 如何唯一标识一个模块？
      * 3. 如何优雅的把模块的API暴漏出去？（不能增加全局变量）
      * 4. 如何方便的使用所依赖的模块？
 
    	Modules/1.x规范 （Commonjs）
-		 * 1. 模块的标识应遵循的规则（书写规范）
+
+	 * 1. 模块的标识应遵循的规则（书写规范）
      * 2. 定义全局函数require，通过传入模块标识来引入其他模块，执行的结果即为别的模块暴漏出来的API
      * 3. 如果被require函数引入的模块中也包含依赖，那么依次加载这些依赖
      * 4. 如果引入模块失败，那么require函数应该报一个异常
      * 5. 模块通过变量exports来向往暴漏API，exports只能是一个对象，暴漏的API须作为此对象的属性。   
 
     前端问题
-		* 1, 变量暴露在全局
-		* 2, 资源加载方式不同，浏览器需http请求获得，服务端直接从内存读取
 
-	  解决方法
-		 * 1, 升级Modules/1.0规范
-		 * 2，重新制定浏览器端规范AMD（Asynchronous Module Definition）(requireJS)
+	 * 1, 变量暴露在全局
+	 * 2, 资源加载方式不同，浏览器需http请求获得，服务端直接从内存读取
+
+	解决方法
+
+	 * 1, 升级Modules/1.0规范
+	 * 2，重新制定浏览器端规范AMD（Asynchronous Module Definition）(requireJS)
      * 3, 中间派  Modules/Wrappings规范 （seajs）
+     
 -  AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？
 
 	> AMD 规范在这里：https://github.com/amdjs/amdjs-api/wiki/AMD
