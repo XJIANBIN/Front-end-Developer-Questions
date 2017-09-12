@@ -2264,9 +2264,9 @@ HTML5？
 
 -  JQuery一个对象可以同时绑定多个事件，这是如何实现的？
 
-    源码：
+  源码：
 
-	    ```javascript
+	```javascript
             on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
     	     // Types can be a map of types/handlers
     			var type, origFn;
@@ -2319,22 +2319,22 @@ HTML5？
     				jQuery.event.add( this, types, fn, data, selector );
     			});
     			},
+    ```
+
+    * 1, 多个事件同一个函数：
+
+	   ```javascript
+	   	   $("div").on("click mouseover", function(){});
+       ```
+
+    * 2, 多个事件不同函数
+
+		```javascript
+		    $("div").on({
+		    	click: function(){},
+		    	mouseover: function(){}
+		    });
         ```
-
-       * 1, 多个事件同一个函数：
-
-		  ```javascript
-		  	 $("div").on("click mouseover", function(){});
-          ```
-
-        * 2, 多个事件不同函数
-
-		  ```javascript
-		   	$("div").on({
-		   		click: function(){},
-		   		mouseover: function(){}
-		   	});
-          ```
 
 -  Node.js的适用场景？
 
@@ -2459,16 +2459,16 @@ HTML5？
 - 用js实现千位分隔符?(来源：[前端农民工](http://div.io/topic/744)，提示：正则+replace)
   > [参考：](http://www.tuicool.com/articles/ArQZfui)
 
-```javascript
+        ```javascript
 	    	function commafy(num) {
 	    		 return num && num
 	    				 .toString()
 	    				 .replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
 	    						 return $1 + ",";
 	    				 });
-	     }
-	     console.log(commafy(1234567.90)); //1,234,567.90
-```
+	        }
+	         console.log(commafy(1234567.90)); //1,234,567.90
+        ```
 
 
 
@@ -2478,9 +2478,10 @@ HTML5？
    navigator 对象
 
 	> 比如：
-* navigator.appName:保存浏览器类型
-* navigator.appVersion:存有浏览器的版本信息
-* navigator.userAgent: 浏览器的用户代理报头
+	
+      * navigator.appName:保存浏览器类型
+      * navigator.appVersion:存有浏览器的版本信息
+      * navigator.userAgent: 浏览器的用户代理报头
 		//"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36
 		  (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
 
