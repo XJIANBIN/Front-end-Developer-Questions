@@ -934,12 +934,14 @@ HTML5？
 	主体内容就可以永远居中浏览器啦，从而没有任何跳动！
 
 - 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。
+
     *（1）height：calc（100%-100px）
-    * （2）absolute positioning：外层position：relative；百分百自适应元素
+    *（2）absolute positioning：外层position：relative；百分百自适应元素
 		    position: absolute; top: 100px; bottom: 0; left: 0
     *  flex 父元素display:flex; flex-direction: column; 下面的子元素的设置flex: 1;
 
 - png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
+
     * 1, png是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式，
 		 优点是：压缩比高，色彩好。 大多数地方都可以用。
     * 2, jpg是一种针对相片使用的一种失真压缩方法，是一种破坏性的压缩，在色调及颜色平滑变化做的 不错。
@@ -964,6 +966,7 @@ HTML5？
 
 
 - style标签写在body后与body前有什么区别？
+
 　　* 1, 写在head标签中利于浏览器逐步渲染（resources downloading->CSSOM+DOM->RenderTree(composite)->Layout->paint）。
 　　CSS，解析CSS会产生CSS规则树。Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
 
@@ -972,16 +975,17 @@ HTML5？
 
 - 基础知识——浏览器的渲染过程：(CSSOM视图模块(CSS Object Model View)
 
-* 1, Create/Update DOM And request css/image/js：浏览器请求到HTML代码后，在生成DOM的最开始阶段（应该是 Bytes → characters 后），并行发起css、图片、js的请求，无论他们是否在HEAD里。注意：发起 js 文件的下载 request 并不需要 DOM 处理到那个 script 节点，比如：简单的正则匹配就能做到这一点，虽然实际上并不一定是通过正则：）。这是很多人在理解渲染机制的时候存在的误区。
-* 2, Create/Update Render CSSOM：CSS文件下载完成，开始构建CSSOM
-* 3, Create/Update Render Tree：所有CSS文件下载完成，CSSOM构建结束后，和 DOM 一起生成 Render Tree。
-* 4, Layout：有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的CSS定义以及他们的从属关系。下一步操作称之为Layout，顾名思义就是计算出每个节点在屏幕中的位置。
-* 5, Painting：Layout后，浏览器已经知道了哪些节点要显示（which nodes are visible）、每个节点的CSS属性是什么（their computed styles）、每个节点在屏幕中的位置是哪里（geometry）。就进入了最后一步：Painting，按照算出来的规则，通过显卡，把内容画到屏幕上。
+   * 1, Create/Update DOM And request css/image/js：浏览器请求到HTML代码后，在生成DOM的最开始阶段（应该是 Bytes → characters    后），并行发起css、图片、js的请求，无论他们是否在HEAD里。注意：发起 js 文件的下载 request 并不需要 DOM 处理到那个 script    节点，比如：简单的正则匹配就能做到这一点，虽然实际上并不一定是通过正则：）。这是很多人在理解渲染机制的时候存在的误区。
+   * 2, Create/Update Render CSSOM：CSS文件下载完成，开始构建CSSOM
+   * 3, Create/Update Render Tree：所有CSS文件下载完成，CSSOM构建结束后，和 DOM 一起生成 Render Tree。
+   * 4, Layout：有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的CSS定义以及他们的从属关系。下一步操作称之为Layout，顾名思义就是计算出每个节点在屏幕中的位置。
+   * 5, Painting：Layout后，浏览器已经知道了哪些节点要显示（which nodes are visible）、每个节点的CSS属性是什么（their computed styles）、每个节点在屏幕中的位置是哪里（geometry）。就进入了最后一步：Painting，按照算出来的规则，通过显卡，把内容画到屏幕上。
 
   补充：
-* 1, Repaint（重绘）：屏幕的一部分要重画。
-* 2, Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Render Tree
-* 3, 联想——<script>标签放到<body>尾部是有必要的吗？
+  
+   * 1, Repaint（重绘）：屏幕的一部分要重画。
+   * 2, Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Render Tree
+   * 3, 联想——<script>标签放到<body>尾部是有必要的吗？
 
   如果放到<body>开始位置，假如js文件很大，解析到js文件所在的script标签的时候，js文件还没有下载完成，这时会阻塞并停止解析后面的HTML代码。当js文件下载完成并执行完之后才会继续后面的解析。所以是有必要的。
 
