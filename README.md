@@ -909,29 +909,29 @@ HTML5？
 
 - overflow: scroll时不能平滑滚动的问题怎么处理？
 
-		（1）-webkit-overflow-scrolling: touch;，是因为这行代码启用了硬件加速特性，所以滑动很流畅。
-		（2） [isroll 方案](http://www.jianshu.com/p/1f4693d0ad2d)  
+	（1）-webkit-overflow-scrolling: touch;，是因为这行代码启用了硬件加速特性，所以滑动很流畅。
+	（2） [isroll 方案](http://www.jianshu.com/p/1f4693d0ad2d)  
 
 		overflow: auto 当页面出现滚动条时，会造成
 		[跳动问题](http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/)
 
-      * （1）高度尺寸不确定的时候，使用：overflow-y：scroll;
-      * （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
-      * （3）
-	        ```javascript
-			       .wrap-outer {
-						 margin-left: calc(100vw - 100%);
-					}
-					或.wrap-outer {
-						padding-left: calc(100vw - 100%);
-					}
-			```
+   * （1）高度尺寸不确定的时候，使用：overflow-y：scroll;
+   * （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
+   * （3）
+	     ```javascript
+			.wrap-outer {
+				 margin-left: calc(100vw - 100%);
+			}
+			或.wrap-outer {
+				padding-left: calc(100vw - 100%);
+			}
+		```
 
-		首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
-		然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
-		最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
-		于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，
-		主体内容就可以永远居中浏览器啦，从而没有任何跳动！
+	首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
+	然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
+	最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
+	于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，
+	主体内容就可以永远居中浏览器啦，从而没有任何跳动！
 
 - 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。
     *（1）height：calc（100%-100px）
