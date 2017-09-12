@@ -968,10 +968,10 @@ HTML5？
 - style标签写在body后与body前有什么区别？
 
 　　* 1, 写在head标签中利于浏览器逐步渲染（resources downloading->CSSOM+DOM->RenderTree(composite)->Layout->paint）。
-　　CSS，解析CSS会产生CSS规则树。Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
+　　    CSS，解析CSS会产生CSS规则树。Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
 
 　　* 2, 写在body标签后由于浏览器以逐行方式对html文档进行解析，当解析到写在尾部的样式表（外联或写在style标签）会导致浏览
-    器停止之前的渲染，等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）
+       器停止之前的渲染，等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）
 
 - 基础知识——浏览器的渲染过程：(CSSOM视图模块(CSS Object Model View)
 
@@ -982,7 +982,7 @@ HTML5？
    * 5, Painting：Layout后，浏览器已经知道了哪些节点要显示（which nodes are visible）、每个节点的CSS属性是什么（their computed styles）、每个节点在屏幕中的位置是哪里（geometry）。就进入了最后一步：Painting，按照算出来的规则，通过显卡，把内容画到屏幕上。
 
   补充：
-  
+
    * 1, Repaint（重绘）：屏幕的一部分要重画。
    * 2, Reflow（回流）：元件的几何尺寸变化了。要重新验证并计算Render Tree
    * 3, 联想——<script>标签放到<body>尾部是有必要的吗？
@@ -1089,13 +1089,13 @@ HTML5？
 
 		* parseFloat('12.3b');
 		* 正则表达式，'12.3b'.match(/(\d)+(\.)?(\d)+/g)[0] * 1, 但是这个不太靠谱，提供一种思路而已。
-    * 强制类型转换 Number(str)
-        2.1 Number('12.3') //12.3
-        2.2  Number('12.3b') //NaN
+        * 强制类型转换 Number(str)
+          * 2.1 Number('12.3') //12.3
+          * 2.2  Number('12.3b') //NaN
 
-    * JS方法 var num = str - 0;
-       var num = '12.3' - 0; //12.3
-       var num = '12.3b' - 0; //NaN
+        * JS方法 var num = str - 0;
+          * var num = '12.3' - 0; //12.3
+          * var num = '12.3b' - 0; //NaN
 
 - 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
 
@@ -1147,30 +1147,35 @@ HTML5？
 			console.log(arr);
     ```
 -  Javascript如何实现继承？
+
   [参考文章：](https://kongchenglc.coding.me/blog/js%E7%BB%A7%E6%89%BF20170503/#more)
+
 		1、构造继承
 		2、原型继承
 		3、实例继承
 		4、拷贝继承
 
-		原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。
+	原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。
 
-			function Parent(){
-				this.name = 'wang';
-			}
+		function Parent(){
+			this.name = 'wang';
+		}
 
-			function Child(){
-				this.age = 28;
-			}
-			Child.prototype = new Parent();//继承了Parent，通过原型
+		function Child(){
+			this.age = 28;
+		}
+		Child.prototype = new Parent();//继承了Parent，通过原型
 
-			var demo = new Child();
-			alert(demo.age);
-			alert(demo.name);//得到被继承的属性
+		var demo = new Child();
+		alert(demo.age);
+		alert(demo.name);//得到被继承的属性
 
 - JavaScript继承的几种实现方式？
-  * 参考：[构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)，
-	       [非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)；
+
+  * 参考：
+  
+   [构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)，
+   [非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)；
 
 
 -  javascript创建对象的几种方式？
