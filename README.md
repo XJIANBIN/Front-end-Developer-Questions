@@ -1703,19 +1703,20 @@ HTML5？
 	 * 1, 升级Modules/1.0规范
 	 * 2，重新制定浏览器端规范AMD（Asynchronous Module Definition）(requireJS)
      * 3, 中间派  Modules/Wrappings规范 （seajs）
-     
+
 -  AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？
 
 	> AMD 规范在这里：https://github.com/amdjs/amdjs-api/wiki/AMD
 
 	> CMD 规范在这里：https://github.com/seajs/seajs/issues/242
 
-		Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。所有依赖某些模块的语句均放置在回调函数中。
-    factory 的参数差异，直接导致 AMD 中的模块是立刻执行的，而 Wrappings 中的模块可以等到第一次 require 时才执行。
-		 区别：
+		Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。所有依赖某些模块的语句均
+		放置在回调函数中。factory 的参数差异，直接导致 AMD 中的模块是立刻执行的，而 Wrappings 中的模块可以等到第一次 require 时才执行。
+		
+		区别：
 
-		    1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
-		    2. CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：
+		    * 1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
+		    * 2. CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：
 
      ```javascript
 		    // CMD
@@ -1739,10 +1740,9 @@ HTML5？
 
   > [SeaJS 和 RequireJS 的异同](https://lifesinger.wordpress.com/2011/05/17/the-difference-between-seajs-and-requirejs/)
 
--  requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何
-缓存的？）
+-  requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何缓存的？）
 
-		> [参考：](http://annn.me/how-to-realize-cmd-loader/)
+   > [参考：](http://annn.me/how-to-realize-cmd-loader/)
 
 -  JS模块加载器的轮子怎么造，也就是如何实现一个模块加载器？
 
@@ -1804,7 +1804,7 @@ HTML5？
    call：调用一个对象的一个方法，以另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象   调用B对象的方法。
 
    * apply：最多只能有两个参数——新this对象和一个数组argArray。
-	 * call：它可以接受多个参数，第一个参数与apply一样，后面则是一串参数列表。
+   * call：它可以接受多个参数，第一个参数与apply一样，后面则是一串参数列表。
 
 		  例子中用 add 来替换 sub，add.call(sub,3,1) == add(3,1) ，所以运行结果为：alert(4);
 
@@ -1827,6 +1827,7 @@ HTML5？
 -  数组和对象有哪些原生方法，列举一下？
 
    Array :
+
 	    * 1, sort
 	    * 2, slice
 	    * 3, forEach() 返回undefinded  currentValue  index array
@@ -1834,15 +1835,14 @@ HTML5？
 	    * 5, concat join push pop shift unshift toString splice
 
    Object:
+
 	    * 1, toString
 	    * 2, ValueOf  
 	    * 3, defineProperty  
 	    * 4, assign: Object.assign(target, ...sources)  Object.assign() 方法用于将所有可枚举的属性的值从
 	        一个或多个源对象复制到目标对象。它将返回目标对象。
-
-      * 5,
-			 create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
-       Object.create(proto, [ propertiesObject ])
+        * 5, create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
+           Object.create(proto, [ propertiesObject ])
 
 	     proto:一个对象，应该是新创建的对象的原型。
 	     propertiesObject:可选。该参数对象是一组属性与值
