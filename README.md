@@ -1828,20 +1828,20 @@ HTML5？
 
    Array :
 
-	    * 1, sort
-	    * 2, slice
-	    * 3, forEach() 返回undefinded  currentValue  index array
-	    * 4, map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
-	    * 5, concat join push pop shift unshift toString splice
+	 * 1, sort
+	 * 2, slice
+	 * 3, forEach() 返回undefinded  currentValue  index array
+	 * 4, map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+	 * 5, concat join push pop shift unshift toString splice
 
    Object:
 
-	    * 1, toString
-	    * 2, ValueOf  
-	    * 3, defineProperty  
-	    * 4, assign: Object.assign(target, ...sources)  Object.assign() 方法用于将所有可枚举的属性的值从
-	        一个或多个源对象复制到目标对象。它将返回目标对象。
-        * 5, create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
+	 * 1, toString
+	 * 2, ValueOf  
+	 * 3, defineProperty  
+	 * 4, assign: Object.assign(target, ...sources)  Object.assign() 方法用于将所有可枚举的属性的值从
+	      一个或多个源对象复制到目标对象。它将返回目标对象。
+     * 5, create:  Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
            Object.create(proto, [ propertiesObject ])
 
 	     proto:一个对象，应该是新创建的对象的原型。
@@ -1887,15 +1887,15 @@ HTML5？
 	     * 减少闭包 定时器 等
 	   	 * 使用时间代理委托 DocumentFragment
 	   	 * 不要使函数体积过大，确保函数职责单一，即确保变量使用相同类型，如不要add(1,2),add('a','b');
-	   * 3, 使用数组技巧：
+	* 3, 使用数组技巧：
 	     * 一般情况下不要删除数组元素
 	   	 * 使用数组字面量 var a = [];
 	   	 * 存储单一类型
 	   	 * 稀疏数组访问速度远远慢于满数组
-	   * 4, 避免内存泄漏:
+	* 4, 避免内存泄漏:
 	     * 单页面应用的内存管理，特别移动端单页应用，基本不刷新页面，  遵循的标准规则来管理JavaScript中的内存，当元素被移除时，清理监听器
 	   	 * 减少回流与重绘
-	   * 5, 使用HTTP的缓存去减少资源的加载。
+	* 5, 使用HTTP的缓存去减少资源的加载。
 
 -  那些操作会造成内存泄漏？
 
@@ -2093,11 +2093,12 @@ HTML5？
 
 -  jquery.extend 与 jquery.fn.extend的区别？
 
-		* jquery.extend 为jquery类添加类方法，可以理解为添加静态方法
-		* jquery.fn.extend:源码中jquery.fn = jquery.prototype，所以对jquery.fn的扩展，就是为jquery类添加成员函数
+	* jquery.extend 为jquery类添加类方法，可以理解为添加静态方法
+	* jquery.fn.extend:源码中jquery.fn = jquery.prototype，所以对jquery.fn的扩展，就是为jquery类添加成员函数
 
-		使用：
-		jquery.extend扩展，需要通过jquery类来调用，而jquery.fn.extend扩展，所有jquery实例都可以直接调用。
+	使用：
+
+	jquery.extend扩展，需要通过jquery类来调用，而jquery.fn.extend扩展，所有jquery实例都可以直接调用。
 
 -  jQuery ready与load谁先执行?
 
@@ -2219,12 +2220,14 @@ HTML5？
 		通过判断Global对象是否为window，如果不为window，当前脚本没有运行在浏览器中
 
 -  移动端最小触控区域是多大？
+
    ISO和ANSI标准都推荐0.75" x 0.75"（约19 x 19毫米）的尺寸，来自莱特州立大学心理系的一项研究也表明0.75" x 0.75"的按钮对于用户来说是满意率最高的。
+
    [参考资料](http://iconmoon.com/blog2/Touchscreen-Button-Dimensions-and-Spacing/)
 
 -  jQuery 的 slideUp动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?
 
-		jquery stop(): 如：$("#div").stop(stopAll,goToEnd).animate({width:"100px"},100);
+	jquery stop(): 如：$("#div").stop(stopAll,goToEnd).animate({width:"100px"},100);
 
 -  把 Script 标签 放在页面的最底部的body封闭之前和封闭之后有什么区别？浏览器会如何解析它们？
 
@@ -2237,16 +2240,18 @@ HTML5？
    （click 有 300ms 延迟,为了实现safari的双击事件的设计，浏览器要知道你是不是要双击操作。）
 
      > 解决方法：
-    * 1, 设置不能缩放：user-scalable=no。 不能缩放就不会有双击缩放操作，因此click事件也就没了300ms延迟，这个是Chrome首先在Android中提出的。
+
+     * 1, 设置不能缩放：user-scalable=no。 不能缩放就不会有双击缩放操作，因此click事件也就没了300ms延迟，这个是Chrome首先在Android中提出的。
      * 2, 设置显示宽度：width=device-width。Chrome 开发团队不久前宣布，在 Chrome 32 这一版中，他们将在包含 width=device-width 或者置为比 viewport 值更小的页面上禁用双击缩放。当然，没有双击缩放就没有 300 毫秒点击延迟。
      * 3, IE的指针事件 (Pointer Events)：设置touch-action:none，根据规范，touch-action属性决定 “是否触摸操作会触发用户代理的默认行为。这包括但不限于双指缩放等行为”。从实际应用的角度来看，touch-action决定了用户在点击了目标元素之后，是否能够进行双指缩放或者双击缩放。因此，这也相当完美地解决了 300 毫秒点击延迟的问题。
 
-		鉴于上述的3种解决方案，现在较为通用的meta设置为：
-    ```javascript
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    ```
-		 * 4, 指针事件的 polyfill
-      * 5, FastClick
+	   鉴于上述的3种解决方案，现在较为通用的meta设置为：
+
+        ```javascript
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        ```
+	 * 4, 指针事件的 polyfill
+     * 5, FastClick
 
 -  知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
 
@@ -2254,7 +2259,7 @@ HTML5？
 
    Underscore 并没有在JS原生对象上进行扩展，而是类似于jq一样封装在一个自定义对象中
 
-	   - throttle
+	 - throttle
      - debounce
 
 -  JQuery一个对象可以同时绑定多个事件，这是如何实现的？
@@ -2262,8 +2267,8 @@ HTML5？
     源码：
 
 	    ```javascript
-        on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
-    	 // Types can be a map of types/handlers
+            on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
+    	     // Types can be a map of types/handlers
     			var type, origFn;
     			if ( typeof types === "object" ) {
     				// ( types-Object, selector, data )
@@ -2314,22 +2319,22 @@ HTML5？
     				jQuery.event.add( this, types, fn, data, selector );
     			});
     			},
-    ```
+        ```
 
-    * 1, 多个事件同一个函数：
+       * 1, 多个事件同一个函数：
 
 		  ```javascript
 		  	 $("div").on("click mouseover", function(){});
-      ```
+          ```
 
-    * 2, 多个事件不同函数
+        * 2, 多个事件不同函数
 
 		  ```javascript
 		   	$("div").on({
 		   		click: function(){},
 		   		mouseover: function(){}
 		   	});
-       ```
+          ```
 
 -  Node.js的适用场景？
 
