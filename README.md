@@ -1148,7 +1148,7 @@ HTML5？
     ```
 -  Javascript如何实现继承？
 
-  [参考文章：](https://kongchenglc.coding.me/blog/js%E7%BB%A7%E6%89%BF20170503/#more)
+     [参考文章：](https://kongchenglc.coding.me/blog/js%E7%BB%A7%E6%89%BF20170503/#more)
 
 		1、构造继承
 		2、原型继承
@@ -1173,7 +1173,7 @@ HTML5？
 - JavaScript继承的几种实现方式？
 
   * 参考：
-  
+
    [构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)，
    [非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)；
 
@@ -1445,15 +1445,15 @@ HTML5？
 		    		 <li> index = 2</li>
 		    		 <li> index = 3</li>
 		     </ul>
-	     <script type="text/javascript">
+	        <script type="text/javascript">
 		    	 var nodes = document.getElementsByTagName("li");
-		     for(i = 0;i<nodes.length;i+= 1){
+		         for(i = 0;i<nodes.length;i+= 1){
 		    		 nodes[i].onclick = (function(i){
-		    							 return function() {
-		    									console.log(i);
-		    							 } //不用闭包的话，值每次都是4
-		    						 })(i);
-		     }
+		    			return function() {
+		    			   console.log(i);
+		    			} //不用闭包的话，值每次都是4
+		    	    })(i);
+		        }
 	     </script>
 		```
 
@@ -1549,6 +1549,7 @@ HTML5？
         JSON字符串转换为JSON对象:
 		var obj =eval('('+ str +')');   //加上括号是为了构造一个表达式上下文，() 会把语句转换成表达式，
 		 括号里的代码都会被转换为表达式求值并且返回，对象字面量必须作为表达式而存在。
+
 		 [链接：](http://www.cnblogs.com/zichi/p/5202825.html)  合法的 label语句是不能带引号
 
 
@@ -1611,12 +1612,13 @@ HTML5？
 
 
 
- 来源网络：
- * 1, 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻
- * 2, 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）老张还是觉得自己有点傻，
-   于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。
- * 3, 老张把响水壶放到火上，立等水开。（异步阻塞）老张觉得这样傻等意义不大
- * 4, 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）
+    来源网络：
+
+     * 1, 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻
+     * 2, 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）老张还是觉得自己有点傻，
+          于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。
+     * 3, 老张把响水壶放到火上，立等水开。（异步阻塞）老张觉得这样傻等意义不大
+     * 4, 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）
 
 
 -  如何解决跨域问题?
@@ -1638,11 +1640,11 @@ HTML5？
 
 -  页面编码和被请求的资源编码如果不一致如何处理？
 
-  [web编码总结](http://yanhaijing.com/web/2014/12/20/web-charset/)
+    [web编码总结](http://yanhaijing.com/web/2014/12/20/web-charset/)
 
-   * <script src="http://www.xxx.com/test.js" charset="utf-8"></script>  指定编码方式
-   * <link rel="stylesheet" href="gbk-1.css" charset="gbk"> h5废弃了charset这个属性，
-	 改为在文件内部写@charset utf-8
+     * <script src="http://www.xxx.com/test.js" charset="utf-8"></script>  指定编码方式
+     * <link rel="stylesheet" href="gbk-1.css" charset="gbk"> h5废弃了charset这个属性，
+	    改为在文件内部写@charset utf-8
 
 -  模块化开发怎么做？
 
