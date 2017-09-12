@@ -836,10 +836,12 @@ HTML5？
 
 
 - 视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）
+
    在web设计中，通过运用多层背景在以不同速度运动的情况下，形成的一种立体的运动效果，这种视觉体验，我们称之为视差效果。
+
 	  * 1, 实现方式 css background-attachment: fixed;
 	  * 2, 插件
-    * 3, [链接](http://www.alloyteam.com/2014/02/optimized-articles-of-parallax-scrolling-love-story/)
+      * 3, [链接](http://www.alloyteam.com/2014/02/optimized-articles-of-parallax-scrolling-love-story/)
 
 - ::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。
 
@@ -862,12 +864,13 @@ HTML5？
 		}
 
 - 你对line-height是如何理解的？
+
    line-height定义行高，设置行间的距离。应用方式是：用line-height减去font-size，得到的差（称为行间距）除2，分别添加到文本的顶部和底部。可以包含这些内容的最小框就是行框。
 
 - 设置元素浮动后，该元素的display值是多少？
 
-		自动变成了 display:block
-		解决bug：（1）给浮动元素添加一个display：inline (2）给IE6写一个hack，其值为正常值的一半。
+	自动变成了 display:block
+	解决bug：（1）给浮动元素添加一个display：inline (2）给IE6写一个hack，其值为正常值的一半。
 
 - 怎么让Chrome支持小于12px 的文字？
 
@@ -909,23 +912,26 @@ HTML5？
 		（1）-webkit-overflow-scrolling: touch;，是因为这行代码启用了硬件加速特性，所以滑动很流畅。
 		（2） [isroll 方案](http://www.jianshu.com/p/1f4693d0ad2d)  
 
-		overflow: auto 当页面出现滚动条时，会造成[跳动问题](http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/)
-   * （1）高度尺寸不确定的时候，使用：overflow-y：scroll;
-   * （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
-   * （3）
-	    ```javascript
+		overflow: auto 当页面出现滚动条时，会造成
+		[跳动问题](http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/)
+
+      * （1）高度尺寸不确定的时候，使用：overflow-y：scroll;
+      * （2）高度尺寸确定的，要么没有滚动条，要么直接出现，不会出现跳动。
+      * （3）
+	        ```javascript
 			       .wrap-outer {
-							  margin-left: calc(100vw - 100%);
-						 }
-						或.wrap-outer {
-							  padding-left: calc(100vw - 100%);
-						  }
+						 margin-left: calc(100vw - 100%);
+					}
+					或.wrap-outer {
+						padding-left: calc(100vw - 100%);
+					}
 			```
-			首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
-			然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
-			最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
-			于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，
-			主体内容就可以永远居中浏览器啦，从而没有任何跳动！
+
+		首先，.wrap-outer指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）；
+		然后，calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)；
+		最后，100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。
+		于是，calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，
+		主体内容就可以永远居中浏览器啦，从而没有任何跳动！
 
 - 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。
     *（1）height：calc（100%-100px）
