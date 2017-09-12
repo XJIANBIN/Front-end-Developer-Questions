@@ -806,25 +806,31 @@ HTML5？
 
 
 - 抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]
+
   先通读视觉稿，把所有类似的、可复用的部分划分出来，抽出结构和样式做成模块。达到一段 HTML 代码、一段 CSS 样式，粘贴到任意位置都正常。
 
 - 元素竖向的百分比设定是相对于容器的高度吗？
+
   对于一些表示竖向距离的属性，例如padding-top,padding-bottom,margin-top,margin-bottom等，当按百分比设定它们时，依据的是父容器的宽度，而不是高度。
 
 - 全屏滚动的原理是什么？用到了CSS的那些属性？
-   主要呈现方式有两种，一种是整体的元素一直排列下去，假设有五个需要展示的全屏页面，那么高度是500%，只是展示100%，剩下的可以通过transform进行Y轴定位，也可以通过margin-top实现，第二种就是所有的子元素和页面一样，都显示在当前页面。
+
+  主要呈现方式有两种，一种是整体的元素一直排列下去，假设有五个需要展示的全屏页面，那么高度是500%，只是展示100%，剩下的可以通过tranform进行Y轴定位，也可以通过margin-top实现，第二种就是所有的子元素和页面一样，都显示在当前页面。
 
 - 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？
+
   * 面的设计和开发应当根据用户行为以及设备环境（系统平台、屏幕尺寸、屏幕定向等）进行相应的响应和调整.
-	* 响应式设计的基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。页面头部必须有meta声明viewport：
+  * 响应式设计的基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。页面头部必须有meta声明viewport：
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”>
-	* 兼容方案
+  * 兼容方案
 	  * 1, [第一种：](https://github.com/livingston/css3-mediaqueries-js)  
-		* 2, [第二种：](https://github.com/scottjehl/Respond)
+	  * 2, [第二种：](https://github.com/scottjehl/Respond)
 	  * 3, 通过resize方法来实现PC端响应式
-		$(window).resize(function () {
-       screenRespond();
-    });
+		```javascript
+ 	       $(window).resize(function () {
+              screenRespond();
+           });
+		```
 
 
 - 视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）
