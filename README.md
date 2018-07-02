@@ -3224,3 +3224,31 @@ HTML5？
 - Vue模板渲染过程
 
   > [参考资料](http://xujianbin.pw/project/2017/08/06/Vue-templateRender/)
+
+
+### 更新时间:  2018年7月2日 
+>  根据本文章提供问题[鹅厂视频部笔试及面试问题整理](https://juejin.im/post/5b2cd3f7e51d4558a75e857a)整理
+
+- 如何实现图片懒加载；
+- 如何提高图片懒加载的效率；
+- PWA 的原理；
+- 如何写一个 PWA；
+- getBoundingClientRect 方法的弊端；
+- 前端性能优化有哪些；
+	* [移动前端HTML5性能优化指南](https://www.xuanfengge.com/mobile-front-end-html5-performance-tuning-guide.html#more-4694)
+	* [H5性能优化方案 H5性能优化意义](https://ddtalk.github.io/blog/2015/09/07/dingding-first/?spm=0.0.0.0.GysHMl)
+	* [前端性能优化基本规则](https://github.com/XJIANBIN/Front-end-Notes/blob/master/JSdemo/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/01%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99.pdf)
+- 静态资源加载和更新的策略；
+- CDN 服务器的了解和使用；缓存静态资源的注意事项；
+- history 路由和 hash 路由的区别, 在浏览器有什么影响；
+- http 1.1 与 http 2 的区别；
+- 遇到过什么 Webpack 上的坑；
+- 什么是虚拟 DOM；
+- 为什么虚拟 DOM 的操作比 DOM 更快；
+- 谈一下你对 MVVM 的认识；
+- 谈一下你对 Vue 的认识，以及 Vue 底层实现的机制；
+- Webpack 和 Gulp的区别都有哪些, 分别适用于什么样的情形；
+- CDN 服务器的了解和使用；
+- 谈一谈自己做过的项目，分别用到了什么技术；
+- 热更新实现的机制；
+- 用二分查找实现 indexOf 方法，不允许用递归；
