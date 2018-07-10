@@ -3230,7 +3230,11 @@ HTML5？
 >  根据本文章提供问题[鹅厂视频部笔试及面试问题整理](https://juejin.im/post/5b2cd3f7e51d4558a75e857a)整理
 
 - 如何实现图片懒加载；
+	* [吕大豹提供](https://github.com/XJIANBIN/Front-end-Notes/tree/master/JSdemo/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E6%87%92%E5%8A%A0%E8%BD%BD%E5%8A%A0%E4%B8%8A%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0demo)
 - 如何提高图片懒加载的效率；
+	
+	> 扩展 [
+Complexities of an Infinite Scroller](https://developers.google.com/web/updates/2016/07/infinite-scroller), [翻译](https://www.jianshu.com/p/4e16b4211d84)
 - PWA 的原理；
 - 如何写一个 PWA；
 - getBoundingClientRect 方法的弊端；
