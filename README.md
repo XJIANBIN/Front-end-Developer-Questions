@@ -133,7 +133,8 @@
 
  不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
 
- [参考: ](http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements)
+ [参考文章 ](http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements)
+ [关于img的默认display样式的问题](https://github.com/XJIANBIN/Front-end-Developer-Questions/issues/1)
 
 
 
